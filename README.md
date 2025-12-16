@@ -119,6 +119,31 @@ section {
   margin-top:1.5rem;
 }
 
+/* Contact Form */
+#contact form {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-width:500px;
+  margin:auto;
+}
+#contact input, #contact textarea {
+  padding:0.8rem;
+  border-radius:8px;
+  border:1px solid #ccc;
+  width:100%;
+}
+#contact button {
+  padding:0.8rem 2rem;
+  border:none;
+  background:#2a2a72;
+  color:#fff;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+#contact button:hover {background:#ff6f61;}
+
 /* Footer */
 footer {
   text-align:center;
@@ -190,7 +215,7 @@ footer {
   <img src="YOUR_PICTURE.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <a href="https://wa.me/2348144466868?text=Hi%20I'm%20Great%20Ola%20In%20Wealth%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me on WhatsApp</a>
+  <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
 </section>
 
 <!-- About -->
@@ -245,7 +270,18 @@ footer {
 <!-- Office Image -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="https://images.unsplash.com/photo-1565372904213-5c61ad0c4f5a?auto=format&fit=crop&w=1280&q=80" alt="Tech work environment">
+  <img class="office-pic" src="https://images.unsplash.com/photo-1581090700227-4f5c03365e48?auto=format&fit=crop&w=1280&q=80" alt="Tech work environment">
+</section>
+
+<!-- Contact Form -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
 </section>
 
 <!-- Footer -->
@@ -270,7 +306,7 @@ footer {
 <!-- Floating WhatsApp Button -->
 <div class="customer-service">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" 
-  onclick="window.open('https://wa.me/2348144466868?text=Hi%20I%27m%20Great%20Ola%20In%20Wealth%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you','_blank')">
+  onclick="window.open('https://wa.me/2348144466868?text=Hi,%20I\'m%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you','_blank')">
 </div>
 
 <script>
