@@ -6,9 +6,9 @@
 <style>
 /* Reset */
 * {margin:0;padding:0;box-sizing:border-box;font-family: Arial, sans-serif;}
-body {line-height:1.6;color:#333;}
+body {line-height:1.6;color:#333;scroll-behavior:smooth;}
 
-/* Moving background */
+/* Subtle moving background */
 body::before {
   content:"";
   position:fixed;
@@ -16,79 +16,27 @@ body::before {
   background: url('https://cdn.pixabay.com/photo/2017/03/22/22/59/computer-2168546_1280.jpg') repeat;
   background-size:cover;
   opacity:0.08;
-  animation: moveBackground 60s linear infinite;
+  animation: moveBG 120s linear infinite;
   z-index:-1;
 }
-@keyframes moveBackground {
+@keyframes moveBG {
   0% {background-position:0 0;}
   100% {background-position:2000px 1000px;}
 }
 
-/* Header */
-header {
-  position: fixed;
-  bottom: 20px; /* Menu at bottom */
-  right: 20px;
-  z-index: 20;
-}
-.menu-btn {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.menu-btn div {
-  width: 100%;
-  height: 6px;
-  background-color: #1a1a2e;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-/* Menu list hidden by default */
-nav {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  display: none; /* Hidden initially */
-  flex-direction: column;
-  overflow: hidden;
-}
-nav a {
-  padding: 1rem 2rem;
-  display: block;
-  text-decoration: none;
-  color: #1a1a2e;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-}
-nav a:hover {background: #ff6f61; color:#fff;}
-nav a:last-child {border-bottom:none;}
-
-/* Transparent sections */
+/* Sections */
 section {
-  width: 90%;
-  max-width: 1000px;
-  margin: 4rem auto;
-  padding: 2rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width:90%;
+  max-width:900px;
+  margin:4rem auto;
+  padding:2rem;
+  border-radius:12px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align:center;
 }
 
-/* Hero / Introducing Me */
-#hero {
-  text-align:center;
-  padding:4rem 2rem;
-  background: rgba(246,211,101,0.2);
-  color:#1a1a2e;
-}
+/* Hero */
 #hero img {
   width:180px;
   height:180px;
@@ -96,339 +44,238 @@ section {
   border:3px solid #1a1a2e;
   margin-bottom:1.5rem;
 }
-#hero h2 {font-size:2.5rem;margin-bottom:1rem;}
+#hero h2 {
+  font-size:2.5rem;
+  margin-bottom:0.5rem;
+}
+#hero p {
+  margin-bottom:1.5rem;
+  font-size:1.1rem;
+  color:#444;
+}
 .btn {
   display:inline-block;
   padding:0.8rem 2rem;
   background:#ff6f61;
   color:#fff;
-  text-decoration:none;
   border-radius:8px;
-  margin-top:1rem;
   font-weight:bold;
+  text-decoration:none;
   transition:0.3s;
   animation: pulse 2s infinite;
 }
 .btn:hover {background:#ff4b3e;}
 @keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.1);}
-  100% { transform: scale(1);}
+  0%,100%{transform: scale(1);}
+  50%{transform: scale(1.1);}
 }
 
-/* Section headers */
-h2 {text-align:center; margin-bottom:2rem; color:#1a1a2e;}
-
-/* Service Cards */
+/* Services */
 .service-card {
-  background: rgba(255,255,255,0.9);
+  background: rgba(240,240,240,0.9);
   padding:1.5rem;
-  margin-bottom:1.5rem;
   border-radius:10px;
-  box-shadow:0 4px 6px rgba(0,0,0,0.1);
-  text-align:center;
+  margin-bottom:1.5rem;
 }
 .service-card img {
   width:60px;
-  margin:0 auto 1rem;
-  display:block;
+  margin-bottom:0.8rem;
 }
 
-/* Client Satisfaction / Comments */
+/* Testimonials */
 .comments {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:1.5rem;
+  gap:1rem;
 }
 .comment-card {
-  background: rgba(240,240,240,0.9);
+  width:220px;
+  background: rgba(250,250,250,0.95);
   padding:1rem;
-  border-radius:8px;
+  border-radius:10px;
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  width:250px;
   text-align:center;
 }
 .comment-card img {
   width:60px;
   height:60px;
   border-radius:50%;
-  object-fit:cover;
   margin-bottom:0.5rem;
   border:2px solid #1a1a2e;
 }
 
-/* Office / Work Picture */
+/* Office pic */
 .office-pic {
   width:100%;
   max-height:400px;
   object-fit:cover;
   border-radius:10px;
-  margin-top:2rem;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  margin-top:1.5rem;
 }
 
 /* Footer */
-footer {
-  text-align:center;
-  padding:2rem 0;
-  background: rgba(26,26,46,0.95);
-  color:#fff;
-  margin-top:2rem;
+footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-top:3rem;}
+
+/* Bottom Hamburger Menu */
+#menu-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 55px;
+  height: 55px;
+  background:#1a1a2e;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  padding:10px;
+  cursor:pointer;
+  z-index:30;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  transition:0.3s;
 }
+#menu-btn div {
+  width:25px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+  transition:0.3s;
+}
+#bottom-menu {
+  position: fixed;
+  bottom:90px;
+  right:25px;
+  background: rgba(255,255,255,0.95);
+  border-radius:10px;
+  overflow:hidden;
+  display:none;
+  flex-direction: column;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+#bottom-menu a {
+  padding:0.8rem 2rem;
+  display:block;
+  text-decoration:none;
+  color:#1a1a2e;
+  font-weight:bold;
+  border-bottom:1px solid #ddd;
+}
+#bottom-menu a:last-child{border-bottom:none;}
+#bottom-menu a:hover{background:#ff6f61;color:#fff;}
 
 /* Responsive */
-@media (max-width:768px){
-  .comments{flex-direction:column; align-items:center;}
-}
+@media(max-width:768px){.comments{flex-direction:column;align-items:center;}}
 </style>
 </head>
 <body>
 
-<!-- Hamburger Menu Button -->
-<header>
-  <div class="menu-btn" id="menu-btn">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <nav id="nav-menu">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#comments">Clients</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- Hero / Introducing Me -->
+<!-- Hero Section -->
 <section id="hero">
-  <!-- REPLACE "YOUR_PICTURE.jpg" WITH YOUR REAL PICTURE -->
+  <!-- REPLACE "YOUR_PICTURE.jpg" with your picture -->
   <img src="YOUR_PICTURE.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <!-- ADD YOUR WHATSAPP LINK IN HREF -->
+  <!-- ADD YOUR WHATSAPP LINK -->
   <a href="https://wa.me/YOURNUMBER" class="btn" target="_blank">Hire Me</a>
 </section>
 
-<!-- About Section -->
+<!-- About -->
 <section id="about">
   <h2>About Me</h2>
-  <p>I am a full stack web developer with experience building websites, landing pages, and web applications. I focus on clean design, responsiveness, and client satisfaction.</p>
+  <p>I build websites, landing pages, and web apps. Clean design, responsive layouts, client satisfaction.</p>
 </section>
 
-<!-- Services Section -->
+<!-- Services -->
 <section id="services">
   <h2>Services</h2>
   <div class="service-card">
-    <!-- REPLACE WITH ICON IF YOU WANT -->
     <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Frontend">
     <h3>Frontend Development</h3>
-    <p>HTML, CSS, JavaScript, React — creating interactive and responsive UIs, and many more.</p>
+    <p>HTML, CSS, JS, React, and many more.</p>
   </div>
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/1006/1006554.png" alt="Backend">
     <h3>Backend Development</h3>
-    <p>Node.js, Express, MongoDB — building robust server-side applications, and many more.</p>
+    <p>Node.js, Express, MongoDB, and many more.</p>
   </div>
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/3163/3163470.png" alt="Full Stack">
     <h3>Full Stack Projects</h3>
-    <p>Combining frontend and backend to deliver complete web solutions, and many more.</p>
+    <p>Complete web solutions, and many more.</p>
   </div>
 </section>
 
-<!-- Client Satisfaction / Testimonials -->
+<!-- Testimonials -->
 <section id="comments">
   <h2>Client Satisfaction</h2>
   <div class="comments">
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Client A">
-      <p>"Great Ola delivered our website on time and exceeded our expectations!"</p>
+      <p>"Great Ola delivered our website on time!"</p>
       <strong>- John D.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Client B">
-      <p>"Professional, responsive, and very creative. Highly recommend!"</p>
+      <p>"Professional, responsive, highly recommend!"</p>
       <strong>- Sarah K.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Client C">
-      <p>"Our full stack project was handled efficiently and beautifully."</p>
+      <p>"Full stack project handled beautifully."</p>
       <strong>- Michael R.</strong>
     </div>
   </div>
 </section>
 
-<!-- Office Picture at Bottom -->
+<!-- Office -->
 <section id="office">
   <h2>Work Environment</h2>
-  <!-- REPLACE "OFFICE_PIC.jpg" WITH YOUR REAL OFFICE / LAPTOP IMAGE -->
+  <!-- REPLACE "OFFICE_PIC.jpg" with your office/laptop image -->
   <img class="office-pic" src="OFFICE_PIC.jpg" alt="Office / Laptop">
 </section>
 
-<!-- Contact Section -->
+<!-- Contact -->
 <section id="contact">
   <h2>Contact Me</h2>
   <p>Email: greatola@example.com</p>
   <p>Phone: +234 123 456 7890</p>
 </section>
 
-<!-- Footer -->
 <footer>
   <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
 </footer>
 
-<!-- JS for Hamburger Menu -->
+<!-- Bottom Hamburger Menu -->
+<div id="menu-btn">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bottom-menu">
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#comments">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
 <script>
 const menuBtn = document.getElementById('menu-btn');
-const navMenu = document.getElementById('nav-menu');
-menuBtn.addEventListener('click', () => {
-  navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+const bottomMenu = document.getElementById('bottom-menu');
+menuBtn.addEventListener('click',()=>{
+  if(bottomMenu.style.display==='flex'){
+    bottomMenu.style.display='none';
+  }else{
+    bottomMenu.style.display='flex';
+  }
 });
 </script>
 
 </body>
-</html>  display: block;
-  text-decoration: none;
-  color: #1a1a2e;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-}
-nav a:hover {background: #ff6f61; color:#fff;}
-nav a:last-child {border-bottom:none;}
-
-/* Transparent sections */
-section {
-  width: 90%;
-  max-width: 1000px;
-  margin: 4rem auto;
-  padding: 2rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Hero / Introducing Me */
-#hero {
-  text-align:center;
-  padding:4rem 2rem;
-  background: rgba(246,211,101,0.2);
-  color:#1a1a2e;
-}
-#hero img {
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  border:3px solid #1a1a2e;
-  margin-bottom:1.5rem;
-}
-#hero h2 {font-size:2.5rem;margin-bottom:1rem;}
-.btn {
-  display:inline-block;
-  padding:0.8rem 2rem;
-  background:#ff6f61;
-  color:#fff;
-  text-decoration:none;
-  border-radius:8px;
-  margin-top:1rem;
-  font-weight:bold;
-  transition:0.3s;
-  animation: pulse 2s infinite;
-}
-.btn:hover {background:#ff4b3e;}
-@keyframes pulse {
-  0% { transform: scale(1);}
-  50% { transform: scale(1.1);}
-  100% { transform: scale(1);}
-}
-
-/* Section headers */
-h2 {text-align:center; margin-bottom:2rem; color:#1a1a2e;}
-
-/* Service Cards */
-.service-card {
-  background: rgba(255,255,255,0.9);
-  padding:1.5rem;
-  margin-bottom:1.5rem;
-  border-radius:10px;
-  box-shadow:0 4px 6px rgba(0,0,0,0.1);
-  text-align:center;
-}
-.service-card img {
-  width:60px;
-  margin:0 auto 1rem;
-  display:block;
-}
-
-/* Client Satisfaction / Comments */
-.comments {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:1.5rem;
-}
-.comment-card {
-  background: rgba(240,240,240,0.9);
-  padding:1rem;
-  border-radius:8px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  width:250px;
-  text-align:center;
-}
-.comment-card img {
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:0.5rem;
-  border:2px solid #1a1a2e;
-}
-
-/* Office / Work Picture */
-.office-pic {
-  width:100%;
-  max-height:400px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-top:2rem;
-  box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* Footer */
-footer {
-  text-align:center;
-  padding:2rem 0;
-  background: rgba(26,26,46,0.95);
-  color:#fff;
-  margin-top:2rem;
-}
-
-/* Responsive */
-@media (max-width:768px){
-  .comments{flex-direction:column; align-items:center;}
-}
-</style>
-</head>
-<body>
-
-<!-- Hamburger Menu Button -->
-<header>
-  <div class="menu-btn" id="menu-btn">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <nav id="nav-menu">
-    <a href="#hero">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#comments">Clients</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- Hero / Introducing Me -->
+</html>/ Introducing Me -->
 <section id="hero">
   <!-- REPLACE "YOUR_PICTURE.jpg" WITH YOUR REAL PICTURE -->
   <img src="YOUR_PICTURE.jpg" alt="Your Picture">
