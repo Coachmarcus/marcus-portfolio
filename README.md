@@ -120,7 +120,14 @@ section {
 }
 
 /* Footer */
-footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-top:3rem;}
+footer {
+  text-align:center;
+  padding:2rem 0;
+  background:#2a2a72;
+  color:#fff;
+  margin-top:3rem;
+  font-size:14px;
+}
 
 /* Hamburger Menu Top-Left */
 #menu-btn {
@@ -180,35 +187,36 @@ footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-to
 
 <!-- Hero Section -->
 <section id="hero">
- <img src="https://imgur.com/a/yWUZLxz" alt="Mr Marcus">
+  <img src="YOUR_PICTURE.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <a href="https://wa.me/YOURNUMBER" class="btn" target="_blank">Hire Me</a>
+  <a href="https://wa.me/2348144466868" class="btn" target="_blank">Hire Me on WhatsApp</a>
 </section>
 
 <!-- About -->
 <section id="about">
   <h2>About Me</h2>
-  <p>I build websites, landing pages, and web apps. Clean design, responsive layouts, client satisfaction.</p>
+  <p>I build websites, landing pages, and web apps with clean design, responsive layouts, and great client satisfaction.</p>
+  <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
 </section>
 
 <!-- Services -->
 <section id="services">
   <h2>Services</h2>
   <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="HTML">
-    <h3>Frontend Development</h3>
-    <p>HTML, CSS, JavaScript, React, and more.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Web design icon">
+    <h3>Web & Frontend Development</h3>
+    <p>HTML, CSS, JavaScript, React, responsive design, and more.</p>
   </div>
   <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Backend">
-    <h3>Backend Development</h3>
-    <p>Node.js, Express, MongoDB, and more.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Backend icon">
+    <h3>Backend & APIs</h3>
+    <p>Node.js, Express, database integration, server work, and more.</p>
   </div>
   <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Full Stack">
-    <h3>Full Stack Projects</h3>
-    <p>Complete web solutions, and many more.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Full stack icon">
+    <h3>Full Stack Solutions</h3>
+    <p>Complete web applications and deployable projects.</p>
   </div>
 </section>
 
@@ -237,19 +245,18 @@ footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-to
 <!-- Office Image -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="OFFICE_PIC.jpg" alt="Office / Laptop">
+  <img class="office-pic" src="https://cdn.pixabay.com/photo/2017/03/22/22/59/computer-2168546_1280.jpg" alt="Tech work environment"> 1
 </section>
 
 <!-- Footer -->
 <footer>
-  <p>&copy; 2025 Great Ola In Wealth</p>
+  <p>⭐⭐⭐ 4.8/5 Client Rating • 120+ Daily Visits</p>
+  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
 </footer>
 
 <!-- Top-Left Hamburger -->
 <div id="menu-btn">
-  <div></div>
-  <div></div>
-  <div></div>
+  <div></div><div></div><div></div>
 </div>
 <div id="top-menu">
   <a href="#hero">Home</a>
@@ -262,15 +269,15 @@ footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-to
 
 <!-- Floating WhatsApp Button -->
 <div class="customer-service">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/YOURNUMBER','_blank')">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/2348144466868','_blank')">
 </div>
 
 <script>
 const menuBtn = document.getElementById('menu-btn');
 const topMenu = document.getElementById('top-menu');
 menuBtn.addEventListener('click', ()=>{
-  if(topMenu.style.display==='flex'){topMenu.style.display='none';}
-  else{topMenu.style.display='flex';topMenu.style.flexDirection='column';}
+  topMenu.style.display = topMenu.style.display === 'flex' ? 'none' : 'flex';
+  topMenu.style.flexDirection = 'column';
 });
 </script>
 
