@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -149,7 +148,7 @@ section {
   50%{ transform: translate(-50%, -110%) scale(1.2);}
 }
 .pin::after {
-  content:"📍 123 Your Street, Lagos, Nigeria";
+  content:"📍 Jbo Hotel and Suite, Osun State, Nigeria";
   position:absolute;
   top:50px;
   left:50%;
@@ -255,7 +254,7 @@ footer {
 
 <!-- Hero Section -->
 <section id="hero">
-  <img src="https://raw.githubusercontent.com/Coachmarcus/repo/main/profile.jpg" alt="Great Ola In Wealth">
+  <img src="YOUR_GITHUB_IMAGE_URL_HERE" alt="Great Ola In Wealth">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
   <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
@@ -266,7 +265,7 @@ footer {
   <h2>About Me</h2>
   <p>I build websites, landing pages, and web apps with clean design, responsive layouts, and great client satisfaction.</p>
   <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
-  <p>Address: 123 Your Street, Lagos, Nigeria</p>
+  <p>Address: Jbo Hotel and Suite, Osun State, Nigeria</p>
 </section>
 
 <!-- Services -->
