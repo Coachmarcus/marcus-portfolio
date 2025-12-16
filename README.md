@@ -270,7 +270,7 @@ footer {
 <!-- Office Image -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="https://unsplash.com/photos/black-and-brown-chairs-and-tables-DyFjxmHt3Es.jpg" alt="Tech work environment">
+  <img class="office-pic" src="https://unsplash.com/photos/DyFjxmHt3Es.jpg" alt="Tech work environment">
 </section>
 
 <!-- Contact Form -->
