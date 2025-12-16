@@ -6,7 +6,7 @@
 <style>
 /* Reset */
 * {margin:0;padding:0;box-sizing:border-box;font-family: Arial, sans-serif;}
-body {line-height:1.6;color:#333;scroll-behavior:smooth;position:relative;}
+body {line-height:1.6;color:#333;scroll-behavior:smooth;position:relative;background:#f2f2f2;}
 
 /* Background */
 body::before {
@@ -29,7 +29,7 @@ section {
   margin:4rem auto;
   padding:2rem;
   border-radius:12px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.95);
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   text-align:center;
   position:relative;
@@ -40,15 +40,15 @@ section {
   width:180px;
   height:180px;
   border-radius:50%;
-  border:3px solid #1a1a2e;
+  border:3px solid #2a2a72;
   margin-bottom:1.5rem;
 }
-#hero h2 {font-size:2.5rem;margin-bottom:0.5rem;}
+#hero h2 {font-size:2.5rem;margin-bottom:0.5rem;color:#2a2a72;}
 #hero p {margin-bottom:1.5rem;color:#444;}
 .btn {
   display:inline-block;
   padding:0.8rem 2rem;
-  background:#ff6f61;
+  background:#2a2a72;
   color:#fff;
   border-radius:8px;
   font-weight:bold;
@@ -57,12 +57,12 @@ section {
   margin:0.5rem;
   animation: pulse 2s infinite;
 }
-.btn:hover {background:#ff4b3e;}
+.btn:hover {background:#ff6f61;}
 @keyframes pulse {0%,100%{transform: scale(1);}50%{transform: scale(1.1);}}
 
 /* Services */
 .service-card {
-  background: rgba(240,240,240,0.95);
+  background: rgba(240,240,250,0.95);
   padding:1.5rem;
   border-radius:10px;
   margin-bottom:1.5rem;
@@ -91,23 +91,19 @@ section {
   text-align:center;
 }
 .comment-card img {
-  width:60px;height:60px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #1a1a2e;
+  width:60px;height:60px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #2a2a72;
 }
 
-/* Floating customer service icons */
+/* Floating WhatsApp button */
 .customer-service {
   position:fixed;
   bottom:20px;
   right:20px;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
   z-index:50;
 }
 .customer-service img {
-  width:50px;
-  height:50px;
-  border-radius:50%;
+  width:60px;
+  height:60px;
   cursor:pointer;
   transition: transform 0.3s;
 }
@@ -124,16 +120,16 @@ section {
 }
 
 /* Footer */
-footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-top:3rem;}
+footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-top:3rem;}
 
-/* Hamburger Menu Top-Right */
+/* Hamburger Menu Top-Left */
 #menu-btn {
   position: fixed;
   top:20px;
-  right:20px;
+  left:20px;
   width:50px;
   height:50px;
-  background:#1a1a2e;
+  background:#ff6f61;
   border-radius:50%;
   display:flex;
   flex-direction:column;
@@ -153,10 +149,11 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
 }
 @keyframes bounce {0%,100%{transform: translateY(0);}50%{transform: translateY(-5px);}}
 
+/* Top-left menu */
 #top-menu {
   position: fixed;
   top:80px;
-  right:20px;
+  left:20px;
   background: rgba(255,255,255,0.95);
   border-radius:10px;
   overflow:hidden;
@@ -168,7 +165,7 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
   padding:0.8rem 2rem;
   display:block;
   text-decoration:none;
-  color:#1a1a2e;
+  color:#2a2a72;
   font-weight:bold;
   border-bottom:1px solid #ddd;
 }
@@ -183,13 +180,10 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
 
 <!-- Hero Section -->
 <section id="hero">
-  <!-- YOUR PROFILE PICTURE -->
   <img src="YOUR_PICTURE.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <!-- CALL TO ACTION BUTTONS -->
-  <a href="https://wa.me/YOURNUMBER" class="btn" target="_blank">WhatsApp</a>
-  <a href="https://t.me/YOURTELEGRAM" class="btn" target="_blank">Telegram</a>
+  <a href="https://wa.me/YOURNUMBER" class="btn" target="_blank">Hire Me</a>
 </section>
 
 <!-- About -->
@@ -204,12 +198,12 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="HTML">
     <h3>Frontend Development</h3>
-    <p>HTML, CSS, JavaScript, React, and many more.</p>
+    <p>HTML, CSS, JavaScript, React, and more.</p>
   </div>
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Backend">
     <h3>Backend Development</h3>
-    <p>Node.js, Express, MongoDB, and many more.</p>
+    <p>Node.js, Express, MongoDB, and more.</p>
   </div>
   <div class="service-card">
     <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Full Stack">
@@ -218,7 +212,7 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
   </div>
 </section>
 
-<!-- Client Testimonials -->
+<!-- Testimonials -->
 <section id="comments">
   <h2>Client Satisfaction</h2>
   <div class="comments">
@@ -251,7 +245,7 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
   <p>&copy; 2025 Great Ola In Wealth</p>
 </footer>
 
-<!-- Top-Right Hamburger -->
+<!-- Top-Left Hamburger -->
 <div id="menu-btn">
   <div></div>
   <div></div>
@@ -266,10 +260,10 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
   <a href="#contact">Contact</a>
 </div>
 
-<!-- Floating Customer Service Icons -->
+<!-- Floating WhatsApp Button -->
 <div class="customer-service">
-  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="Support 1" onclick="window.open('https://wa.me/YOURNUMBER','_blank')">
-
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/YOURNUMBER','_blank')">
+</div>
 
 <script>
 const menuBtn = document.getElementById('menu-btn');
@@ -279,5 +273,6 @@ menuBtn.addEventListener('click', ()=>{
   else{topMenu.style.display='flex';topMenu.style.flexDirection='column';}
 });
 </script>
+
 </body>
 </html>
