@@ -190,7 +190,7 @@ footer {
   <img src="YOUR_PICTURE.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <a href="https://wa.me/2348144466868" class="btn" target="_blank">Hire Me on WhatsApp</a>
+  <a href="https://wa.me/2348144466868?text=Hi%20I'm%20Great%20Ola%20In%20Wealth%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me on WhatsApp</a>
 </section>
 
 <!-- About -->
@@ -245,7 +245,7 @@ footer {
 <!-- Office Image -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="https://cdn.pixabay.com/photo/2017/03/22/22/59/computer-2168546_1280.jpg" alt="Tech work environment"> 1
+  <img class="office-pic" src="https://images.unsplash.com/photo-1565372904213-5c61ad0c4f5a?auto=format&fit=crop&w=1280&q=80" alt="Tech work environment">
 </section>
 
 <!-- Footer -->
@@ -269,7 +269,8 @@ footer {
 
 <!-- Floating WhatsApp Button -->
 <div class="customer-service">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/2348144466868','_blank')">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" 
+  onclick="window.open('https://wa.me/2348144466868?text=Hi%20I%27m%20Great%20Ola%20In%20Wealth%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you','_blank')">
 </div>
 
 <script>
