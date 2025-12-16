@@ -254,7 +254,7 @@ footer {
 
 <!-- Hero Section -->
 <section id="hero">
-  <img src="YOUR_GITHUB_IMAGE_URL_HERE" alt="Great Ola In Wealth">
+  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
   <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
