@@ -269,8 +269,7 @@ footer {text-align:center;padding:2rem 0;background:#1a1a2e;color:#fff;margin-to
 <!-- Floating Customer Service Icons -->
 <div class="customer-service">
   <img src="https://cdn-icons-png.flaticon.com/512/2111/2111728.png" alt="Support 1" onclick="window.open('https://wa.me/YOURNUMBER','_blank')">
-  <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Support 2" onclick="window.open('https://t.me/YOURTELEGRAM','_blank')">
-</div>
+
 
 <script>
 const menuBtn = document.getElementById('menu-btn');
