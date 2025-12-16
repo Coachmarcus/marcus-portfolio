@@ -180,7 +180,7 @@ footer {text-align:center;padding:2rem 0;background:#2a2a72;color:#fff;margin-to
 
 <!-- Hero Section -->
 <section id="hero">
- <img src="https://imgur.com/a/yWUZLxz.jpg" alt="Mr Marcus">
+<img src="https://i.imgur.com/yWUZLxz.jpg" alt="Your Picture">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
   <a href="https://wa.me/YOURNUMBER" class="btn" target="_blank">Hire Me</a>
