@@ -42,6 +42,11 @@ section {
   border-radius:50%;
   border:3px solid #2a2a72;
   margin-bottom:1.5rem;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 #hero h2 {font-size:2.5rem;margin-bottom:0.5rem;color:#2a2a72;}
 #hero p {margin-bottom:1.5rem;color:#444;}
@@ -212,7 +217,7 @@ footer {
 
 <!-- Hero Section -->
 <section id="hero">
-  <img src="YOUR_PICTURE.jpg" alt="Your Picture">
+  <img src="https://raw.githubusercontent.com/username/repo/main/profile.jpg" alt="Great Ola In Wealth">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
   <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
@@ -223,6 +228,7 @@ footer {
   <h2>About Me</h2>
   <p>I build websites, landing pages, and web apps with clean design, responsive layouts, and great client satisfaction.</p>
   <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
+  <p>Address: 123 Your Street, Lagos, Nigeria</p>
 </section>
 
 <!-- Services -->
@@ -270,7 +276,7 @@ footer {
 <!-- Office Image -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="https://unsplash.com/photos/DyFjxmHt3Es.jpg" alt="Tech work environment">
+  <img class="office-pic" src="https://images.unsplash.com/photo-1581090700227-4f5c03365e48?auto=format&fit=crop&w=1280&q=80" alt="Tech work environment">
 </section>
 
 <!-- Contact Form -->
