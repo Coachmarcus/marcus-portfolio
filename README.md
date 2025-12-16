@@ -4,7 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Great Ola In Wealth - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background-color: #1a1a2e;
+      color: #fff;
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #1a1a2e;
+    }
+
+    #hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff6f61;
+    }
+
+    section {
+      width: 90%;
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    #about {
+      background-color: #e0f7fa;
+    }
+
+    #services {
+      background-color: #f1f8e9;
+    }
+
+    #contact {
+      background-color: #fff3e0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1a1a2e;
+    }
+
+    .service-card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: #1a1a2e;
+      color: #fff;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+      }
+      nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
