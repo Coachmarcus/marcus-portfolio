@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -114,14 +115,51 @@ section {
 }
 .customer-service img:hover {transform: scale(1.2);}
 
-/* Office picture */
-.office-pic {
+/* Work Location Animation */
+#office {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.map-container {
+  position:relative;
   width:100%;
-  max-height:400px;
-  object-fit:cover;
+  max-width:800px;
+  height:400px;
+  background: url('https://cdn.pixabay.com/photo/2016/10/07/07/01/map-1728385_1280.jpg') center/cover no-repeat;
   border-radius:10px;
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
   margin-top:1.5rem;
+}
+.pin {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -100%);
+  width:40px;
+  height:40px;
+  background:red;
+  border-radius:50%;
+  border:3px solid #fff;
+  animation: bouncePin 2s infinite;
+}
+@keyframes bouncePin {
+  0%,100%{ transform: translate(-50%, -100%) scale(1);}
+  50%{ transform: translate(-50%, -110%) scale(1.2);}
+}
+.pin::after {
+  content:"📍 123 Your Street, Lagos, Nigeria";
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  padding:0.5rem 1rem;
+  border-radius:8px;
+  font-size:14px;
+  color:#333;
+  white-space:nowrap;
 }
 
 /* Contact Form */
@@ -217,7 +255,7 @@ footer {
 
 <!-- Hero Section -->
 <section id="hero">
-  <img src="https://raw.githubusercontent.com/username/repo/main/profile.jpg" alt="Great Ola In Wealth">
+  <img src="https://raw.githubusercontent.com/Coachmarcus/repo/main/profile.jpg" alt="Great Ola In Wealth">
   <h2>Hello, I'm Great Ola In Wealth</h2>
   <p>A full stack web developer delivering clean, professional web solutions.</p>
   <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
@@ -273,10 +311,12 @@ footer {
   </div>
 </section>
 
-<!-- Office Image -->
+<!-- Work Location Animation -->
 <section id="office">
   <h2>Work Environment</h2>
-  <img class="office-pic" src="https://images.unsplash.com/photo-1581090700227-4f5c03365e48?auto=format&fit=crop&w=1280&q=80" alt="Tech work environment">
+  <div class="map-container">
+    <div class="pin"></div>
+  </div>
 </section>
 
 <!-- Contact Form -->
