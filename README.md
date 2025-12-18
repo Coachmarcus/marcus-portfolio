@@ -1,170 +1,367 @@
-# Project: IELTS Coaching Center, Akure
-# Folder structure:
-ielts-coaching-center-akure/
-├─ package.json
-├─ vite.config.js
-├─ tailwind.config.js
-├─ postcss.config.js
-├─ public/
-│   ├─ logo.png
-│   └─ placeholder.jpg
-├─ src/
-│   ├─ main.jsx
-│   ├─ App.jsx
-│   ├─ index.css
-│   ├─ components/
-│   │   ├─ Navbar.jsx
-│   │   ├─ Footer.jsx
-│   │   ├─ Hero.jsx
-│   │   ├─ Stats.jsx
-│   │   ├─ CoursesCard.jsx
-│   │   ├─ TestimonialCard.jsx
-│   │   ├─ ScrollToTop.jsx
-│   │   └─ DarkModeToggle.jsx
-│   ├─ pages/
-│   │   ├─ Home.jsx
-│   │   ├─ About.jsx
-│   │   ├─ Courses.jsx
-│   │   ├─ Services.jsx
-│   │   ├─ SuccessStories.jsx
-│   │   ├─ Blog.jsx
-│   │   └─ Contact.jsx
-│   └─ assets/
-│       └─ images/
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Great Ola In Wealth - Portfolio</title>
+<style>
+/* Reset */
+* {margin:0;padding:0;box-sizing:border-box;font-family: Arial, sans-serif;}
+body {line-height:1.6;color:#333;scroll-behavior:smooth;position:relative;background:#f2f2f2;}
 
-# package.json
-{
-  "name": "ielts-coaching-center-akure",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0",
-    "framer-motion": "^10.12.16",
-    "lucide-react": "^0.268.0"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0",
-    "tailwindcss": "^4.3.2",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  }
+/* Background */
+body::before {
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: url('https://cdn.pixabay.com/photo/2017/03/22/22/59/computer-2168546_1280.jpg') repeat;
+  background-size:cover;
+  opacity:0.08;
+  animation: moveBG 120s linear infinite;
+  z-index:-1;
+}
+@keyframes moveBG {0% {background-position:0 0;} 100% {background-position:2000px 1000px;}}
+
+/* Sections */
+section {
+  width:90%;
+  max-width:900px;
+  margin:4rem auto;
+  padding:2rem;
+  border-radius:12px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align:center;
+  position:relative;
 }
 
-# vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-export default defineConfig({ plugins: [react()] })
+/* Hero */
+#hero img {
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:3px solid #2a2a72;
+  margin-bottom:1.5rem;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+#hero h2 {font-size:2.5rem;margin-bottom:0.5rem;color:#2a2a72;}
+#hero p {margin-bottom:1.5rem;color:#444;}
+.btn {
+  display:inline-block;
+  padding:0.8rem 2rem;
+  background:#2a2a72;
+  color:#fff;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:0.3s;
+  margin:0.5rem;
+  animation: pulse 2s infinite;
+}
+.btn:hover {background:#ff6f61;}
+@keyframes pulse {0%,100%{transform: scale(1);}50%{transform: scale(1.1);}}
 
-# tailwind.config.js
-export default { content: ['./index.html', './src/**/*.{js,jsx}'], theme: { extend: {} }, plugins: [] }
+/* Services */
+.service-card {
+  background: rgba(240,240,250,0.95);
+  padding:1.5rem;
+  border-radius:10px;
+  margin-bottom:1.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.service-card img {
+  width:80px;
+  margin-bottom:1rem;
+}
 
-# postcss.config.js
-export default { plugins: { tailwindcss: {}, autoprefixer: {} } }
+/* Testimonials */
+.comments {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1rem;
+}
+.comment-card {
+  width:220px;
+  background: rgba(250,250,250,0.95);
+  padding:1rem;
+  border-radius:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.comment-card img {
+  width:60px;height:60px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #2a2a72;
+}
 
-# src/main.jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-ReactDOM.createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>)
+/* Floating WhatsApp button */
+.customer-service {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:50;
+}
+.customer-service img {
+  width:60px;
+  height:60px;
+  cursor:pointer;
+  transition: transform 0.3s;
+}
+.customer-service img:hover {transform: scale(1.2);}
 
-# src/index.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-html { scroll-behavior: smooth; }
-body { background-color: #f9fafb; color: #1f2937; }
+/* Work Location Animation */
+#office {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.map-container {
+  position:relative;
+  width:100%;
+  max-width:800px;
+  height:400px;
+  background: url('https://cdn.pixabay.com/photo/2016/10/07/07/01/map-1728385_1280.jpg') center/cover no-repeat;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  margin-top:1.5rem;
+}
+.pin {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -100%);
+  width:40px;
+  height:40px;
+  background:red;
+  border-radius:50%;
+  border:3px solid #fff;
+  animation: bouncePin 2s infinite;
+}
+@keyframes bouncePin {
+  0%,100%{ transform: translate(-50%, -100%) scale(1);}
+  50%{ transform: translate(-50%, -110%) scale(1.2);}
+}
+.pin::after {
+  content:"📍 Jbo Hotel and Suite, Osun State, Nigeria";
+  position:absolute;
+  top:50px;
+  left:50%;
+  transform:translateX(-50%);
+  background: rgba(255,255,255,0.9);
+  padding:0.5rem 1rem;
+  border-radius:8px;
+  font-size:14px;
+  color:#333;
+  white-space:nowrap;
+}
 
-# src/App.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import DarkModeToggle from './components/DarkModeToggle';
-import Home from './pages/Home';
-import About from './pages/About';
-import Courses from './pages/Courses';
-import Services from './pages/Services';
-import SuccessStories from './pages/SuccessStories';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-function App() { return (<Router><DarkModeToggle /><Navbar /><ScrollToTop /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/courses" element={<Courses />} /><Route path="/services" element={<Services />} /><Route path="/success-stories" element={<SuccessStories />} /><Route path="/blog" element={<Blog />} /><Route path="/contact" element={<Contact />} /></Routes><Footer /></Router>); }
-export default App;
+/* Contact Form */
+#contact form {
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  max-width:500px;
+  margin:auto;
+}
+#contact input, #contact textarea {
+  padding:0.8rem;
+  border-radius:8px;
+  border:1px solid #ccc;
+  width:100%;
+}
+#contact button {
+  padding:0.8rem 2rem;
+  border:none;
+  background:#2a2a72;
+  color:#fff;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+#contact button:hover {background:#ff6f61;}
 
-# src/components/Navbar.jsx
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-const Navbar = () => { const [open,setOpen]=useState(false); return (<nav className="bg-white dark:bg-gray-900 shadow fixed w-full z-50"><div className="container mx-auto px-4 py-4 flex justify-between items-center"><Link to="/" className="font-bold text-xl text-blue-600">IELTS Coaching Akure</Link><div className="hidden md:flex gap-6"><Link to="/">Home</Link><Link to="/about">About</Link><Link to="/courses">Courses</Link><Link to="/services">Services</Link><Link to="/success-stories">Success Stories</Link><Link to="/blog">Blog</Link><Link to="/contact" className="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-600">Contact</Link></div><div className="md:hidden flex items-center gap-2"><button onClick={()=>setOpen(!open)}>{open?'✖':'☰'}</button></div></div>{open&&(<div className="md:hidden bg-white dark:bg-gray-900 flex flex-col px-4 py-2 gap-2"><Link to="/" onClick={()=>setOpen(false)}>Home</Link><Link to="/about" onClick={()=>setOpen(false)}>About</Link><Link to="/courses" onClick={()=>setOpen(false)}>Courses</Link><Link to="/services" onClick={()=>setOpen(false)}>Services</Link><Link to="/success-stories" onClick={()=>setOpen(false)}>Success Stories</Link><Link to="/blog" onClick={()=>setOpen(false)}>Blog</Link><Link to="/contact" className="bg-green-500 px-4 py-2 rounded-lg text-white" onClick={()=>setOpen(false)}>Contact</Link></div>)}</nav>); }
-export default Navbar;
+/* Footer */
+footer {
+  text-align:center;
+  padding:2rem 0;
+  background:#2a2a72;
+  color:#fff;
+  margin-top:3rem;
+  font-size:14px;
+}
 
-# src/components/Footer.jsx
-const Footer=()=>{return(<footer className="bg-blue-600 text-white py-8 mt-12"><div className="container mx-auto text-center"><p className="mb-2">IELTS Coaching Center, Akure</p><p className="mb-4">Phone: +234 800 123 4567 | Email: info@ieltsakure.com</p><p>&copy; {new Date().getFullYear()} IELTS Coaching Akure. All rights reserved.</p></div></footer>);}
-export default Footer;
+/* Hamburger Menu Top-Left */
+#menu-btn {
+  position: fixed;
+  top:20px;
+  left:20px;
+  width:50px;
+  height:50px;
+  background:#ff6f61;
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  padding:10px;
+  cursor:pointer;
+  z-index:30;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+}
+#menu-btn div {
+  width:25px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+@keyframes bounce {0%,100%{transform: translateY(0);}50%{transform: translateY(-5px);}}
 
-# src/components/Hero.jsx
-import { motion } from 'framer-motion';
-const Hero=()=>{return(<section className="bg-blue-600 text-white py-32 px-4 text-center"><motion.h1 className="text-4xl md:text-6xl font-bold mb-4" initial={{opacity:0,y:-50}} animate={{opacity:1,y:0}} transition={{duration:1}}>Ace Your IELTS Exam with Confidence</motion.h1><p className="text-lg md:text-2xl mb-8">Expert IELTS coaching in Akure with proven success rates</p><div className="flex justify-center gap-4"><a href="/contact" className="bg-green-500 px-6 py-3 rounded-lg font-semibold hover:bg-green-600">Enroll Now</a><a href="/contact" className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">Free Consultation</a></div></section>);}
-export default Hero;
+/* Top-left menu */
+#top-menu {
+  position: fixed;
+  top:80px;
+  left:20px;
+  background: rgba(255,255,255,0.95);
+  border-radius:10px;
+  overflow:hidden;
+  display:none;
+  flex-direction: column;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+#top-menu a {
+  padding:0.8rem 2rem;
+  display:block;
+  text-decoration:none;
+  color:#2a2a72;
+  font-weight:bold;
+  border-bottom:1px solid #ddd;
+}
+#top-menu a:last-child{border-bottom:none;}
+#top-menu a:hover{background:#ff6f61;color:#fff;}
 
-# src/components/Stats.jsx
-const Stats=()=>{return(<section className="py-16 bg-gray-100 text-center"><div className="container mx-auto grid md:grid-cols-3 gap-8"><div><h2 className="text-4xl font-bold text-blue-600">95%</h2><p>Success Rate</p></div><div><h2 className="text-4xl font-bold text-blue-600">500+</h2><p>Students Trained</p></div><div><h2 className="text-4xl font-bold text-blue-600">Certified</h2><p>IELTS Tutors</p></div></div></section>);}
-export default Stats;
+/* Responsive */
+@media(max-width:768px){.comments{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
 
-# src/components/CoursesCard.jsx
-const CoursesCard=({title,description,duration,price})=>{return(<div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition"><h3 className="text-xl font-bold mb-2">{title}</h3><p className="mb-2">{description}</p><p className="mb-2">Duration: {duration}</p><p className="mb-4">Price: {price}</p><a href="/contact" className="bg-green-500 px-4 py-2 rounded-lg text-white hover:bg-green-600">Enroll Now</a></div>);}
-export default CoursesCard;
+<!-- Hero Section -->
+<section id="hero">
+  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
+  <h2>Hello, I'm Great Ola In Wealth</h2>
+  <p>A full stack web developer delivering clean, professional web solutions.</p>
+  <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
+</section>
 
-# src/components/TestimonialCard.jsx
-const TestimonialCard=({name,band,review})=>{return(<div className="bg-white shadow-md rounded-lg p-6"><p className="mb-2">"{review}"</p><h4 className="font-bold">{name}</h4><span>Band {band}</span></div>);}
-export default TestimonialCard;
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I build websites, landing pages, and web apps with clean design, responsive layouts, and great client satisfaction.</p>
+  <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
+  <p>Address: Jbo Hotel and Suite, Osun State, Nigeria</p>
+</section>
 
-# src/components/ScrollToTop.jsx
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-const ScrollToTop=()=>{const {pathname}=useLocation();useEffect(()=>{window.scrollTo(0,0);},[pathname]);return null;}
-export default ScrollToTop;
+<!-- Services -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Web design icon">
+    <h3>Web & Frontend Development</h3>
+    <p>HTML, CSS, JavaScript, React, responsive design, and more.</p>
+  </div>
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Backend icon">
+    <h3>Backend & APIs</h3>
+    <p>Node.js, Express, database integration, server work, and more.</p>
+  </div>
+  <div class="service-card">
+    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Full stack icon">
+    <h3>Full Stack Solutions</h3>
+    <p>Complete web applications and deployable projects.</p>
+  </div>
+</section>
 
-# src/components/DarkModeToggle.jsx
-import { useState,useEffect } from 'react';
-import { Sun,Moon } from 'lucide-react';
-const DarkModeToggle=()=>{const [dark,setDark]=useState(false);useEffect(()=>{dark?document.documentElement.classList.add('dark'):document.documentElement.classList.remove('dark');},[dark]);return(<button onClick={()=>setDark(!dark)} className="fixed top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 rounded-full z-50">{dark?<Sun />:<Moon />}</button>);}
-export default DarkModeToggle;
+<!-- Testimonials -->
+<section id="comments">
+  <h2>Client Satisfaction</h2>
+  <div class="comments">
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Client A">
+      <p>"Great Ola delivered our website on time!"</p>
+      <strong>- John D.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Client B">
+      <p>"Professional, responsive, highly recommend!"</p>
+      <strong>- Sarah K.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Client C">
+      <p>"Full stack project handled beautifully."</p>
+      <strong>- Michael R.</strong>
+    </div>
+  </div>
+</section>
 
-# src/pages/Home.jsx
-import Hero from '../components/Hero';
-import Stats from '../components/Stats';
-const Home=()=>{return(<><Hero /><Stats /></>);}
-export default Home;
+<!-- Work Location Animation -->
+<section id="office">
+  <h2>Work Environment</h2>
+  <div class="map-container">
+    <div class="pin"></div>
+  </div>
+</section>
 
-# src/pages/About.jsx
-const About=()=>{return(<section className="py-16 px-4 max-w-5xl mx-auto"><h2 className="text-3xl font-bold mb-4 text-center">About IELTS Coaching Center, Akure</h2><p className="mb-4 text-center">We provide expert IELTS coaching for Academic and General Training students. Our certified tutors have helped hundreds of students achieve their dream band scores.</p></section>);}
-export default About;
+<!-- Contact Form -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-# src/pages/Courses.jsx
-import CoursesCard from '../components/CoursesCard';
-const Courses=()=>{return(<section className="py-16 px-4 max-w-5xl mx-auto"><h2 className="text-3xl font-bold mb-8 text-center">Our Courses</h2><div className="grid md:grid-cols-2 gap-8"><CoursesCard title="IELTS Academic" description="Comprehensive Academic IELTS prep" duration="8 weeks" price="₦150,000"/><CoursesCard title="IELTS General Training" description="Focused General IELTS prep" duration="6 weeks" price="₦120,000"/><CoursesCard title="One-on-One Coaching" description="Personalized coaching with expert tutor" duration="Flexible" price="₦200,000"/><CoursesCard title="Weekend Classes" description="Intensive weekend sessions" duration="4 weeks" price="₦80,000"/><CoursesCard title="Online Classes" description="Remote coaching via Zoom" duration="8 weeks" price="₦100,000"/></div></section>);}
-export default Courses;
+<!-- Footer -->
+<footer>
+  <p>⭐⭐⭐ 4.8/5 Client Rating • 120+ Daily Visits</p>
+  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
+</footer>
 
-# src/pages/Services.jsx
-const Services=()=>{return(<section className="py-16 px-4 max-w-5xl mx-auto"><h2 className="text-3xl font-bold mb-8 text-center">IELTS Services</h2><ul className="list-disc list-inside space-y-2 text-lg"><li>Speaking Test Preparation</li><li>Writing Task 1 & 2 Coaching</li><li>Listening Practice</li><li>Reading Strategies</li><li>Mock Exams</li><li>Band Score Improvement Program</li></ul></section>);}
-export default Services;
+<!-- Top-Left Hamburger -->
+<div id="menu-btn">
+  <div></div><div></div><div></div>
+</div>
+<div id="top-menu">
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#comments">Clients</a>
+  <a href="#office">Work</a>
+  <a href="#contact">Contact</a>
+</div>
 
-# src/pages/SuccessStories.jsx
-import TestimonialCard from '../components/TestimonialCard';
-const SuccessStories=()=>{return(<section className="py-16 px-4 max-w-5xl mx-auto"><h2 className="text-3xl font-bold mb-8 text-center">Success Stories</h2><div className="grid md:grid-cols-2 gap-8"><TestimonialCard name="Amaka" band="8.5" review="I achieved my target band thanks to the expert coaching!"/><TestimonialCard name="Chidi" band="7.5" review="Highly recommended for anyone preparing for IELTS."/></div></section>);}
-export default SuccessStories;
+<!-- Floating WhatsApp Button -->
+<div class="customer-service">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" 
+  onclick="window.open('https://wa.me/2348144466868?text=Hi,%20I\'m%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you','_blank')">
+</div>
 
-# src/pages/Blog.jsx
-const Blog=()=>{return(<section className="py-16 px-4 max-w-5xl mx-auto"><h2 className="text-3xl font-bold mb-8 text-center">Blog & Resources</h2><ul className="list-disc list-inside space-y-2"><li>Top IELTS Writing Tips</li><li>Listening Practice Strategies</li><li>Reading Techniques for High Scores</li><li>Exam Updates & Resources</li></ul></section>);}
-export default Blog;
+<script>
+const menuBtn = document.getElementById('menu-btn');
+const topMenu = document.getElementById('top-menu');
+menuBtn.addEventListener('click', ()=>{
+  topMenu.style.display = topMenu.style.display === 'flex' ? 'none' : 'flex';
+  topMenu.style.flexDirection = 'column';
+});
+</script>
 
-# src/pages/Contact.jsx
-const Contact=()=>{return(<section className="py-16 bg-gray-50"><div className="container mx-auto max-w-xl px-4"><h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2><form className="flex flex-col gap-4"><input type="text" placeholder="Name" className="p-3 border rounded"/><input type="email" placeholder="Email" className="p-3 border rounded"/><input type="tel" placeholder="Phone" className="p-3 border rounded"/><textarea placeholder="Message" className="p-3 border rounded"></textarea><button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send Message</button></form><div className="mt-6 text-center"><a href="https://wa.me/2348001234567" className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600">Chat on WhatsApp</a></div></div></section>);}
-export default Contact;
+</body>
+</html>
