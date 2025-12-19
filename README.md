@@ -4,23 +4,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcus D. Portfolio</title>
 <style>
-/* Base reset */
+/* Reset & Base */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
-body { background:#f5f5f5; color:#111; line-height:1.5; scroll-behavior:smooth; }
+body { background:#f0f2f5; color:#111; line-height:1.5; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
-img { max-width:100%; display:block; }
+img { width:100%; display:block; }
 
 /* Navigation */
-nav { position:fixed; top:0; width:100%; background:rgba(30,30,47,0.95); color:#fff; display:flex; justify-content:space-around; padding:12px 0; z-index:999; backdrop-filter:blur(8px); font-size:0.9rem; }
+nav { position:fixed; top:0; width:100%; background:rgba(30,30,47,0.9); color:#fff; display:flex; justify-content:space-around; padding:12px 0; z-index:1000; backdrop-filter:blur(8px); font-size:0.95rem;}
 nav a:hover { color:#ff5c5c; }
 
 /* Header */
-header { height:60vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#1e1e2f; color:#fff; text-align:center; padding:0 20px; }
-header h1 { font-size:2.5rem; margin-bottom:10px; }
-header p { font-size:1rem; color:#ccc; max-width:280px; margin-bottom:20px; }
-.header-btns { display:flex; flex-direction:column; gap:12px; }
-.header-btns a { padding:10px 25px; background:#ff5c5c; color:#fff; border-radius:30px; font-size:0.95rem; text-align:center; transition:0.3s; }
-.header-btns a:hover { background:#ff3333; }
+header { height:65vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#1e1e2f; color:#fff; text-align:center; padding:0 20px; }
+header h1 { font-size:2.8rem; margin-bottom:10px; }
+header p { font-size:1rem; color:#ccc; max-width:300px; margin-bottom:20px; }
+.header-links { display:flex; flex-direction:column; gap:12px; }
+.header-links a { padding:10px 25px; background:#ff5c5c; color:#fff; border-radius:30px; font-size:0.95rem; text-align:center; transition:0.3s; }
+.header-links a:hover { background:#ff3333; }
 
 /* Sections */
 section { padding:60px 20px; }
@@ -28,19 +28,19 @@ section h2 { font-size:1.8rem; margin-bottom:30px; text-align:center; color:#1e1
 section p { text-align:center; max-width:300px; margin:0 auto 20px; color:#555; font-size:0.95rem; }
 
 /* About */
-#about img { border-radius:50%; width:120px; margin:15px auto; display:block; }
+#about img { border-radius:50%; width:130px; margin:15px auto; display:block; border:3px solid #ff5c5c; }
 
 /* Skills */
-.skills { display:flex; flex-direction:column; gap:12px; }
-.skill { background:#fff; padding:15px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
+.skills { display:flex; flex-direction:column; gap:12px; margin-bottom:20px; }
+.skill { background:#fff; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
 .skill h3 { margin-bottom:6px; color:#1e1e2f; font-size:1rem; }
 .skill p { font-size:0.85rem; color:#777; }
 
-/* Portfolio vertical scroll */
+/* Portfolio */
 .portfolio { display:flex; flex-direction:column; gap:20px; }
 .portfolio-item { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s; }
 .portfolio-item:hover { transform:translateY(-3px); }
-.portfolio-item img { width:100%; height:180px; object-fit:cover; }
+.portfolio-item img { width:100%; height:200px; object-fit:cover; }
 .portfolio-item .info { padding:12px; }
 .portfolio-item h3 { margin-bottom:6px; font-size:1rem; color:#1e1e2f; }
 .portfolio-item p { font-size:0.85rem; color:#555; }
@@ -54,7 +54,7 @@ section p { text-align:center; max-width:300px; margin:0 auto 20px; color:#555; 
 .testimonial h4 { font-size:0.9rem; color:#1e1e2f; font-weight:600; }
 
 /* Services */
-.services { display:flex; flex-direction:column; gap:12px; }
+.services { display:flex; flex-direction:column; gap:12px; margin-bottom:20px; }
 .service { background:#fff; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
 .service h3 { margin-bottom:6px; font-size:1rem; color:#1e1e2f; }
 .service p { font-size:0.85rem; color:#555; }
@@ -71,7 +71,7 @@ section p { text-align:center; max-width:300px; margin:0 auto 20px; color:#555; 
 /* Footer */
 footer { text-align:center; padding:15px; font-size:0.85rem; background:#1e1e2f; color:#fff; }
 
-/* Mobile styling */
+/* Mobile adjustments */
 @media(min-width:500px){ 
     header h1 { font-size:3rem; }
     header p { font-size:1.1rem; max-width:400px; }
@@ -93,17 +93,17 @@ footer { text-align:center; padding:15px; font-size:0.85rem; background:#1e1e2f;
 <header id="home">
     <h1>Marcus D.</h1>
     <p>Professional Web Designer | UI/UX Enthusiast | Crafting Creative Digital Experiences</p>
-    <div class="header-btns">
-        <a href="mailto:assistancepromoter@gmail.com">Email Me</a>
-        <a href="https://www.behance.net/olamilemarcus" target="_blank">My Behance</a>
-        <a href="tel:+2348144466868">Call Me</a>
+    <div class="header-links">
+        <a href="mailto:assistancepromoter@gmail.com">✉️ Email Me</a>
+        <a href="https://www.behance.net/olamilemarcus" target="_blank">🎨 My Behance</a>
+        <a href="tel:+2348144466868">📞 Call Me</a>
     </div>
 </header>
 
 <!-- About -->
 <section id="about">
     <h2>About Me</h2>
-    <img src="https://via.placeholder.com/120" alt="Marcus D.">
+    <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Marcus D.">
     <p>Hello! I’m Marcus D., a passionate web designer creating visually appealing and user-friendly websites. I specialize in UI/UX design, responsive layouts, and building digital experiences that delight users.</p>
 </section>
 
@@ -123,10 +123,10 @@ footer { text-align:center; padding:15px; font-size:0.85rem; background:#1e1e2f;
 <section id="portfolio">
     <h2>Portfolio</h2>
     <div class="portfolio">
-        <div class="portfolio-item"><img src="https://via.placeholder.com/300x180?text=Project+1"><div class="info"><h3>Landing Page</h3><p>Responsive landing page for startup using Figma & HTML/CSS.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/300x180?text=Project+2"><div class="info"><h3>E-commerce Website</h3><p>Online store built on WordPress with custom theme.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/300x180?text=Project+3"><div class="info"><h3>Portfolio Redesign</h3><p>Redesigned portfolio website to enhance UX & visuals.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/300x180?text=Project+4"><div class="info"><h3>Blog Website</h3><p>Developed modern, responsive blog platform.</p></div></div>
+        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+1"><div class="info"><h3>Landing Page</h3><p>Responsive landing page for startup using Figma & HTML/CSS.</p></div></div>
+        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+2"><div class="info"><h3>E-commerce Website</h3><p>Online store built on WordPress with custom theme.</p></div></div>
+        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+3"><div class="info"><h3>Portfolio Redesign</h3><p>Redesigned portfolio website to enhance UX & visuals.</p></div></div>
+        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+4"><div class="info"><h3>Blog Website</h3><p>Developed modern, responsive blog platform.</p></div></div>
     </div>
 </section>
 
