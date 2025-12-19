@@ -2,174 +2,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marcus D. Portfolio</title>
+<title>Great Ola In Wealth - Portfolio</title>
 <style>
-/* Reset & Base */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial',sans-serif; }
-body { background:#f0f2f5; color:#111; line-height:1.5; scroll-behavior:smooth; }
-a { text-decoration:none; color:inherit; }
-img { width:100%; display:block; }
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f4f6f8;color:#333;scroll-behavior:smooth;line-height:1.6;}
 
-/* Navigation */
-nav { position:fixed; top:0; width:100%; background:rgba(30,30,47,0.9); color:#fff; display:flex; justify-content:space-around; padding:12px 0; z-index:1000; backdrop-filter:blur(8px); font-size:0.95rem;}
-nav a:hover { color:#ff5c5c; }
+/* Gradient Hero Background */
+#hero{
+  background: linear-gradient(135deg,#1f2a63,#ff704d);
+  color:#fff;text-align:center;padding:6rem 1rem;position:relative;
+}
+#hero img{
+  width:160px;height:160px;border-radius:50%;border:3px solid #fff;
+  margin-bottom:1.5rem;animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+#hero h1{font-size:2.8rem;margin-bottom:0.5rem;font-weight:700;}
+#hero p{font-size:1.2rem;margin-bottom:1.5rem;}
+.btn{display:inline-block;padding:1rem 2rem;background:#fff;color:#1f2a63;font-weight:600;border-radius:8px;text-decoration:none;transition:0.3s;}
+.btn:hover{background:#ffecde;color:#1f2a63;transform:scale(1.05);}
 
-/* Header */
-header { height:65vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#1e1e2f; color:#fff; text-align:center; padding:0 20px; }
-header h1 { font-size:2.8rem; margin-bottom:10px; }
-header p { font-size:1rem; color:#ccc; max-width:300px; margin-bottom:20px; }
-.header-links { display:flex; flex-direction:column; gap:12px; }
-.header-links a { padding:10px 25px; background:#ff5c5c; color:#fff; border-radius:30px; font-size:0.95rem; text-align:center; transition:0.3s; }
-.header-links a:hover { background:#ff3333; }
-
-/* Sections */
-section { padding:60px 20px; }
-section h2 { font-size:1.8rem; margin-bottom:30px; text-align:center; color:#1e1e2f; }
-section p { text-align:center; max-width:300px; margin:0 auto 20px; color:#555; font-size:0.95rem; }
-
-/* About */
-#about img { border-radius:50%; width:130px; margin:15px auto; display:block; border:3px solid #ff5c5c; }
-
-/* Skills */
-.skills { display:flex; flex-direction:column; gap:12px; margin-bottom:20px; }
-.skill { background:#fff; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
-.skill h3 { margin-bottom:6px; color:#1e1e2f; font-size:1rem; }
-.skill p { font-size:0.85rem; color:#777; }
-
-/* Portfolio */
-.portfolio { display:flex; flex-direction:column; gap:20px; }
-.portfolio-item { background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); overflow:hidden; transition:transform 0.3s; }
-.portfolio-item:hover { transform:translateY(-3px); }
-.portfolio-item img { width:100%; height:200px; object-fit:cover; }
-.portfolio-item .info { padding:12px; }
-.portfolio-item h3 { margin-bottom:6px; font-size:1rem; color:#1e1e2f; }
-.portfolio-item p { font-size:0.85rem; color:#555; }
-
-/* Testimonials */
-.testimonials { display:flex; flex-direction:column; gap:15px; }
-.testimonial { background:#fff; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); display:flex; gap:12px; align-items:center; }
-.testimonial img { width:50px; height:50px; border-radius:50%; object-fit:cover; }
-.testimonial div { flex:1; }
-.testimonial p { font-size:0.85rem; font-style:italic; color:#555; margin-bottom:6px; }
-.testimonial h4 { font-size:0.9rem; color:#1e1e2f; font-weight:600; }
+/* About Section */
+#about{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;padding:5rem 1rem;background:#fff;}
+#about img{width:250px;height:250px;border-radius:12px;margin:1rem;}
+#about .text{max-width:600px;margin:1rem;}
+#about h2{color:#1f2a63;margin-bottom:1rem;font-size:2rem;}
+#about p{margin-bottom:0.8rem;font-size:1rem;color:#555;}
 
 /* Services */
-.services { display:flex; flex-direction:column; gap:12px; margin-bottom:20px; }
-.service { background:#fff; padding:15px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
-.service h3 { margin-bottom:6px; font-size:1rem; color:#1e1e2f; }
-.service p { font-size:0.85rem; color:#555; }
+#services{padding:5rem 1rem;background:#fefefe;text-align:center;}
+#services h2{color:#1f2a63;margin-bottom:2rem;font-size:2rem;}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.service-card{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:0.3s;}
+.service-card:hover{transform:translateY(-5px);}
+.service-card img{width:70px;margin-bottom:1rem;}
+.service-card h3{color:#1f2a63;margin-bottom:0.5rem;}
+.service-card p{color:#555;font-size:0.95rem;}
+
+/* Testimonials */
+#comments{padding:5rem 1rem;background:#f4f6f8;text-align:center;}
+#comments h2{color:#1f2a63;margin-bottom:2rem;font-size:2rem;}
+.testimonials{display:flex;overflow-x:auto;gap:1rem;padding-bottom:1rem;scroll-snap-type:x mandatory;}
+.comment-card{flex:0 0 250px;background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);scroll-snap-align:start;text-align:center;transition:0.3s;}
+.comment-card img{width:60px;height:60px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #1f2a63;}
+.comment-card:hover{transform:scale(1.05);}
+
+/* Work Location */
+#office{padding:5rem 1rem;text-align:center;}
+.map-container{position:relative;width:100%;max-width:900px;height:450px;margin:auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);width:45px;height:45px;background:#ff704d;border-radius:50%;border:3px solid #fff;animation:bouncePin 2s infinite;}
+@keyframes bouncePin{0%,100%{transform:translate(-50%,-100%) scale(1);}50%{transform:translate(-50%,-110%) scale(1.2);}}
+.pin::after{content:"📍 Jbo Hotel and Suite, Osun State, Nigeria";position:absolute;top:55px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);padding:0.6rem 1.2rem;border-radius:8px;font-size:14px;color:#333;white-space:nowrap;}
+.map-container::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://cdn.pixabay.com/photo/2016/10/07/07/01/map-1728385_1280.jpg') center/cover no-repeat;opacity:0.8;}
 
 /* Contact */
-#contact .contact-methods { display:flex; flex-direction:column; gap:12px; margin-bottom:15px; text-align:center; }
-.contact-methods a { display:flex; align-items:center; justify-content:center; gap:8px; background:#fff; padding:10px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); font-size:0.9rem; color:#111; transition:0.3s; }
-.contact-methods a:hover { background:#ff5c5c; color:#fff; }
-#contact form { display:flex; flex-direction:column; gap:10px; }
-#contact input, #contact textarea { padding:10px; border-radius:8px; border:1px solid #ccc; font-size:0.9rem; width:100%; }
-#contact button { padding:10px; border:none; border-radius:30px; background:#ff5c5c; color:#fff; font-size:0.95rem; cursor:pointer; transition:0.3s; }
-#contact button:hover { background:#ff3333; }
+#contact{display:flex;flex-wrap:wrap;justify-content:center;padding:5rem 1rem;background:#fff;}
+#contact .form{flex:1;min-width:300px;max-width:450px;margin:1rem;}
+#contact .info{flex:1;min-width:250px;max-width:400px;margin:1rem;padding:1.5rem;background:#f4f6f8;border-radius:12px;}
+#contact h2{color:#1f2a63;margin-bottom:1.5rem;font-size:2rem;}
+#contact input,#contact textarea{width:100%;padding:1rem;margin-bottom:1rem;border-radius:10px;border:1px solid #ccc;font-size:1rem;}
+#contact button{padding:1rem 2rem;border:none;background:#1f2a63;color:#fff;border-radius:10px;font-weight:bold;cursor:pointer;transition:0.3s;}
+#contact button:hover{background:#ff704d;transform:scale(1.05);}
 
 /* Footer */
-footer { text-align:center; padding:15px; font-size:0.85rem; background:#1e1e2f; color:#fff; }
+footer{background:#1f2a63;color:#fff;text-align:center;padding:2rem 0;font-size:0.95rem;}
 
-/* Mobile adjustments */
-@media(min-width:500px){ 
-    header h1 { font-size:3rem; }
-    header p { font-size:1.1rem; max-width:400px; }
-}
+/* Hamburger */
+#menu-btn{position:fixed;top:20px;left:20px;width:50px;height:50px;background:#ff704d;border-radius:50%;display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:10px;cursor:pointer;z-index:50;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+#menu-btn div{width:28px;height:3px;background:#fff;border-radius:2px;}
+#top-menu{position:fixed;top:80px;left:20px;background:#fff;border-radius:10px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 6px 20px rgba(0,0,0,0.2);}
+#top-menu a{padding:0.9rem 2rem;display:block;text-decoration:none;color:#1f2a63;font-weight:600;border-bottom:1px solid #eee;transition:0.3s;}
+#top-menu a:last-child{border-bottom:none;}
+#top-menu a:hover{background:#ff704d;color:#fff;}
+
+/* Floating WhatsApp */
+.customer-service img{width:65px;height:65px;cursor:pointer;position:fixed;bottom:20px;right:20px;transition:transform 0.3s;}
+.customer-service img:hover{transform:scale(1.2);}
+
+/* Responsive */
+@media(max-width:768px){#about{flex-direction:column;}#contact{flex-direction:column;}}
+
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<!-- Header -->
-<header id="home">
-    <h1>Marcus D.</h1>
-    <p>Professional Web Designer | UI/UX Enthusiast | Crafting Creative Digital Experiences</p>
-    <div class="header-links">
-        <a href="mailto:assistancepromoter@gmail.com">✉️ Email Me</a>
-        <a href="https://www.behance.net/olamilemarcus" target="_blank">🎨 My Behance</a>
-        <a href="tel:+2348144466868">📞 Call Me</a>
-    </div>
-</header>
+<!-- Hero -->
+<section id="hero">
+  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
+  <h1>Hello, I'm Great Ola In Wealth</h1>
+  <p>Professional full stack web developer crafting modern, responsive websites & apps.</p>
+  <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
+</section>
 
 <!-- About -->
 <section id="about">
+  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Profile">
+  <div class="text">
     <h2>About Me</h2>
-    <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Marcus D.">
-    <p>Hello! I’m Marcus D., a passionate web designer creating visually appealing and user-friendly websites. I specialize in UI/UX design, responsive layouts, and building digital experiences that delight users.</p>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-    <h2>My Skills</h2>
-    <div class="skills">
-        <div class="skill"><h3>HTML & CSS</h3><p>Responsive & semantic coding</p></div>
-        <div class="skill"><h3>JavaScript</h3><p>Interactive web experiences</p></div>
-        <div class="skill"><h3>UI/UX Design</h3><p>Wireframing & prototyping</p></div>
-        <div class="skill"><h3>WordPress & Webflow</h3><p>Custom website builds</p></div>
-        <div class="skill"><h3>Figma & Adobe XD</h3><p>Modern design tools</p></div>
-    </div>
-</section>
-
-<!-- Portfolio -->
-<section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio">
-        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+1"><div class="info"><h3>Landing Page</h3><p>Responsive landing page for startup using Figma & HTML/CSS.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+2"><div class="info"><h3>E-commerce Website</h3><p>Online store built on WordPress with custom theme.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+3"><div class="info"><h3>Portfolio Redesign</h3><p>Redesigned portfolio website to enhance UX & visuals.</p></div></div>
-        <div class="portfolio-item"><img src="https://via.placeholder.com/350x200?text=Project+4"><div class="info"><h3>Blog Website</h3><p>Developed modern, responsive blog platform.</p></div></div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-        <div class="testimonial"><img src="https://via.placeholder.com/50" alt="Client"><div><p>"Marcus delivered an amazing website with exceptional attention to detail."</p><h4>Jane Doe, CEO TechStartup</h4></div></div>
-        <div class="testimonial"><img src="https://via.placeholder.com/50" alt="Client"><div><p>"Professional, creative, and fast. Marcus truly understands modern web design."</p><h4>John Smith, Freelancer</h4></div></div>
-    </div>
+    <p>I build websites, landing pages, and web applications with clean design, intuitive UI, and responsive layouts.</p>
+    <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
+    <p>Address: Jbo Hotel and Suite, Osun State, Nigeria</p>
+  </div>
 </section>
 
 <!-- Services -->
 <section id="services">
-    <h2>Services</h2>
-    <div class="services">
-        <div class="service"><h3>Web Design</h3><p>Modern, responsive websites with creative UI.</p></div>
-        <div class="service"><h3>UI/UX Design</h3><p>User-friendly interfaces and seamless experiences.</p></div>
-        <div class="service"><h3>Website Maintenance</h3><p>Ongoing support to keep websites secure and updated.</p></div>
-        <div class="service"><h3>Branding & Graphics</h3><p>Visual identity, logos, and graphics for your brand.</p></div>
+  <h2>Services</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="">
+      <h3>Web & Frontend Development</h3>
+      <p>HTML, CSS, JavaScript, React, responsive design, and clean UI.</p>
     </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="">
+      <h3>Backend & APIs</h3>
+      <p>Node.js, Express, database integration, scalable backend solutions.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="">
+      <h3>Full Stack Solutions</h3>
+      <p>Complete web applications, deployable projects, end-to-end solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="comments">
+  <h2>Client Satisfaction</h2>
+  <div class="testimonials">
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+      <p>"Delivered our website professionally and on time!"</p>
+      <strong>- John D.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
+      <p>"Highly recommend for web development projects."</p>
+      <strong>- Sarah K.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
+      <p>"Full stack project handled flawlessly."</p>
+      <strong>- Michael R.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Work Location -->
+<section id="office">
+  <h2>Work Environment</h2>
+  <div class="map-container"><div class="pin"></div></div>
 </section>
 
 <!-- Contact -->
 <section id="contact">
+  <div class="form">
     <h2>Contact Me</h2>
-    <div class="contact-methods">
-        <a href="tel:+2348144466868">📞 +234 814 446 6868</a>
-        <a href="mailto:assistancepromoter@gmail.com">✉️ assistancepromoter@gmail.com</a>
-        <a href="https://www.behance.net/olamilemarcus" target="_blank">🎨 My Behance</a>
-    </div>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
+  </div>
+  <div class="info">
+    <h2>Get in Touch</h2>
+    <p>Email: assistancepromoter@gmail.com</p>
+    <p>Address: Jbo Hotel and Suite, Osun State, Nigeria</p>
+    <p>Phone: +2348144466868</p>
+  </div>
 </section>
 
 <!-- Footer -->
 <footer>
-    &copy; 2025 Marcus D. All rights reserved.
+  <p>⭐⭐⭐ 4.8/5 Client Rating • 120+ Daily Visits</p>
+  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
 </footer>
 
-</body>
-</html>
+<!-- Hamburger -->
+<div id="menu-btn"><div></div><div></div><div></div></div>
+<div id="top-menu">
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#comments">Clients</a>
+  <a href="#office">Work</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- WhatsApp -->
+<div class="customer-service">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/2348144466868?text=Hi,%20I\'m%20
