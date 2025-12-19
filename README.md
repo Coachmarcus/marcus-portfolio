@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -180,27 +179,27 @@ footer{background:#1f2a63;color:#fff;text-align:center;padding:2rem 0;font-size:
   <div class="testimonials">
     <div class="comment-card active">
       <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-      <p>"Delivered our website professionally and on time!"</p>
+      <p>Delivered our website professionally and on time</p>
       <strong>- John D.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
-      <p>"Highly recommend for web development projects."</p>
+      <p>Highly recommend for web development projects.</p>
       <strong>- Sarah K.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
-      <p>"Full stack project handled flawlessly."</p>
+      <p>Full stack project handled flawlessly</p>
       <strong>- Michael R.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="">
-      <p>"Amazing work with responsive design!"</p>
+      <p>Amazing work with responsive design</p>
       <strong>- Linda P.</strong>
     </div>
     <div class="comment-card">
       <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="">
-      <p>"Professional and reliable developer."</p>
+      <p>Professional and reliable developer.</p>
       <strong>- Kevin T.</strong>
     </div>
   </div>
