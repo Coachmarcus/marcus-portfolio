@@ -1,231 +1,154 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Great Ola In Wealth | Luxury Web & App Developer</title>
-  <meta name="description" content="Luxury Web & App Developer building premium, conversion-focused websites and web apps for businesses." />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Last Tab Revamp</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset & Basic Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { min-height: 100vh; background: linear-gradient(135deg, #6a11cb, #2575fc); display: flex; justify-content: center; align-items: center; color: #fff; }
+    a { text-decoration: none; color: inherit; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
+    /* Container */
+    .portfolio-tab {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 40px;
       width: 90%;
-      max-width: 1100px;
-      margin: auto;
+      max-width: 1200px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease-in-out;
     }
 
-    header {
-      padding: 80px 0;
+    /* Header */
+    .portfolio-tab h1 {
       text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 15px;
-      font-size: 1.1rem;
-      color: #cfcfcf;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
-      background: linear-gradient(135deg, #c9a24d, #e6c77a);
-      color: #000;
-      font-weight: 600;
-      border-radius: 50px;
-    }
-
-    section {
-      padding: 80px 0;
-      border-top: 1px solid #1c1c1c;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 25px;
-    }
-
-    section p {
-      color: #cfcfcf;
-      max-width: 800px;
-    }
-
-    .grid {
+    /* Cards */
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background: #111;
-      padding: 30px;
-      border-radius: 14px;
-      border: 1px solid #1f1f1f;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(5px);
+      cursor: pointer;
     }
 
-    .placeholder {
-      height: 180px;
-      background: #1a1a1a;
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #ddd;
+    }
+
+    /* Buttons */
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #2575fc;
+      color: #fff;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
-      font-size: 0.9rem;
-      margin-bottom: 20px;
+      transition: background 0.3s;
     }
 
-    footer {
-      padding: 50px 0;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      border-top: 1px solid #1c1c1c;
+    .card a:hover {
+      background: #6a11cb;
     }
+
+    /* Profile Image Highlight */
+    .profile-img {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-img img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      transition: transform 0.3s;
+    }
+
+    .profile-img img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+      .portfolio-tab { padding: 30px; }
+      .portfolio-tab h1 { font-size: 2rem; }
+    }
+
   </style>
 </head>
 <body>
-
-  <!-- HERO -->
-  <header>
-    <div class="container">
-      <h1>Great Ola In Wealth</h1>
-      <p>
-        Luxury Web & App Developer crafting premium, conversion-focused websites and web applications
-        for businesses that want to look credible and attract real clients.
-      </p>
-
-      <a class="btn" 
-         href="https://wa.me/2348144466868?text=Hello%20I%20viewed%20your%20portfolio%20homepage%20and%20I%E2%80%99m%20interested%20in%20your%20web%20or%20app%20development%20services">
-        Contact Me on WhatsApp
-      </a>
+  <div class="portfolio-tab">
+    <!-- Profile -->
+    <div class="profile-img">
+      <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Profile Picture">
     </div>
-  </header>
 
-  <!-- ABOUT -->
-  <section>
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I’m <strong>Great Ola In Wealth</strong>, a Web & App Developer based in
-        <strong>Osun State, Nigeria</strong>. I build clean, modern, luxury digital products
-        that help businesses stand out and convert visitors into paying clients.
-        <br><br>
-        My focus is not just design — I build websites and web apps that communicate trust,
-        professionalism, and business value.
-      </p>
+    <h1>My Projects</h1>
 
-      <p style="margin-top:20px;">
-        🔗 GitHub: 
-        <a href="https://github.com/Coachmarcus" target="_blank" style="color:#c9a24d;">
-          github.com/Coachmarcus
-        </a>
-      </p>
-    </div>
-  </section>
+    <!-- Project Cards -->
+    <div class="cards">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250.png?text=Project+1" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A clean and modern web project showcasing interactive design and responsive layout.</p>
+        <a href="#">View Project</a>
+      </div>
 
-  <!-- PROJECTS -->
-  <section>
-    <div class="container">
-      <h2>Selected Works</h2>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250.png?text=Project+2" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>Another creative design highlighting animation effects and modern UI patterns.</p>
+        <a href="#">View Project</a>
+      </div>
 
-      <div class="grid">
-        <div class="card">
-          <div class="placeholder">Teaching Class Demo Screenshot</div>
-          <h3>Online Teaching Class — Website Demo</h3>
-          <p>
-            A premium demo website showing how online teachers and coaches can attract
-            more students and build authority online.
-          </p>
-
-          <a class="btn" 
-             href="https://wa.me/2348144466868?text=Hello%20I%20checked%20your%20online%20teaching%20class%20website%20demo%20and%20I%E2%80%99d%20like%20something%20similar">
-            I Want Something Like This
-          </a>
-        </div>
-
-        <div class="card">
-          <div class="placeholder">Portfolio Website Screenshot</div>
-          <h3>Personal Developer Portfolio Website</h3>
-          <p>
-            A luxury personal portfolio built to showcase skills, services, and projects
-            with clarity and strong personal branding.
-          </p>
-
-          <a class="btn" 
-             href="https://wa.me/2348144466868?text=Hello%20I%20viewed%20your%20portfolio%20website%20demo%20and%20I%E2%80%99m%20interested">
-            Build My Portfolio
-          </a>
-        </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250.png?text=Project+3" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>A responsive web section that adapts beautifully across all devices and screens.</p>
+        <a href="#">View Project</a>
       </div>
     </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section>
-    <div class="container">
-      <h2>Services</h2>
-
-      <div class="grid">
-        <div class="card">Web Development</div>
-        <div class="card">Web App Development</div>
-        <div class="card">Landing Pages</div>
-        <div class="card">Website Redesign</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section>
-    <div class="container">
-      <h2>Start a Project</h2>
-      <p>
-        Ready to build something premium for your brand?
-        Let’s talk.
-      </p>
-
-      <a class="btn" 
-         href="https://wa.me/2348144466868?text=Hello%20I%E2%80%99m%20ready%20to%20start%20a%20web%20or%20app%20project">
-        Start on WhatsApp
-      </a>
-
-      <p style="margin-top:20px;">
-        📧 assistancepromoter@gmail.com
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 · Great Ola In Wealth · Web & App Developer
-  </footer>
-
+  </div>
 </body>
 </html>
