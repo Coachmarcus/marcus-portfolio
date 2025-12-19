@@ -1,367 +1,231 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Great Ola In Wealth - Portfolio</title>
-<style>
-/* Reset */
-* {margin:0;padding:0;box-sizing:border-box;font-family: Arial, sans-serif;}
-body {line-height:1.6;color:#333;scroll-behavior:smooth;position:relative;background:#f2f2f2;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Great Ola In Wealth | Luxury Web & App Developer</title>
+  <meta name="description" content="Luxury Web & App Developer building premium, conversion-focused websites and web apps for businesses." />
 
-/* Background */
-body::before {
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: url('https://cdn.pixabay.com/photo/2017/03/22/22/59/computer-2168546_1280.jpg') repeat;
-  background-size:cover;
-  opacity:0.08;
-  animation: moveBG 120s linear infinite;
-  z-index:-1;
-}
-@keyframes moveBG {0% {background-position:0 0;} 100% {background-position:2000px 1000px;}}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-/* Sections */
-section {
-  width:90%;
-  max-width:900px;
-  margin:4rem auto;
-  padding:2rem;
-  border-radius:12px;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  text-align:center;
-  position:relative;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Hero */
-#hero img {
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  border:3px solid #2a2a72;
-  margin-bottom:1.5rem;
-  animation: float 4s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-#hero h2 {font-size:2.5rem;margin-bottom:0.5rem;color:#2a2a72;}
-#hero p {margin-bottom:1.5rem;color:#444;}
-.btn {
-  display:inline-block;
-  padding:0.8rem 2rem;
-  background:#2a2a72;
-  color:#fff;
-  border-radius:8px;
-  font-weight:bold;
-  text-decoration:none;
-  transition:0.3s;
-  margin:0.5rem;
-  animation: pulse 2s infinite;
-}
-.btn:hover {background:#ff6f61;}
-@keyframes pulse {0%,100%{transform: scale(1);}50%{transform: scale(1.1);}}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      line-height: 1.7;
+    }
 
-/* Services */
-.service-card {
-  background: rgba(240,240,250,0.95);
-  padding:1.5rem;
-  border-radius:10px;
-  margin-bottom:1.5rem;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.service-card img {
-  width:80px;
-  margin-bottom:1rem;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* Testimonials */
-.comments {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:1rem;
-}
-.comment-card {
-  width:220px;
-  background: rgba(250,250,250,0.95);
-  padding:1rem;
-  border-radius:10px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  text-align:center;
-}
-.comment-card img {
-  width:60px;height:60px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #2a2a72;
-}
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-/* Floating WhatsApp button */
-.customer-service {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:50;
-}
-.customer-service img {
-  width:60px;
-  height:60px;
-  cursor:pointer;
-  transition: transform 0.3s;
-}
-.customer-service img:hover {transform: scale(1.2);}
+    header {
+      padding: 80px 0;
+      text-align: center;
+    }
 
-/* Work Location Animation */
-#office {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-.map-container {
-  position:relative;
-  width:100%;
-  max-width:800px;
-  height:400px;
-  background: url('https://cdn.pixabay.com/photo/2016/10/07/07/01/map-1728385_1280.jpg') center/cover no-repeat;
-  border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  margin-top:1.5rem;
-}
-.pin {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -100%);
-  width:40px;
-  height:40px;
-  background:red;
-  border-radius:50%;
-  border:3px solid #fff;
-  animation: bouncePin 2s infinite;
-}
-@keyframes bouncePin {
-  0%,100%{ transform: translate(-50%, -100%) scale(1);}
-  50%{ transform: translate(-50%, -110%) scale(1.2);}
-}
-.pin::after {
-  content:"📍 Jbo Hotel and Suite, Osun State, Nigeria";
-  position:absolute;
-  top:50px;
-  left:50%;
-  transform:translateX(-50%);
-  background: rgba(255,255,255,0.9);
-  padding:0.5rem 1rem;
-  border-radius:8px;
-  font-size:14px;
-  color:#333;
-  white-space:nowrap;
-}
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
 
-/* Contact Form */
-#contact form {
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  max-width:500px;
-  margin:auto;
-}
-#contact input, #contact textarea {
-  padding:0.8rem;
-  border-radius:8px;
-  border:1px solid #ccc;
-  width:100%;
-}
-#contact button {
-  padding:0.8rem 2rem;
-  border:none;
-  background:#2a2a72;
-  color:#fff;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-}
-#contact button:hover {background:#ff6f61;}
+    header p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #cfcfcf;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* Footer */
-footer {
-  text-align:center;
-  padding:2rem 0;
-  background:#2a2a72;
-  color:#fff;
-  margin-top:3rem;
-  font-size:14px;
-}
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #c9a24d, #e6c77a);
+      color: #000;
+      font-weight: 600;
+      border-radius: 50px;
+    }
 
-/* Hamburger Menu Top-Left */
-#menu-btn {
-  position: fixed;
-  top:20px;
-  left:20px;
-  width:50px;
-  height:50px;
-  background:#ff6f61;
-  border-radius:50%;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-around;
-  align-items:center;
-  padding:10px;
-  cursor:pointer;
-  z-index:30;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-  animation: bounce 2s infinite;
-}
-#menu-btn div {
-  width:25px;
-  height:3px;
-  background:#fff;
-  border-radius:2px;
-}
-@keyframes bounce {0%,100%{transform: translateY(0);}50%{transform: translateY(-5px);}}
+    section {
+      padding: 80px 0;
+      border-top: 1px solid #1c1c1c;
+    }
 
-/* Top-left menu */
-#top-menu {
-  position: fixed;
-  top:80px;
-  left:20px;
-  background: rgba(255,255,255,0.95);
-  border-radius:10px;
-  overflow:hidden;
-  display:none;
-  flex-direction: column;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}
-#top-menu a {
-  padding:0.8rem 2rem;
-  display:block;
-  text-decoration:none;
-  color:#2a2a72;
-  font-weight:bold;
-  border-bottom:1px solid #ddd;
-}
-#top-menu a:last-child{border-bottom:none;}
-#top-menu a:hover{background:#ff6f61;color:#fff;}
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
 
-/* Responsive */
-@media(max-width:768px){.comments{flex-direction:column;align-items:center;}}
-</style>
+    section p {
+      color: #cfcfcf;
+      max-width: 800px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: #111;
+      padding: 30px;
+      border-radius: 14px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .placeholder {
+      height: 180px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      padding: 50px 0;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 1px solid #1c1c1c;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<section id="hero">
-  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
-  <h2>Hello, I'm Great Ola In Wealth</h2>
-  <p>A full stack web developer delivering clean, professional web solutions.</p>
-  <a href="https://wa.me/2348144466868?text=Hi,%20I'm%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you" class="btn" target="_blank">Hire Me</a>
-</section>
+  <!-- HERO -->
+  <header>
+    <div class="container">
+      <h1>Great Ola In Wealth</h1>
+      <p>
+        Luxury Web & App Developer crafting premium, conversion-focused websites and web applications
+        for businesses that want to look credible and attract real clients.
+      </p>
 
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>I build websites, landing pages, and web apps with clean design, responsive layouts, and great client satisfaction.</p>
-  <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
-  <p>Address: Jbo Hotel and Suite, Osun State, Nigeria</p>
-</section>
-
-<!-- Services -->
-<section id="services">
-  <h2>Services</h2>
-  <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="Web design icon">
-    <h3>Web & Frontend Development</h3>
-    <p>HTML, CSS, JavaScript, React, responsive design, and more.</p>
-  </div>
-  <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Backend icon">
-    <h3>Backend & APIs</h3>
-    <p>Node.js, Express, database integration, server work, and more.</p>
-  </div>
-  <div class="service-card">
-    <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="Full stack icon">
-    <h3>Full Stack Solutions</h3>
-    <p>Complete web applications and deployable projects.</p>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section id="comments">
-  <h2>Client Satisfaction</h2>
-  <div class="comments">
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Client A">
-      <p>"Great Ola delivered our website on time!"</p>
-      <strong>- John D.</strong>
+      <a class="btn" 
+         href="https://wa.me/2348144466868?text=Hello%20I%20viewed%20your%20portfolio%20homepage%20and%20I%E2%80%99m%20interested%20in%20your%20web%20or%20app%20development%20services">
+        Contact Me on WhatsApp
+      </a>
     </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Client B">
-      <p>"Professional, responsive, highly recommend!"</p>
-      <strong>- Sarah K.</strong>
+  </header>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I’m <strong>Great Ola In Wealth</strong>, a Web & App Developer based in
+        <strong>Osun State, Nigeria</strong>. I build clean, modern, luxury digital products
+        that help businesses stand out and convert visitors into paying clients.
+        <br><br>
+        My focus is not just design — I build websites and web apps that communicate trust,
+        professionalism, and business value.
+      </p>
+
+      <p style="margin-top:20px;">
+        🔗 GitHub: 
+        <a href="https://github.com/Coachmarcus" target="_blank" style="color:#c9a24d;">
+          github.com/Coachmarcus
+        </a>
+      </p>
     </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Client C">
-      <p>"Full stack project handled beautifully."</p>
-      <strong>- Michael R.</strong>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <div class="container">
+      <h2>Selected Works</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="placeholder">Teaching Class Demo Screenshot</div>
+          <h3>Online Teaching Class — Website Demo</h3>
+          <p>
+            A premium demo website showing how online teachers and coaches can attract
+            more students and build authority online.
+          </p>
+
+          <a class="btn" 
+             href="https://wa.me/2348144466868?text=Hello%20I%20checked%20your%20online%20teaching%20class%20website%20demo%20and%20I%E2%80%99d%20like%20something%20similar">
+            I Want Something Like This
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="placeholder">Portfolio Website Screenshot</div>
+          <h3>Personal Developer Portfolio Website</h3>
+          <p>
+            A luxury personal portfolio built to showcase skills, services, and projects
+            with clarity and strong personal branding.
+          </p>
+
+          <a class="btn" 
+             href="https://wa.me/2348144466868?text=Hello%20I%20viewed%20your%20portfolio%20website%20demo%20and%20I%E2%80%99m%20interested">
+            Build My Portfolio
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Work Location Animation -->
-<section id="office">
-  <h2>Work Environment</h2>
-  <div class="map-container">
-    <div class="pin"></div>
-  </div>
-</section>
+  <!-- SERVICES -->
+  <section>
+    <div class="container">
+      <h2>Services</h2>
 
-<!-- Contact Form -->
-<section id="contact">
-  <h2>Contact Me</h2>
-  <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+      <div class="grid">
+        <div class="card">Web Development</div>
+        <div class="card">Web App Development</div>
+        <div class="card">Landing Pages</div>
+        <div class="card">Website Redesign</div>
+      </div>
+    </div>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <p>⭐⭐⭐ 4.8/5 Client Rating • 120+ Daily Visits</p>
-  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
-</footer>
+  <!-- CONTACT -->
+  <section>
+    <div class="container">
+      <h2>Start a Project</h2>
+      <p>
+        Ready to build something premium for your brand?
+        Let’s talk.
+      </p>
 
-<!-- Top-Left Hamburger -->
-<div id="menu-btn">
-  <div></div><div></div><div></div>
-</div>
-<div id="top-menu">
-  <a href="#hero">Home</a>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#comments">Clients</a>
-  <a href="#office">Work</a>
-  <a href="#contact">Contact</a>
-</div>
+      <a class="btn" 
+         href="https://wa.me/2348144466868?text=Hello%20I%E2%80%99m%20ready%20to%20start%20a%20web%20or%20app%20project">
+        Start on WhatsApp
+      </a>
 
-<!-- Floating WhatsApp Button -->
-<div class="customer-service">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" 
-  onclick="window.open('https://wa.me/2348144466868?text=Hi,%20I\'m%20[Your Name]%20from%20your%20portfolio.%20I%20have%20a%20deal%20for%20you','_blank')">
-</div>
+      <p style="margin-top:20px;">
+        📧 assistancepromoter@gmail.com
+      </p>
+    </div>
+  </section>
 
-<script>
-const menuBtn = document.getElementById('menu-btn');
-const topMenu = document.getElementById('top-menu');
-menuBtn.addEventListener('click', ()=>{
-  topMenu.style.display = topMenu.style.display === 'flex' ? 'none' : 'flex';
-  topMenu.style.flexDirection = 'column';
-});
-</script>
+  <footer>
+    © 2025 · Great Ola In Wealth · Web & App Developer
+  </footer>
 
 </body>
 </html>
