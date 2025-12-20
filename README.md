@@ -4,33 +4,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crystalline Montessori Academy</title>
   <style>
-    /* Reset and base */
+    /* Base Reset */
     * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-    body { line-height: 1.6; color: #333; }
+    body { line-height: 1.6; color: #333; background: #f9f9f9; }
     a { text-decoration: none; color: inherit; }
 
     /* Header */
-    header { background: #4CAF50; color: white; padding: 20px 0; text-align: center; }
-    header h1 { font-size: 2rem; margin-bottom: 10px; }
-    nav a { margin: 0 15px; color: white; font-weight: bold; }
+    header { background: #4CAF50; color: white; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    nav a { margin: 0 10px; color: white; font-weight: bold; }
 
-    /* Hero */
-    .hero { background: url('https://www.greenspringsschool.com/wp-content/uploads/2018/10/IMG_7290.jpg') center/cover no-repeat; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-    .hero .btn { background: #FFC107; color: #333; padding: 15px 25px; margin: 5px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+    /* Hero Section (Reduced) */
+    .hero { 
+      background: url('https://www.greenspringsschool.com/wp-content/uploads/2018/10/IMG_7290.jpg') center/cover no-repeat; 
+      height: 35vh; 
+      display: flex; flex-direction: column; justify-content: center; align-items: center; 
+      text-align: center; color: white; padding: 0 20px; border-radius: 10px;
+    }
+    .hero h2 { font-size: 1.8rem; margin-bottom: 12px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+    .hero .btn { background: #FFC107; color: #333; padding: 10px 20px; margin: 5px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
     .hero .btn:hover { background: #FFB300; }
 
     /* Sections */
-    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-    section h2 { text-align: center; font-size: 2rem; margin-bottom: 40px; color: #4CAF50; }
+    section { padding: 50px 20px; max-width: 1200px; margin: 30px auto; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #4CAF50; }
 
     /* About */
-    .about { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
-    .about img { flex: 1; max-width: 500px; border-radius: 10px; }
+    .about { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+    .about img { flex: 1; max-width: 400px; border-radius: 10px; }
     .about .content { flex: 2; }
 
     /* Programs */
-    .programs { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+    .programs { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
     .program { flex: 1 1 250px; background: #f4f4f4; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; }
     .program:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
@@ -39,24 +44,32 @@
     .facilities img { width: 100%; border-radius: 10px; }
 
     /* Testimonials */
-    .testimonials { background: #f4f4f4; padding: 60px 20px; }
-    .testimonial { text-align: center; margin-bottom: 30px; }
+    .testimonials { background: #f4f4f4; padding: 50px 20px; border-radius: 10px; }
+    .testimonial { text-align: center; margin-bottom: 20px; }
     .testimonial p { font-style: italic; margin-bottom: 10px; }
     .testimonial span { font-weight: bold; color: #4CAF50; }
 
-    /* Contact */
-    .contact form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: auto; }
-    .contact input, .contact textarea { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; }
-    .contact button { background: #4CAF50; color: white; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-    .contact button:hover { background: #45a049; }
+    /* Contact Section - Parent & General Side by Side */
+    .contact { padding: 60px 20px; border-radius: 10px; background: #4CAF50; color: white; }
+    .contact h2 { color: white; margin-bottom: 40px; text-align: center; }
+    .contact-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+    .contact-box { flex: 1 1 400px; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; }
+    .contact-box h3 { margin-bottom: 20px; color: #FFC107; text-align: center; }
+    .contact-box form { display: flex; flex-direction: column; gap: 15px; }
+    .contact-box input, .contact-box textarea { padding: 12px; border-radius: 8px; border: none; width: 100%; }
+    .contact-box input::placeholder, .contact-box textarea::placeholder { color: #333; }
+    .contact-box button { background: #FFC107; color: #333; padding: 12px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .contact-box button:hover { background: #FFB300; }
+    .contact-info { text-align: center; margin-top: 30px; font-size: 0.95rem; }
 
     /* Footer */
-    footer { background: #333; color: white; text-align: center; padding: 20px; }
-    
+    footer { background: #333; color: white; text-align: center; padding: 15px; border-radius: 0 0 10px 10px; }
+
     /* Responsive */
     @media(max-width: 768px){
       .about { flex-direction: column; }
-      .hero h2 { font-size: 2rem; }
+      .hero h2 { font-size: 1.5rem; }
+      .contact-container { flex-direction: column; }
     }
   </style>
 </head>
@@ -89,7 +102,7 @@
     <div class="about">
       <img src="https://www.superprof.ng/blog/wp-content/uploads/2022/09/primary-school-students-980x649.jpg" alt="Classroom">
       <div class="content">
-        <p><strong>Crystalline Montessori Academy</strong> is dedicated to providing top-quality Montessori education. We focus on academic excellence, moral development, and holistic learning to nurture future leaders.</p>
+        <p><strong>Crystalline Montessori Academy</strong> provides top-quality Montessori education. We focus on academic excellence, moral development, and holistic learning to nurture future leaders.</p>
         <p><strong>Mission:</strong> To offer an enriching Montessori experience that develops the whole child – academically, morally, and socially.</p>
         <p><strong>Vision:</strong> To be a leading Montessori school recognized for excellence, integrity, and innovation.</p>
       </div>
@@ -140,16 +153,36 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <textarea rows="5" placeholder="Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="text-align:center; margin-top:20px;">📍 10 Mafowurosere Street, Jaleyemi Area, Osogbo, Osun State, Nigeria<br>📞 +234 704 443 3328</p>
+    <div class="contact-container">
+      <!-- General Contact -->
+      <div class="contact-box">
+        <h3>General Inquiry</h3>
+        <form>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <textarea rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Parent Inquiry -->
+      <div class="contact-box">
+        <h3>Parent Contact</h3>
+        <form>
+          <input type="text" placeholder="Parent Name" required>
+          <input type="text" placeholder="Child Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <textarea rows="4" placeholder="Your Message / Admission Query" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="contact-info">
+      📍 10 Mafowurosere Street, Jaleyemi Area, Osogbo, Osun State, Nigeria<br>
+      📞 +234 704 443 3328
+    </div>
   </section>
 
   <!-- Footer -->
