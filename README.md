@@ -2,192 +2,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crystalline Montessori Academy</title>
+  <title>Beny Hair Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    /* Base Reset */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-    body { line-height: 1.6; color: #333; background: #f9f9f9; }
-    a { text-decoration: none; color: inherit; }
-
-    /* Header */
-    header { background: #4CAF50; color: white; padding: 15px 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
-    header h1 { font-size: 1.8rem; margin-bottom: 8px; }
-    nav a { margin: 0 10px; color: white; font-weight: bold; }
-
-    /* Hero Section (Reduced) */
-    .hero { 
-      background: url('https://www.greenspringsschool.com/wp-content/uploads/2018/10/IMG_7290.jpg') center/cover no-repeat; 
-      height: 35vh; 
-      display: flex; flex-direction: column; justify-content: center; align-items: center; 
-      text-align: center; color: white; padding: 0 20px; border-radius: 10px;
-    }
-    .hero h2 { font-size: 1.8rem; margin-bottom: 12px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
-    .hero .btn { background: #FFC107; color: #333; padding: 10px 20px; margin: 5px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-    .hero .btn:hover { background: #FFB300; }
-
-    /* Sections */
-    section { padding: 50px 20px; max-width: 1200px; margin: 30px auto; background: white; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #4CAF50; }
-
-    /* About */
-    .about { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
-    .about img { flex: 1; max-width: 400px; border-radius: 10px; }
-    .about .content { flex: 2; }
-
-    /* Programs */
-    .programs { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .program { flex: 1 1 250px; background: #f4f4f4; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; }
-    .program:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-    /* Facilities */
-    .facilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .facilities img { width: 100%; border-radius: 10px; }
-
-    /* Testimonials */
-    .testimonials { background: #f4f4f4; padding: 50px 20px; border-radius: 10px; }
-    .testimonial { text-align: center; margin-bottom: 20px; }
-    .testimonial p { font-style: italic; margin-bottom: 10px; }
-    .testimonial span { font-weight: bold; color: #4CAF50; }
-
-    /* Contact Section - Parent & General Side by Side */
-    .contact { padding: 60px 20px; border-radius: 10px; background: #4CAF50; color: white; }
-    .contact h2 { color: white; margin-bottom: 40px; text-align: center; }
-    .contact-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-    .contact-box { flex: 1 1 400px; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; }
-    .contact-box h3 { margin-bottom: 20px; color: #FFC107; text-align: center; }
-    .contact-box form { display: flex; flex-direction: column; gap: 15px; }
-    .contact-box input, .contact-box textarea { padding: 12px; border-radius: 8px; border: none; width: 100%; }
-    .contact-box input::placeholder, .contact-box textarea::placeholder { color: #333; }
-    .contact-box button { background: #FFC107; color: #333; padding: 12px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-    .contact-box button:hover { background: #FFB300; }
-    .contact-info { text-align: center; margin-top: 30px; font-size: 0.95rem; }
-
-    /* Footer */
-    footer { background: #333; color: white; text-align: center; padding: 15px; border-radius: 0 0 10px 10px; }
-
-    /* Responsive */
-    @media(max-width: 768px){
-      .about { flex-direction: column; }
-      .hero h2 { font-size: 1.5rem; }
-      .contact-container { flex-direction: column; }
-    }
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:'Roboto', sans-serif; color:#333;}
+    a {text-decoration:none; color:inherit;}
+    header {position:relative;}
+    header img {width:100%; height:80vh; object-fit:cover;}
+    header .overlay {position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center;}
+    header h1 {font-family:'Playfair Display', serif; font-size:3em; margin-bottom:20px;}
+    header p {font-size:1.2em; margin-bottom:30px;}
+    header a.button {background:#000; color:#fff; padding:12px 30px; border-radius:5px;}
+    section {padding:60px 20px;}
+    .about, .services, .gallery, .contact, .location {max-width:1200px; margin:auto;}
+    .about h2, .services h2, .gallery h2, .contact h2, .location h2 {font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:20px; text-align:center;}
+    .about p {font-size:1.1em; line-height:1.6; text-align:center; max-width:800px; margin:auto;}
+    .services-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; margin-top:30px;}
+    .service {padding:20px; border:1px solid #ddd; border-radius:8px; text-align:center;}
+    .service h3 {margin-bottom:15px; font-family:'Playfair Display', serif;}
+    .gallery-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px; margin-top:30px;}
+    .gallery-grid img {width:100%; border-radius:8px;}
+    .contact form {max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;}
+    .contact input, .contact textarea {padding:12px; border:1px solid #ccc; border-radius:5px; font-size:1em;}
+    .contact button {padding:12px; background:#000; color:#fff; border:none; border-radius:5px; cursor:pointer;}
+    footer {background:#f5f5f5; padding:20px 0; text-align:center;}
+    footer a {margin:0 10px; font-size:1.2em; color:#000;}
+    @media(max-width:768px){header h1{font-size:2em;} header p{font-size:1em;}}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header / Hero -->
   <header>
-    <h1>Crystalline Montessori Academy</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#programs">Programs</a>
-      <a href="#facilities">Facilities</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <img src="https://cdn.wigginshair.com/media/catalog/product/cache/6/image/600x/040ec09b1e35df139433887a97daa66f/3/-/3-lagos_m_shaped_hairline.jpg" alt="Beny Hair Gallery Hero">
+    <div class="overlay">
+      <h1>Beny Hair Gallery</h1>
+      <p>Premium Human Hair Wigs & Extensions in Lagos</p>
+      <a href="#contact" class="button">Book Now</a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Nurturing Young Minds for a Bright Future</h2>
-    <div>
-      <a href="#contact" class="btn">Apply Now</a>
-      <a href="#about" class="btn">Learn More</a>
-    </div>
-  </section>
-
   <!-- About Section -->
-  <section id="about">
-    <h2>About Us</h2>
-    <div class="about">
-      <img src="https://www.superprof.ng/blog/wp-content/uploads/2022/09/primary-school-students-980x649.jpg" alt="Classroom">
-      <div class="content">
-        <p><strong>Crystalline Montessori Academy</strong> provides top-quality Montessori education. We focus on academic excellence, moral development, and holistic learning to nurture future leaders.</p>
-        <p><strong>Mission:</strong> To offer an enriching Montessori experience that develops the whole child – academically, morally, and socially.</p>
-        <p><strong>Vision:</strong> To be a leading Montessori school recognized for excellence, integrity, and innovation.</p>
+  <section class="about" id="about">
+    <h2>About Beny Hair Gallery</h2>
+    <p><strong>Beny Hair Gallery</strong> is a trusted supplier of human hair wigs, bundles, and extensions in Lagos, Nigeria. We provide quality hair products, expert styling advice, and personalized care for every client. Follow us on Instagram for updates and product highlights!</p>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service">
+        <h3>Human Hair Bundles</h3>
+        <p>Natural feel and long-lasting quality extensions.</p>
+      </div>
+      <div class="service">
+        <h3>Custom Wigs</h3>
+        <p>Hand-crafted wigs with lace frontals and closures.</p>
+      </div>
+      <div class="service">
+        <h3>Styling & Advice</h3>
+        <p>Expert styling tips to maintain hair health and beauty.</p>
+      </div>
+      <div class="service">
+        <h3>Hair Care Consultation</h3>
+        <p>Personalized advice to maintain healthy and beautiful hair.</p>
       </div>
     </div>
   </section>
 
-  <!-- Programs Section -->
-  <section id="programs">
-    <h2>Our Programs</h2>
-    <div class="programs">
-      <div class="program">
-        <h3>Early Childhood Education</h3>
-        <p>Engaging Montessori lessons for foundational growth and curiosity-driven learning.</p>
-      </div>
-      <div class="program">
-        <h3>Montessori Learning</h3>
-        <p>Hands-on approach, independence, and personalized learning pace.</p>
-      </div>
-      <div class="program">
-        <h3>Co-Curricular Activities</h3>
-        <p>Sports, music, art, robotics, environmental and debate clubs.</p>
-      </div>
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://cdn.wigginshair.com/media/catalog/product/cache/6/image/600x/040ec09b1e35df139433887a97daa66f/1/3/13x6-lagos_hairline_lace_wig_3.jpg" alt="Lace Front Wig">
+      <img src="https://cdn.wigginshair.com/media/catalog/product/b/o/body_wave_wig_human_hair_2.jpg" alt="Body Wave Wig">
+      <img src="https://superbwigs.com/cdn/shop/files/01_0cfc80a8-fc17-4be8-b615-2b86293aefea_800x.jpg?v=1747903484" alt="Black Wig">
+      <img src="https://www.naijabeautyhair.com/cdn/shop/files/Wig_Queenie_-_Higher_Density_Raw_Straight_Frontal_Wig_1.jpg?v=1725345224" alt="Straight Frontal Wig">
+      <img src="https://pictures-nigeria.jijistatic.net/188650543_NjIwLTgyNy0wMDgxOGUyMTYw.webp" alt="Curly Human Hair">
     </div>
   </section>
 
-  <!-- Facilities Section -->
-  <section id="facilities">
-    <h2>Our Facilities</h2>
-    <div class="facilities">
-      <img src="https://kidsusamontessori.org/wp-content/uploads/2024/11/build-safe-environment.jpg" alt="Playground">
-      <img src="https://msbethhughes.org/wp-content/uploads/2015/11/class-library-e1448501343366.jpg?crop=1&h=1800&w=2400" alt="Library">
-      <img src="https://www.thoughtco.com/thmb/OpPBudhFYkJ0JdCmkZUNZpNjhC8%3D/1500x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29/Getty_girl_raising_hand_classroom_LARGE_Tetra-Images-Jamie-Grill-56a13e8b5f9b58b7d0bd5f12.jpg" alt="Classroom">
-      <img src="https://www.kidzlet.com/images/products/kids-playground-flooring.jpg" alt="Play Area">
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="testimonials">
-    <h2>What Parents Say</h2>
-    <div class="testimonial">
-      <p>“Crystalline Montessori helped my child grow in confidence, discipline, and academics.”</p>
-      <span>- Parent</span>
-    </div>
-    <div class="testimonial">
-      <p>“The environment is calm, enriching, and focused on positive growth.”</p>
-      <span>- Parent</span>
+  <!-- Location / Map Section -->
+  <section class="location">
+    <h2>Find Us</h2>
+    <p style="text-align:center;">Location: Lagos, Nigeria — Update with exact address when confirmed</p>
+    <div style="text-align:center; margin-top:20px;">
+      <iframe width="90%" height="350" style="border:0;" loading="lazy" allowfullscreen
+        src="https://maps.google.com/maps?q=Lagos%20Nigeria&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section class="contact" id="contact">
     <h2>Contact Us</h2>
-    <div class="contact-container">
-      <!-- General Contact -->
-      <div class="contact-box">
-        <h3>General Inquiry</h3>
-        <form>
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email Address" required>
-          <textarea rows="4" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-
-      <!-- Parent Inquiry -->
-      <div class="contact-box">
-        <h3>Parent Contact</h3>
-        <form>
-          <input type="text" placeholder="Parent Name" required>
-          <input type="text" placeholder="Child Name" required>
-          <input type="tel" placeholder="Phone Number" required>
-          <textarea rows="4" placeholder="Your Message / Admission Query" required></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-    <div class="contact-info">
-      📍 10 Mafowurosere Street, Jaleyemi Area, Osogbo, Osun State, Nigeria<br>
-      📞 +234 704 443 3328
-    </div>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Phone">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p style="text-align:center; margin-top:10px;">Instagram: <a href="https://www.instagram.com/benyhair_gallery/?hl=en&utm_source=chatgpt.com" target="_blank">@benyhair_gallery</a></p>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Crystalline Montessori Academy. All Rights Reserved.
+    <p>&copy; 2025 Beny Hair Gallery</p>
+    <a href="#about">About</a> | <a href="#services">Services</a> | <a href="#gallery">Gallery</a> | <a href="#contact">Contact</a>
   </footer>
 
 </body>
