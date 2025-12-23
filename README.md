@@ -145,7 +145,7 @@
 
 <footer>© 2025 Julytee Plumbing Services | Ogbomosho, Oyo State, Nigeria</footer>
 
-<!-- top-Left-side toggle button -->
+<!-- up-Left-side toggle button -->
 <div class="menu-toggle" id="menuToggle">⋮⋮⋮⋮</div>
 <div class="side-buttons" id="sideButtons">
   <button data-target="#home" class="active">Home</button>
