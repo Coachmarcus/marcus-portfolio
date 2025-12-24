@@ -1,9 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garki Supermarket</title>
-
 <style>
 :root{
 --bg:#f4f4f4;
@@ -24,7 +24,7 @@ color:var(--text);
 transition:.3s;
 }
 
-/* HEADER (unchanged) */
+/* HEADER */
 .header{
 background:var(--primary);
 color:#fff;
@@ -98,7 +98,8 @@ transition:transform .6s ease;
 .product-group{
 min-width:100%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+grid-template-columns:repeat(2,1fr);
+grid-template-rows:repeat(2, auto);
 gap:14px;
 }
 .product{
@@ -120,6 +121,13 @@ margin:8px 0 4px;
 .product span{
 font-size:12px;
 color:#666;
+}
+.product input{
+width:50%;
+padding:4px;
+margin:4px 0;
+border-radius:6px;
+border:1px solid #ccc;
 }
 .product button{
 margin-top:6px;
@@ -151,10 +159,9 @@ width:100%;
 cursor:pointer;
 }
 
-/* Reviews */
+/* Reviews - restored to original look */
 .reviews{
-display:grid;
-gap:16px;
+display:block;
 }
 .review-card{
 background:var(--bg);
@@ -193,7 +200,7 @@ border:none;
 border-radius:12px;
 }
 
-/* Bottom buttons */
+/* Bottom fixed buttons */
 .bottom{
 position:fixed;
 bottom:0;
@@ -256,12 +263,32 @@ background:rgba(255,255,255,0.2);
 .drawer-open .drawer-content{
 transform:translateY(0);
 }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .header { padding: 14px; }
+  .header h2 { font-size: 18px; }
+  .header p { font-size: 12px; }
+  .toggle { padding: 4px 8px; font-size: 12px; }
+  .card { padding: 12px; margin-bottom: 14px; }
+  .product-group { grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(2, auto); gap:10px; }
+  .product img { height:100px; }
+  .product h4 { font-size:12px; }
+  .product span { font-size:11px; }
+  .product input { width:50%; padding:4px; font-size:12px; }
+  .product button { padding:6px; font-size:12px; }
+  input, textarea { padding: 8px; font-size: 12px; }
+  button.send { padding: 8px; font-size: 13px; }
+  iframe { height:220px; }
+  .drawer-toggle { padding:10px; font-size:14px; }
+  .drawer-content a { padding: 4px 8px; font-size:12px; }
+  .bottom a { padding: 10px; font-size:12px; }
+}
 </style>
 </head>
-
 <body>
 
-<!-- HEADER (green box remains unchanged) -->
+<!-- HEADER -->
 <div class="header">
 <h2>Garki Supermarket</h2>
 <p>Everyday Shopping – Garki, Abuja</p>
@@ -307,56 +334,96 @@ drinks and daily essentials at affordable prices. Open daily to serve you.
 <!-- Group 1 -->
 <div class="product-group">
 <div class="product">
-<img src="https://images.unsplash.com/photo-1580910051074-7c36a63c6b1c">
-<h4>Rice (50kg)</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 1</h4>
 <span>ID: P001</span>
-<button onclick="addToCart('P001','Rice 50kg')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P001" placeholder="Qty">
+<button onclick="addToCartWithQty('P001','Product 1')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a">
-<h4>Vegetable Oil</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 2</h4>
 <span>ID: P002</span>
-<button onclick="addToCart('P002','Vegetable Oil')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P002" placeholder="Qty">
+<button onclick="addToCartWithQty('P002','Product 2')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
-<h4>Sugar</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 3</h4>
 <span>ID: P003</span>
-<button onclick="addToCart('P003','Sugar')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P003" placeholder="Qty">
+<button onclick="addToCartWithQty('P003','Product 3')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1615486364462-ef6363adbc18">
-<h4>Milk</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 4</h4>
 <span>ID: P004</span>
-<button onclick="addToCart('P004','Milk')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P004" placeholder="Qty">
+<button onclick="addToCartWithQty('P004','Product 4')">Add to Cart</button>
 </div>
 </div>
 
 <!-- Group 2 -->
 <div class="product-group">
 <div class="product">
-<img src="https://images.unsplash.com/photo-1585238342028-4bbc1c8bfa5f">
-<h4>Soft Drinks</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 5</h4>
 <span>ID: P005</span>
-<button onclick="addToCart('P005','Soft Drinks')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P005" placeholder="Qty">
+<button onclick="addToCartWithQty('P005','Product 5')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1580910365203-8c68e85b4c2f">
-<h4>Bread</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 6</h4>
 <span>ID: P006</span>
-<button onclick="addToCart('P006','Bread')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P006" placeholder="Qty">
+<button onclick="addToCartWithQty('P006','Product 6')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1587049352851-8d93c0f03f23">
-<h4>Detergent</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 7</h4>
 <span>ID: P007</span>
-<button onclick="addToCart('P007','Detergent')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P007" placeholder="Qty">
+<button onclick="addToCartWithQty('P007','Product 7')">Add to Cart</button>
 </div>
 <div class="product">
-<img src="https://images.unsplash.com/photo-1612209924761-2c9db1f25c4c">
-<h4>Toothpaste</h4>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 8</h4>
 <span>ID: P008</span>
-<button onclick="addToCart('P008','Toothpaste')">Add to Cart</button>
+<input type="number" min="1" value="1" id="qty_P008" placeholder="Qty">
+<button onclick="addToCartWithQty('P008','Product 8')">Add to Cart</button>
+</div>
+</div>
+
+<!-- Group 3 -->
+<div class="product-group">
+<div class="product">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 9</h4>
+<span>ID: P009</span>
+<input type="number" min="1" value="1" id="qty_P009" placeholder="Qty">
+<button onclick="addToCartWithQty('P009','Product 9')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 10</h4>
+<span>ID: P010</span>
+<input type="number" min="1" value="1" id="qty_P010" placeholder="Qty">
+<button onclick="addToCartWithQty('P010','Product 10')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 11</h4>
+<span>ID: P011</span>
+<input type="number" min="1" value="1" id="qty_P011" placeholder="Qty">
+<button onclick="addToCartWithQty('P011','Product 11')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9sJpjIzFmmosZ3XMu6S_Zi3zQrcj6VCAYiS0NCMhzlA&s=10">
+<h4>Product 12</h4>
+<span>ID: P012</span>
+<input type="number" min="1" value="1" id="qty_P012" placeholder="Qty">
+<button onclick="addToCartWithQty('P012','Product 12')">Add to Cart</button>
 </div>
 </div>
 
@@ -451,15 +518,18 @@ carouselSlides[ci].classList.add("active");
 let track=document.getElementById("track");
 let groupIndex=0;
 setInterval(()=>{
-groupIndex=(groupIndex+1)%2;
+groupIndex=(groupIndex+1)%3;
 track.style.transform=`translateX(-${groupIndex*100}%)`;
 },4000);
 
-/* Cart */
+/* Cart with quantity */
 let cart=[];
-function addToCart(id,name){
-cart.push(`${id} - ${name}`);
-document.getElementById("orderBox").value=cart.join("\n");
+function addToCartWithQty(id,name){
+  let qtyInput = document.getElementById('qty_'+id);
+  let qty = parseInt(qtyInput.value);
+  if(!qty || qty<1) qty = 1;
+  cart.push(`${id} - ${name} x${qty}`);
+  document.getElementById("orderBox").value=cart.join("\n");
 }
 
 /* WhatsApp order */
@@ -474,6 +544,5 @@ function toggleDrawer(){
 document.getElementById("bottomDrawer").classList.toggle("drawer-open");
 }
 </script>
-
 </body>
 </html>
