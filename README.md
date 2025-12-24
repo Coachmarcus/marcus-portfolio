@@ -2,206 +2,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Julytee Plumbing</title>
+<title>Makanaki Car Hire Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  * { box-sizing:border-box; margin:0; padding:0; font-family:Arial,sans-serif; scroll-behavior:smooth; }
-  body { background:#1a202c; color:#f5f5f5; position:relative; }
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
+body { scroll-behavior: smooth; }
+a { text-decoration: none; }
 
-  /* Hero/Home */
-  .hero { position:relative; width:100%; min-height:500px; background:url('https://images.pexels.com/photos/6801643/pexels-photo-6801643.jpeg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:20px; }
-  .hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1; }
-  .hero-content { position:relative; z-index:2; max-width:800px; }
-  .hero-content img.logo { width:100px; height:100px; border-radius:50%; object-fit:cover; border:3px solid #f0a500; margin-bottom:15px; }
-  .hero-content h1 { font-size:2.5rem; margin-bottom:10px; color:#f5f5f5; }
-  .hero-content p { font-size:1.2rem; margin-bottom:20px; color:#ddd; }
-  .hero-buttons { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
-  .hero-buttons a { text-decoration:none; padding:12px 22px; border-radius:6px; font-weight:bold; color:#222; background:#f0a500; transition:0.3s; }
-  .hero-buttons a:hover { background:#e69500; }
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 60vh;
+    background: url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+.hero h2 { font-size: 1.8rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
+.hero h1 { font-size: 2.2rem; margin-bottom: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);}
+.hero p { font-size: 1rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);}
+.hero .cta { background-color: #007bff; color: white; padding: 12px 28px; border-radius: 30px; font-weight: bold; transition: all 0.3s ease; cursor: pointer;}
+.hero .cta:hover { background-color: #0056b3; transform: scale(1.05); }
 
-  /* Section Styling */
-  section { padding:40px 20px; }
-  section h2 { text-align:center; font-size:2rem; margin-bottom:20px; color:#f5f5f5; }
-  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-  .service-card { background:#2a3653; border-radius:12px; padding:15px; text-align:center; position:relative; overflow:hidden; }
-  .service-card img { width:100%; border-radius:8px; height:180px; object-fit:cover; transition:opacity 1s ease; }
-  .service-card h3 { margin:10px 0 5px 0; font-size:1.2rem; }
-  .service-card p { font-size:0.95rem; color:#ccc; }
+/* Fleet Section */
+.fleet { padding: 50px 20px; background: #f5f5f5; text-align: center;}
+.fleet h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #333;}
+.fleet p { font-size: 1rem; margin-bottom: 2rem; color: #555;}
+.car-carousel { display: flex; overflow-x: auto; gap: 20px; scroll-behavior: smooth; padding-bottom: 20px; }
+.car-carousel img { width: 300px; height: 200px; border-radius: 15px; object-fit: cover; flex-shrink: 0; }
 
-  .about-section { background:#162447; border-radius:12px; padding:30px 20px; margin:40px 0; }
-  .about-section p { margin:10px 0; line-height:1.5rem; text-align:center; color:#ddd; }
+.pricing-table { display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
+.pricing { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 200px; }
+.pricing h3 { margin-bottom: 10px; color: #007bff;}
+.pricing p { margin-bottom: 5px; color: #555; }
 
-  .testimonials { background:#0f1626; padding:40px 20px; border-radius:12px; margin:40px 20px; }
-  .testimonial { background:#1e2940; margin:15px auto; padding:12px 18px; border-radius:8px; max-width:800px; }
-  .testimonial p { font-style:italic; }
+.services { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+.service { text-align: center; }
+.service img { width: 50px; margin-bottom: 10px; }
 
-  .contact-section { background:#162447; padding:30px 20px; border-radius:12px; max-width:700px; margin:40px auto; }
-  .contact-section h2 { text-align:center; margin-bottom:20px; }
-  .contact-details { text-align:center; margin-bottom:20px; }
-  .contact-details p { margin:6px 0; font-size:1.1rem; }
-  .contact-details a { color:#f0a500; text-decoration:none; font-weight:bold; }
+.fleet-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;}
+.fleet-buttons button { padding: 10px 25px; border: none; border-radius: 25px; font-weight: bold; color: white; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;}
+.fleet-buttons button:hover { transform: scale(1.05);}
+.view-fleet { background-color: #ff7f00;}
+.get-quote { background-color: #28a745;}
+.contact-us { background-color: #6f42c1;}
 
-  .contact-form { display:flex; flex-direction:column; gap:12px; }
-  .contact-form input, .contact-form textarea { padding:10px; border-radius:6px; border:1px solid #555; background:#0d1626; color:#fff; }
-  .contact-form button { padding:12px; border:none; background:#f0a500; color:#222; font-size:1rem; border-radius:6px; cursor:pointer; }
-  .contact-form button:hover { background:#e69500; }
+/* Features Section */
+.features { padding: 50px 20px; background: #fff; text-align:center; }
+.features h2 { font-size: 2rem; margin-bottom: 1rem; color: #333;}
+.feature-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.feature { background: #f5f5f5; padding: 20px; border-radius: 15px; width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+.feature img { width:50px; margin-bottom:10px; }
+.feature p { color:#555; font-size:1rem; }
 
-  footer { background:#0d3b66; text-align:center; padding:18px; font-size:0.9rem; color:#fff; margin-top:40px; }
+/* How It Works Section */
+.how { padding:50px 20px; background:#f5f5f5; text-align:center; }
+.how h2 { font-size:2rem; margin-bottom:20px; color:#333;}
+.steps { display:flex; justify-content:center; gap:30px; flex-wrap:wrap;}
+.step { background:white; padding:20px; border-radius:15px; width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.step img { width:50px; margin-bottom:10px;}
+.step p { color:#555; font-size:1rem; }
+.step a { text-decoration:none; color:#007bff; font-weight:bold; cursor:pointer; }
 
-  /* Left-side toggle button */
-  .menu-toggle { position:fixed; top:50%; left:0; transform:translateY(-50%); width:40px; height:40px; background:#f0a500; color:#222; font-weight:bold; cursor:pointer; border-radius:0 8px 8px 0; display:flex; align-items:center; justify-content:center; z-index:1000; }
-  .side-buttons { position:fixed; top:50%; left:0; transform:translateY(-50%) translateX(-100%); display:flex; flex-direction:column; gap:10px; transition:0.3s; z-index:999; }
-  .side-buttons.show { transform:translateY(-50%) translateX(0); }
-  .side-buttons button { padding:12px 18px; border:none; background:#0d3b66; color:#fff; border-radius:0 8px 8px 0; cursor:pointer; font-weight:bold; transition:0.3s; }
-  .side-buttons button.active, .side-buttons button:hover { background:#f0a500; color:#222; }
+/* Testimonials Section */
+.testimonials { padding:50px 20px; text-align:center; background:#fff;}
+.testimonials h2 { font-size:2rem; margin-bottom:1.5rem; color:#333;}
+.testimonial-card { max-width:400px; margin: 0 auto 20px; background:#f5f5f5; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; align-items:center; gap:15px;}
+.testimonial-card img { width:50px; height:50px; border-radius:50%; object-fit:cover;}
+.testimonial-card p { color:#555; font-size:1rem; margin:0;}
+.testimonial-card span { font-weight:bold; color:#333; }
 
-  /* AI Chatbox */
-  .ai-icon { position:fixed; bottom:20px; right:20px; width:50px; height:50px; background:#f0a500; color:#222; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-weight:bold; z-index:2000; }
-  .ai-chat { position:fixed; bottom:80px; right:20px; background:#0d3b66; color:#fff; border-radius:12px; width:300px; max-height:400px; display:none; flex-direction:column; overflow:hidden; z-index:2000; }
-  .ai-header { background:#f0a500; color:#222; padding:10px; font-weight:bold; cursor:pointer; }
-  .ai-messages { flex:1; padding:10px; overflow-y:auto; font-size:0.95rem; }
-  .ai-input { display:flex; border-top:1px solid #555; }
-  .ai-input input { flex:1; padding:8px; border:none; outline:none; background:#162447; color:#fff; }
-  .ai-input button { padding:8px 12px; background:#f0a500; border:none; color:#222; cursor:pointer; }
+/* FAQ Section */
+.faq { padding:50px 20px; text-align:center; background:#f5f5f5;}
+.faq h2 { font-size:2rem; margin-bottom:1.5rem; color:#333;}
+.faq-item { max-width:600px; margin:10px auto; background:white; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.faq-item p { font-size:1rem; color:#555; }
 
+/* Contact Section */
+.contact { padding:50px 20px; text-align:center; background:#fff; }
+.contact h2 { font-size:2rem; margin-bottom:1rem; color:#333; }
+
+/* First Box Image */
+.contact-box {
+    margin: 20px auto;
+    text-align: center;
+}
+.contact-img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+}
+
+.contact .map-contact { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:30px;}
+.map { width:200px; height:200px; border-radius:15px; background: url('https://images.pexels.com/photos/383482/pexels-photo-383482.jpeg?auto=compress&cs=tinysrgb&h=300&w=400') center/cover no-repeat; }
+.contact-info { max-width:300px; text-align:left;}
+.contact-info img { width:50px; margin-right:10px; vertical-align:middle;}
+.contact-info p { margin-bottom:10px; }
+
+/* Sticky Footer Buttons */
+.sticky-footer { position: fixed; bottom:0; left:0; width:100%; background: rgba(255,255,255,0.95); display:flex; justify-content:center; gap:20px; padding:10px 0; box-shadow:0 -2px 8px rgba(0,0,0,0.2); z-index:100; }
+.sticky-footer button { padding:10px 20px; border-radius:20px; border:none; color:white; font-weight:bold; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;}
+.sticky-footer .home { background-color:#007bff;}
+.sticky-footer .fleet-btn { background-color:#ff7f00;}
+.sticky-footer .contact { background-color:#28a745;}
+.sticky-footer button:hover { transform: scale(1.05); }
+
+@media(max-width:768px){
+    .car-carousel img { width:250px; height:150px;}
+    .pricing-table, .feature-cards, .steps { flex-direction: column; align-items:center; }
+    .map-contact { flex-direction: column; align-items:center; }
+    .hero h1 { font-size:1.8rem;}
+    .hero h2 { font-size:1.2rem;}
+    .hero p { font-size:0.9rem;}
+}
 </style>
 </head>
 <body>
 
-<!-- Home / Hero -->
-<div id="home" class="hero">
-  <div class="hero-content">
-    <img class="logo" src="https://images.pexels.com/photos/6801643/pexels-photo-6801643.jpeg" alt="Company Logo">
-    <h1>Julytee Plumbing</h1>
-    <p>Reliable plumbing solutions for homes & businesses in Ogbomosho, Oyo State. Pipe repairs, water system installations, drainage cleaning & emergency services.</p>
-    <div class="hero-buttons">
-      <a href="tel:+2347061362802">Call Now</a>
-      <a href="https://wa.me/2347061362802" target="_blank">WhatsApp</a>
-      <a href="#contact">Get a Quote</a>
+<!-- Hero Section -->
+<section class="hero">
+    <h2>Makanaki Car Hire Services</h2>
+    <h1>Reliable Car Hire & Rental Across Nigeria</h1>
+    <p>Affordable, Easy, and Safe Car Rentals – Book Online or WhatsApp Today</p>
+    <button class="cta" onclick="scrollToFleet()">Book Now</button>
+</section>
+
+<!-- Fleet Section -->
+<section class="fleet" id="fleet">
+    <h2>Our Fleet & Services</h2>
+    <p>Choose from our selection of local Nigerian cars for your travel needs.</p>
+    <div class="car-carousel">
+        <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Corolla">
+        <img src="https://images.pexels.com/photos/386145/pexels-photo-386145.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Camry">
+        <img src="https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Mercedes GLK">
+        <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Mercedes GLE">
+        <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Highlander">
     </div>
-  </div>
+
+    <div class="pricing-table">
+        <div class="pricing"><h3>Daily</h3><p>₦15,000/day</p></div>
+        <div class="pricing"><h3>Weekly</h3><p>₦90,000/week</p></div>
+        <div class="pricing"><h3>Airport Pickup</h3><p>₦20,000/ride</p></div>
+    </div>
+
+    <div class="services">
+        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/checked--v1.png"/><p>Easy Booking</p></div>
+        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/phone.png"/><p>24/7 Support</p></div>
+        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/car.png"/><p>Flexible Pickup & Drop</p></div>
+    </div>
+
+    <div class="fleet-buttons">
+        <button class="view-fleet" onclick="scrollToFleet()">View Fleet</button>
+        <button class="get-quote" onclick="openQuote()">Get a Quote</button>
+        <button class="contact-us" onclick="scrollToContact()">Contact Us</button>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <h2>Why Choose Us</h2>
+    <div class="feature-cards">
+        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/rocket.png"/><p>Fast Booking</p></div>
+        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/driver.png"/><p>Professional Drivers</p></div>
+        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/wallet.png"/><p>Affordable Rates</p></div>
+        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/clock.png"/><p>24/7 Support</p></div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step"><a onclick="openQuote()"><img src="https://img.icons8.com/ios-filled/50/000000/search.png"/><p>Choose Car</p></a></div>
+        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/form.png"/><p>Book Online</p></div>
+        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/handshake.png"/><p>Confirm & Pay</p></div>
+        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/car.png"/><p>Pickup Vehicle</p></div>
+        <div class="step"><img src="https://images.pexels.com/photos/1005822/pexels-photo-1005822.jpeg?auto=compress&cs=tinysrgb&h=300&w=400"/><p>Enjoy Your Ride</p></div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <h2>Customer Reviews</h2>
+    <div class="testimonial-card">
+        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Tunde">
+        <p><span>Tunde</span> Excellent service, the car was clean and the driver punctual.</p>
+    </div>
+    <div class="testimonial-card">
+        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Chiamaka">
+        <p><span>Chiamaka</span> Booking was super easy and the customer support very responsive.</p>
+    </div>
+    <div class="testimonial-card">
+        <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Emeka">
+        <p><span>Emeka</span> Affordable cars, easy process, very satisfied with Makanaki Car Hire.</p>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><p>Q: How do I book a car? <br>A: Simply click Book Now or Get a Quote and follow instructions.</p></div>
+    <div class="faq-item"><p>Q: What types of cars do you offer? <br>A: We have Corolla, Camry, GLK, GLE, SUVs and more.</p></div>
+    <div class="faq-item"><p>Q: Can I book for airport pickup? <br>A: Yes, we provide airport pickup services at affordable rates.</p></div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <!-- First Box Image -->
+    <div class="contact-box">
+        <img src="https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg" alt="First Box" class="contact-img">
+    </div>
+        <div class="contact-info">
+            <p><img src="https://img.icons8.com/ios-filled/50/000000/phone.png"/> +234 801 234 5678</p>
+            <p><img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png"/> +234 801 234 5678</p>
+            <p><img src="https://img.icons8.com/ios-filled/50/000000/new-post.png"/> info@makanakicarhire.ng</p>
+            <p><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"/> Follow us on social media</p>
+        </div>
+    </div>
+</section>
+
+<!-- Sticky Footer Buttons -->
+<<!-- Sticky Footer Buttons -->
+<div class="sticky-footer">
+    <button class="footer-btn home" onclick="scrollToHome()">
+        🏠 Home
+    </button>
+    <button class="footer-btn fleet-btn" onclick="scrollToFleet()">
+        🚗 Fleet
+    </button>
+    <button class="footer-btn contact" onclick="scrollToContact()">
+        📞 Contact
+    </button>
 </div>
 
-<!-- About Section -->
-<section id="about" class="about-section">
-  <h2>About Us</h2>
-  <p>Julytee Plumbing has been providing top-quality plumbing solutions in Ogbomosho and Oyo State for years. Our team is skilled in both residential and commercial plumbing, ensuring your water systems are safe, efficient, and reliable.</p>
-  <p>We pride ourselves on excellent customer service, transparent pricing, and timely project completion. Our mission is to make plumbing simple, stress-free, and reliable for every client.</p>
-</section>
+<style>
+/* Sticky Footer Container */
+.sticky-footer {
+    position: fixed;
+    bottom: 15px;           /* slightly above bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 50px;    /* pill shape */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
 
-<!-- Services Section -->
-<section id="services">
-  <h2>Our Main Services</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <img src="https://images.pexels.com/photos/4164050/pexels-photo-4164050.jpeg" alt="Pipe Repair">
-      <h3>Pipe Repair & Replacement</h3>
-      <p>Quickly fix or replace damaged pipes to prevent leaks.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://images.pexels.com/photos/5801132/pexels-photo-5801132.jpeg" alt="Water System Installation">
-      <h3>Water System Installation</h3>
-      <p>Install reliable water systems for homes & businesses.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://images.pexels.com/photos/5991752/pexels-photo-5991752.jpeg" alt="Drainage Cleaning">
-      <h3>Drainage Cleaning</h3>
-      <p>Clear clogged drains quickly and efficiently.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://images.pexels.com/photos/6595383/pexels-photo-6595383.jpeg" alt="Emergency Plumbing">
-      <h3>Emergency Plumbing Support</h3>
-      <p>24/7 emergency response for urgent plumbing issues.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://images.pexels.com/photos/6231621/pexels-photo-6231621.jpeg" alt="Consultation">
-      <h3>Plumbing Consultation & Maintenance</h3>
-      <p>Expert advice and maintenance solutions to avoid future problems.</p>
-    </div>
-  </div>
-</section>
+/* Footer Buttons */
+.footer-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-<!-- Testimonials -->
-<section id="testimonials" class="testimonials">
-  <h2>What Our Clients Say</h2>
-  <div class="testimonial"><p>“Super reliable and fast service! Highly recommend Julytee Plumbing!”</p></div>
-  <div class="testimonial"><p>“Installed our water system perfectly and on time. Very professional.”</p></div>
-</section>
+.footer-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
 
-<!-- Contact -->
-<section id="contact" class="contact-section">
-  <h2>Contact Us</h2>
-  <div class="contact-details">
-    <p>Phone / WhatsApp: <a href="tel:+2347061362802">+234 706 136 2802</a></p>
-    <p>Email: <a href="mailto:info@julyteeplumbing.com">info@julyteeplumbing.com</a></p>
-    <p>Address: Olodude’s house, Off Lagos‑Ibadan Expressway, opposite Ogbomosho High School, Ogbomosho, Oyo State, Nigeria</p>
-  </div>
-  <div class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message" rows="5" required></textarea>
-    <button>Send Message</button>
-  </div>
-</section>
-
-<footer>© 2025 Julytee Plumbing Services | Ogbomosho, Oyo State, Nigeria</footer>
-
-<!-- up-Left-side toggle button -->
-<div class="menu-toggle" id="menuToggle">⋮⋮⋮⋮</div>
-<div class="side-buttons" id="sideButtons">
-  <button data-target="#home" class="active">Home</button>
-  <button data-target="#about">About</button>
-  <button data-target="#services">Services</button>
-  <button data-target="#testimonials">Testimonials</button>
-  <button data-target="#contact">Contact</button>
-</div>
-
-<!-- AI Icon -->
-<div class="ai-icon" id="aiIcon">AI</div>
-<div class="ai-chat" id="aiChat">
-  <div class="ai-header" onclick="toggleChat()">AI Assistant</div>
-  <div class="ai-messages" id="aiMessages"></div>
-  <div class="ai-input">
-    <input type="text" id="aiInput" placeholder="Ask me anything...">
-    <button onclick="sendAI()">Send</button>
-  </div>
-</div>
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .sticky-footer {
+        gap: 10px;
+        padding: 8px 10px;
+    }
+    .footer-btn {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+}
+</style>
 
 <script>
-  // Toggle left menu
-  const menuToggle = document.getElementById('menuToggle');
-  const sideButtons = document.getElementById('sideButtons');
-  menuToggle.addEventListener('click', () => { sideButtons.classList.toggle('show'); });
+function scrollToHome() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-  // Side buttons scroll & active
-  const buttons = document.querySelectorAll('.side-buttons button');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const target = document.querySelector(btn.getAttribute('data-target'));
-      target.scrollIntoView({behavior:'smooth'});
-    });
-  });
+function scrollToFleet() {
+    const fleetSection = document.getElementById('fleet');
+    fleetSection.scrollIntoView({ behavior: 'smooth' });
+}
 
-  // AI Chat toggle
-  const aiIcon = document.getElementById('aiIcon');
-  const aiChat = document.getElementById('aiChat');
-  aiIcon.addEventListener('click', () => { aiChat.style.display = aiChat.style.display==='flex'?'none':'flex'; });
-
-  function toggleChat(){ /* Header click does nothing */ }
-
-  // AI Chat functionality
-  function sendAI(){
-    const input = document.getElementById('aiInput');
-    const msg = input.value.trim();
-    if(!msg) return;
-    const messages = document.getElementById('aiMessages');
-    let botReply = 'This is just a preview.';
-
-    messages.innerHTML += `<p><b>You:</b> ${msg}</p><p><b>AI:</b> ${botReply}</p>`;
-    messages.scrollTop = messages.scrollHeight;
-    input.value = '';
-  }
+function scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+}
 </script>
-</body>
-</html>
