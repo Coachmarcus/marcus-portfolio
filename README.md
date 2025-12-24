@@ -1,307 +1,480 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Makanaki Car Hire Services</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>Garki Supermarket</title>
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
-body { scroll-behavior: smooth; }
-a { text-decoration: none; }
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 60vh;
-    background: url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 0 20px;
+:root{
+--bg:#f4f4f4;
+--text:#111;
+--card:#ffffff;
+--primary:#0a7d32;
 }
-.hero h2 { font-size: 1.8rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
-.hero h1 { font-size: 2.2rem; margin-bottom: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);}
-.hero p { font-size: 1rem; margin-bottom: 1.5rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);}
-.hero .cta { background-color: #007bff; color: white; padding: 12px 28px; border-radius: 30px; font-weight: bold; transition: all 0.3s ease; cursor: pointer;}
-.hero .cta:hover { background-color: #0056b3; transform: scale(1.05); }
-
-/* Fleet Section */
-.fleet { padding: 50px 20px; background: #f5f5f5; text-align: center;}
-.fleet h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #333;}
-.fleet p { font-size: 1rem; margin-bottom: 2rem; color: #555;}
-.car-carousel { display: flex; overflow-x: auto; gap: 20px; scroll-behavior: smooth; padding-bottom: 20px; }
-.car-carousel img { width: 300px; height: 200px; border-radius: 15px; object-fit: cover; flex-shrink: 0; }
-
-.pricing-table { display: flex; justify-content: center; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
-.pricing { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 200px; }
-.pricing h3 { margin-bottom: 10px; color: #007bff;}
-.pricing p { margin-bottom: 5px; color: #555; }
-
-.services { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
-.service { text-align: center; }
-.service img { width: 50px; margin-bottom: 10px; }
-
-.fleet-buttons { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap;}
-.fleet-buttons button { padding: 10px 25px; border: none; border-radius: 25px; font-weight: bold; color: white; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: all 0.3s ease;}
-.fleet-buttons button:hover { transform: scale(1.05);}
-.view-fleet { background-color: #ff7f00;}
-.get-quote { background-color: #28a745;}
-.contact-us { background-color: #6f42c1;}
-
-/* Features Section */
-.features { padding: 50px 20px; background: #fff; text-align:center; }
-.features h2 { font-size: 2rem; margin-bottom: 1rem; color: #333;}
-.feature-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-.feature { background: #f5f5f5; padding: 20px; border-radius: 15px; width: 200px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-.feature img { width:50px; margin-bottom:10px; }
-.feature p { color:#555; font-size:1rem; }
-
-/* How It Works Section */
-.how { padding:50px 20px; background:#f5f5f5; text-align:center; }
-.how h2 { font-size:2rem; margin-bottom:20px; color:#333;}
-.steps { display:flex; justify-content:center; gap:30px; flex-wrap:wrap;}
-.step { background:white; padding:20px; border-radius:15px; width:200px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-.step img { width:50px; margin-bottom:10px;}
-.step p { color:#555; font-size:1rem; }
-.step a { text-decoration:none; color:#007bff; font-weight:bold; cursor:pointer; }
-
-/* Testimonials Section */
-.testimonials { padding:50px 20px; text-align:center; background:#fff;}
-.testimonials h2 { font-size:2rem; margin-bottom:1.5rem; color:#333;}
-.testimonial-card { max-width:400px; margin: 0 auto 20px; background:#f5f5f5; padding:20px; border-radius:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); display:flex; align-items:center; gap:15px;}
-.testimonial-card img { width:50px; height:50px; border-radius:50%; object-fit:cover;}
-.testimonial-card p { color:#555; font-size:1rem; margin:0;}
-.testimonial-card span { font-weight:bold; color:#333; }
-
-/* FAQ Section */
-.faq { padding:50px 20px; text-align:center; background:#f5f5f5;}
-.faq h2 { font-size:2rem; margin-bottom:1.5rem; color:#333;}
-.faq-item { max-width:600px; margin:10px auto; background:white; padding:15px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-.faq-item p { font-size:1rem; color:#555; }
-
-/* Contact Section */
-.contact { padding:50px 20px; text-align:center; background:#fff; }
-.contact h2 { font-size:2rem; margin-bottom:1rem; color:#333; }
-
-/* First Box Image */
-.contact-box {
-    margin: 20px auto;
-    text-align: center;
+.dark{
+--bg:#121212;
+--text:#f1f1f1;
+--card:#1e1e1e;
 }
-.contact-img {
-    width: 200px;
-    height: auto;
-    border-radius: 15px;
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
 }
 
-.contact .map-contact { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:30px;}
-.map { width:200px; height:200px; border-radius:15px; background: url('https://images.pexels.com/photos/383482/pexels-photo-383482.jpeg?auto=compress&cs=tinysrgb&h=300&w=400') center/cover no-repeat; }
-.contact-info { max-width:300px; text-align:left;}
-.contact-info img { width:50px; margin-right:10px; vertical-align:middle;}
-.contact-info p { margin-bottom:10px; }
+/* HEADER (unchanged) */
+.header{
+background:var(--primary);
+color:#fff;
+padding:22px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+.toggle{
+position:absolute;
+right:15px;
+top:15px;
+border:none;
+background:#fff;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+}
 
-/* Sticky Footer Buttons */
-.sticky-footer { position: fixed; bottom:0; left:0; width:100%; background: rgba(255,255,255,0.95); display:flex; justify-content:center; gap:20px; padding:10px 0; box-shadow:0 -2px 8px rgba(0,0,0,0.2); z-index:100; }
-.sticky-footer button { padding:10px 20px; border-radius:20px; border:none; color:white; font-weight:bold; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s ease;}
-.sticky-footer .home { background-color:#007bff;}
-.sticky-footer .fleet-btn { background-color:#ff7f00;}
-.sticky-footer .contact { background-color:#28a745;}
-.sticky-footer button:hover { transform: scale(1.05); }
+/* Layout */
+.container{padding:18px;}
+.card{
+background:var(--card);
+border-radius:14px;
+padding:16px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
 
-@media(max-width:768px){
-    .car-carousel img { width:250px; height:150px;}
-    .pricing-table, .feature-cards, .steps { flex-direction: column; align-items:center; }
-    .map-contact { flex-direction: column; align-items:center; }
-    .hero h1 { font-size:1.8rem;}
-    .hero h2 { font-size:1.2rem;}
-    .hero p { font-size:0.9rem;}
+/* Carousel */
+.carousel img{
+width:100%;
+border-radius:12px;
+display:none;
+}
+.carousel img.active{display:block;}
+
+/* Contact */
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+.contact-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+color:#fff;
+}
+.call{background:#0a7d32;}
+.whatsapp{background:#25d366;}
+.email{background:#3f51b5;}
+.map{background:#ff9800;}
+
+/* Product Slider */
+.product-slider{
+overflow:hidden;
+margin-top:10px;
+}
+.product-track{
+display:flex;
+transition:transform .6s ease;
+}
+.product-group{
+min-width:100%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:14px;
+}
+.product{
+background:var(--bg);
+border-radius:12px;
+padding:10px;
+text-align:center;
+}
+.product img{
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:10px;
+}
+.product h4{
+font-size:14px;
+margin:8px 0 4px;
+}
+.product span{
+font-size:12px;
+color:#666;
+}
+.product button{
+margin-top:6px;
+padding:8px;
+width:100%;
+border:none;
+border-radius:8px;
+background:var(--primary);
+color:#fff;
+font-size:13px;
+cursor:pointer;
+}
+
+/* Order */
+input,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+button.send{
+background:var(--primary);
+color:#fff;
+border:none;
+padding:10px;
+border-radius:8px;
+width:100%;
+cursor:pointer;
+}
+
+/* Reviews */
+.reviews{
+display:grid;
+gap:16px;
+}
+.review-card{
+background:var(--bg);
+border-radius:14px;
+padding:14px;
+display:flex;
+gap:14px;
+align-items:flex-start;
+}
+.review-img{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+.review-body{flex:1;}
+.review-name{
+font-weight:bold;
+font-size:14px;
+}
+.stars{
+color:#ffc107;
+font-size:14px;
+margin:3px 0;
+}
+.review-text{
+font-size:14px;
+line-height:1.4;
+}
+
+/* Map */
+iframe{
+width:100%;
+height:280px;
+border:none;
+border-radius:12px;
+}
+
+/* Bottom buttons */
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+z-index:1000;
+}
+.bottom a{
+flex:1;
+text-align:center;
+padding:14px;
+color:#fff;
+font-weight:bold;
+text-decoration:none;
+}
+.space{height:80px;}
+
+/* Bottom slide-out navigation drawer */
+.bottom-drawer{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+z-index:1001;
+font-family:Arial, sans-serif;
+}
+.drawer-toggle{
+background:var(--primary);
+color:#fff;
+text-align:center;
+padding:12px;
+cursor:pointer;
+border-top-left-radius:12px;
+border-top-right-radius:12px;
+font-weight:bold;
+font-size:16px;
+}
+.drawer-content{
+background:var(--primary);
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+transform:translateY(100%);
+transition:transform .3s ease;
+border-top-left-radius:12px;
+border-top-right-radius:12px;
+}
+.drawer-content a{
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+padding:6px 12px;
+border-radius:6px;
+transition:0.2s;
+}
+.drawer-content a:hover{
+background:rgba(255,255,255,0.2);
+}
+.drawer-open .drawer-content{
+transform:translateY(0);
 }
 </style>
 </head>
+
 <body>
 
-<!-- Hero Section -->
-<section class="hero">
-    <h2>Makanaki Car Hire Services</h2>
-    <h1>Reliable Car Hire & Rental Across Nigeria</h1>
-    <p>Affordable, Easy, and Safe Car Rentals – Book Online or WhatsApp Today</p>
-    <button class="cta" onclick="scrollToFleet()">Book Now</button>
-</section>
-
-<!-- Fleet Section -->
-<section class="fleet" id="fleet">
-    <h2>Our Fleet & Services</h2>
-    <p>Choose from our selection of local Nigerian cars for your travel needs.</p>
-    <div class="car-carousel">
-        <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Corolla">
-        <img src="https://images.pexels.com/photos/386145/pexels-photo-386145.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Camry">
-        <img src="https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Mercedes GLK">
-        <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Mercedes GLE">
-        <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&h=300&w=400" alt="Toyota Highlander">
-    </div>
-
-    <div class="pricing-table">
-        <div class="pricing"><h3>Daily</h3><p>₦15,000/day</p></div>
-        <div class="pricing"><h3>Weekly</h3><p>₦90,000/week</p></div>
-        <div class="pricing"><h3>Airport Pickup</h3><p>₦20,000/ride</p></div>
-    </div>
-
-    <div class="services">
-        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/checked--v1.png"/><p>Easy Booking</p></div>
-        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/phone.png"/><p>24/7 Support</p></div>
-        <div class="service"><img src="https://img.icons8.com/ios-filled/50/000000/car.png"/><p>Flexible Pickup & Drop</p></div>
-    </div>
-
-    <div class="fleet-buttons">
-        <button class="view-fleet" onclick="scrollToFleet()">View Fleet</button>
-        <button class="get-quote" onclick="openQuote()">Get a Quote</button>
-        <button class="contact-us" onclick="scrollToContact()">Contact Us</button>
-    </div>
-</section>
-
-<!-- Features Section -->
-<section class="features">
-    <h2>Why Choose Us</h2>
-    <div class="feature-cards">
-        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/rocket.png"/><p>Fast Booking</p></div>
-        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/driver.png"/><p>Professional Drivers</p></div>
-        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/wallet.png"/><p>Affordable Rates</p></div>
-        <div class="feature"><img src="https://img.icons8.com/ios-filled/50/000000/clock.png"/><p>24/7 Support</p></div>
-    </div>
-</section>
-
-<!-- How It Works Section -->
-<section class="how">
-    <h2>How It Works</h2>
-    <div class="steps">
-        <div class="step"><a onclick="openQuote()"><img src="https://img.icons8.com/ios-filled/50/000000/search.png"/><p>Choose Car</p></a></div>
-        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/form.png"/><p>Book Online</p></div>
-        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/handshake.png"/><p>Confirm & Pay</p></div>
-        <div class="step"><img src="https://img.icons8.com/ios-filled/50/000000/car.png"/><p>Pickup Vehicle</p></div>
-        <div class="step"><img src="https://images.pexels.com/photos/1005822/pexels-photo-1005822.jpeg?auto=compress&cs=tinysrgb&h=300&w=400"/><p>Enjoy Your Ride</p></div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="testimonials">
-    <h2>Customer Reviews</h2>
-    <div class="testimonial-card">
-        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Tunde">
-        <p><span>Tunde</span> Excellent service, the car was clean and the driver punctual.</p>
-    </div>
-    <div class="testimonial-card">
-        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Chiamaka">
-        <p><span>Chiamaka</span> Booking was super easy and the customer support very responsive.</p>
-    </div>
-    <div class="testimonial-card">
-        <img src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&h=100&w=100" alt="Emeka">
-        <p><span>Emeka</span> Affordable cars, easy process, very satisfied with Makanaki Car Hire.</p>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><p>Q: How do I book a car? <br>A: Simply click Book Now or Get a Quote and follow instructions.</p></div>
-    <div class="faq-item"><p>Q: What types of cars do you offer? <br>A: We have Corolla, Camry, GLK, GLE, SUVs and more.</p></div>
-    <div class="faq-item"><p>Q: Can I book for airport pickup? <br>A: Yes, we provide airport pickup services at affordable rates.</p></div>
-</section>
-
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <h2>Contact Us</h2>
-
-    <!-- First Box Image -->
-    <div class="contact-box">
-        <img src="https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg" alt="First Box" class="contact-img">
-    </div>
-        <div class="contact-info">
-            <p><img src="https://img.icons8.com/ios-filled/50/000000/phone.png"/> +234 801 234 5678</p>
-            <p><img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png"/> +234 801 234 5678</p>
-            <p><img src="https://img.icons8.com/ios-filled/50/000000/new-post.png"/> info@makanakicarhire.ng</p>
-            <p><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png"/> Follow us on social media</p>
-        </div>
-    </div>
-</section>
-
-<!-- Sticky Footer Buttons -->
-<<!-- Sticky Footer Buttons -->
-<div class="sticky-footer">
-    <button class="footer-btn home" onclick="scrollToHome()">
-        🏠 Home
-    </button>
-    <button class="footer-btn fleet-btn" onclick="scrollToFleet()">
-        🚗 Fleet
-    </button>
-    <button class="footer-btn contact" onclick="scrollToContact()">
-        📞 Contact
-    </button>
+<!-- HEADER (green box remains unchanged) -->
+<div class="header">
+<h2>Garki Supermarket</h2>
+<p>Everyday Shopping – Garki, Abuja</p>
+<button class="toggle" onclick="toggleMode()">🌙</button>
 </div>
 
-<style>
-/* Sticky Footer Container */
-.sticky-footer {
-    position: fixed;
-    bottom: 15px;           /* slightly above bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.95);
-    display: flex;
-    gap: 15px;
-    padding: 10px 15px;
-    border-radius: 50px;    /* pill shape */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
-}
+<div class="container">
 
-/* Footer Buttons */
-.footer-btn {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    border: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+<!-- Featured Carousel -->
+<div id="home" class="card carousel">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiel_mTLxW0KjAeE68J-ZX4s1mYgOSG0B4n4bKYpZ2Cw&s=10" class="active">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4K7v-TATHLzL-K9E3GVWGjTIKB6aFnsj8W_kOg3Bxg&s=10">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR79gPnLPfSgN6iUYRR7da0cBymwdV-F4eMnmL5opgdQ&s=10">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYAEJN6CaZZ-esXbyaRoJfbcQbzbXpdn94lGupSFxRA&s=10">
+</div>
 
-.footer-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
+<!-- About -->
+<div class="card">
+<h3>About Us</h3>
+<p>
+Garki Supermarket provides fresh groceries, household items,
+drinks and daily essentials at affordable prices. Open daily to serve you.
+</p>
+</div>
 
-/* Responsive */
-@media screen and (max-width: 480px) {
-    .sticky-footer {
-        gap: 10px;
-        padding: 8px 10px;
-    }
-    .footer-btn {
-        padding: 10px 14px;
-        font-size: 14px;
-    }
-}
-</style>
+<!-- Contact Section -->
+<div id="contact" class="card">
+<h3>Contact Details</h3>
+<div class="contact-grid">
+<a href="tel:+2340000000000" class="contact-btn call">📞 Call</a>
+<a href="https://wa.me/2340000000000" class="contact-btn whatsapp">💬 WhatsApp</a>
+<a href="mailto:info@garkisupermarket.com" class="contact-btn email">✉️ Email</a>
+<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" target="_blank" class="contact-btn map">📍 Map</a>
+</div>
+</div>
+
+<!-- Product Slider -->
+<div id="products" class="card">
+<h3>Popular Products</h3>
+<div class="product-slider">
+<div class="product-track" id="track">
+
+<!-- Group 1 -->
+<div class="product-group">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1580910051074-7c36a63c6b1c">
+<h4>Rice (50kg)</h4>
+<span>ID: P001</span>
+<button onclick="addToCart('P001','Rice 50kg')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a">
+<h4>Vegetable Oil</h4>
+<span>ID: P002</span>
+<button onclick="addToCart('P002','Vegetable Oil')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
+<h4>Sugar</h4>
+<span>ID: P003</span>
+<button onclick="addToCart('P003','Sugar')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1615486364462-ef6363adbc18">
+<h4>Milk</h4>
+<span>ID: P004</span>
+<button onclick="addToCart('P004','Milk')">Add to Cart</button>
+</div>
+</div>
+
+<!-- Group 2 -->
+<div class="product-group">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585238342028-4bbc1c8bfa5f">
+<h4>Soft Drinks</h4>
+<span>ID: P005</span>
+<button onclick="addToCart('P005','Soft Drinks')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1580910365203-8c68e85b4c2f">
+<h4>Bread</h4>
+<span>ID: P006</span>
+<button onclick="addToCart('P006','Bread')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1587049352851-8d93c0f03f23">
+<h4>Detergent</h4>
+<span>ID: P007</span>
+<button onclick="addToCart('P007','Detergent')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1612209924761-2c9db1f25c4c">
+<h4>Toothpaste</h4>
+<span>ID: P008</span>
+<button onclick="addToCart('P008','Toothpaste')">Add to Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Order Form -->
+<div class="card">
+<h3>Your Order</h3>
+<form onsubmit="sendOrder(event)">
+<input id="name" placeholder="Your Name" required>
+<input id="phone" placeholder="Phone Number" required>
+<textarea id="orderBox" placeholder="Selected products will appear here" readonly></textarea>
+<button class="send">Send Order via WhatsApp</button>
+</form>
+</div>
+
+<!-- Customer Reviews -->
+<div id="reviews" class="card">
+<h3>Customer Reviews</h3>
+<div class="reviews">
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Amina Yusuf</div>
+<div class="stars">★★★★★</div>
+<div class="review-text">Affordable prices and always fresh groceries. Highly recommended.</div>
+</div>
+</div>
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Samuel Okoye</div>
+<div class="stars">★★★★☆</div>
+<div class="review-text">Good customer service and easy to locate. Parking could improve.</div>
+</div>
+</div>
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/women/68.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Mary Johnson</div>
+<div class="stars">★★★★★</div>
+<div class="review-text">Best supermarket around Garki. Everything I need in one place.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Map -->
+<div class="card">
+<h3>Find Us</h3>
+<iframe src="https://www.google.com/maps?q=Garki+Supermarket+Abuja&output=embed"></iframe>
+</div>
+
+</div>
+
+<div class="space"></div>
+
+<!-- Bottom fixed buttons -->
+<div class="bottom">
+<a href="tel:+2340000000000" class="call">Call</a>
+<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" class="map">Directions</a>
+<a href="https://wa.me/2340000000000" class="whatsapp">WhatsApp</a>
+</div>
+
+<!-- Bottom slide-out navigation drawer -->
+<div id="bottomDrawer" class="bottom-drawer">
+  <div class="drawer-toggle" onclick="toggleDrawer()">☰ Menu</div>
+  <div class="drawer-content">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#reviews">Reviews</a>
+  </div>
+</div>
 
 <script>
-function scrollToHome() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+let dark=false;
+function toggleMode(){document.body.classList.toggle("dark");}
+
+/* Featured carousel */
+let carouselSlides=document.querySelectorAll(".carousel img");
+let ci=0;
+setInterval(()=>{
+carouselSlides[ci].classList.remove("active");
+ci=(ci+1)%carouselSlides.length;
+carouselSlides[ci].classList.add("active");
+},3000);
+
+/* Product slider auto-slide */
+let track=document.getElementById("track");
+let groupIndex=0;
+setInterval(()=>{
+groupIndex=(groupIndex+1)%2;
+track.style.transform=`translateX(-${groupIndex*100}%)`;
+},4000);
+
+/* Cart */
+let cart=[];
+function addToCart(id,name){
+cart.push(`${id} - ${name}`);
+document.getElementById("orderBox").value=cart.join("\n");
 }
 
-function scrollToFleet() {
-    const fleetSection = document.getElementById('fleet');
-    fleetSection.scrollIntoView({ behavior: 'smooth' });
+/* WhatsApp order */
+function sendOrder(e){
+e.preventDefault();
+let msg=`Hello Garki Supermarket%0AName: ${name.value}%0APhone: ${phone.value}%0AOrder:%0A${cart.join("%0A")}`;
+window.open(`https://wa.me/2340000000000?text=${msg}`);
 }
 
-function scrollToContact() {
-    const contactSection = document.getElementById('contact');
-    contactSection.scrollIntoView({ behavior: 'smooth' });
+/* Bottom drawer toggle */
+function toggleDrawer(){
+document.getElementById("bottomDrawer").classList.toggle("drawer-open");
 }
 </script>
+
+</body>
+</html>
