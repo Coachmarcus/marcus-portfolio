@@ -1,337 +1,278 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emmanuel Books | Trusted Bookstore</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://js.paystack.co/v1/inline.js"></script>
+<title>Great Ola In Wealth - Portfolio</title>
 <style>
-:root{
---blue:#143c6d;
---cream:#f9f7f2;
---accent:#d9a441;
---shadow:0 10px 25px rgba(0,0,0,.1);
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#f4f6f8;color:#333;scroll-behavior:smooth;line-height:1.6;}
+
+/* Hero Section with Moving Background */
+#hero{
+  color:#000;text-align:center;padding:4rem 1rem;position:relative;overflow:hidden;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif;scroll-behavior:smooth;}
-body{background:var(--cream);color:#222}
-.dark{--cream:#121212;--blue:#0a3a7a;background:#121212;color:#eee}
-.dark header, .dark section, .dark .card, .dark .contact-card{background:#1e1e1e;color:#eee}
-header{position:sticky;top:0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.05);z-index:999}
-.nav{max-width:1200px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:700;color:var(--blue)}
-.nav-buttons a{margin-left:8px;padding:10px 18px;border-radius:25px;background:#fff;color:var(--blue);font-weight:600;text-decoration:none;box-shadow:var(--shadow)}
-.nav-buttons a.active,.nav-buttons a:hover{background:var(--blue);color:#fff}
-#modeToggle{padding:8px 14px;border-radius:20px;border:none;background:#143c6d;color:#fff;cursor:pointer;margin-left:10px}
+#hero::before{
+  content:"";position:absolute;top:0;left:0;width:200%;height:200%;
+  background:url('https://picsum.photos/1200/800?random=15') center/cover no-repeat;
+  animation:moveBG 20s linear infinite;opacity:0.3;z-index:0;
+}
+@keyframes moveBG{
+  0%{transform:translate(0,0);}
+  50%{transform:translate(-50%,-50%);}
+  100%{transform:translate(0,0);}
+}
+#hero img{position:relative;width:130px;height:130px;border-radius:50%;border:3px solid #fff;margin-bottom:1rem;animation:float 4s ease-in-out infinite;z-index:1;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+#hero h1{position:relative;font-size:2rem;margin-bottom:0.5rem;font-weight:700;z-index:1;}
+#hero p{position:relative;font-size:1rem;margin-bottom:1rem;z-index:1;max-width:600px;margin-left:auto;margin-right:auto;font-weight:bold;}
+.btn{display:inline-block;padding:0.8rem 1.5rem;background:#fff;color:#1f2a63;font-weight:600;border-radius:8px;text-decoration:none;transition:0.3s;position:relative;z-index:1;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+.btn:hover{background:#ffecde;color:#1f2a63;transform:scale(1.05);}
 
-/* HERO */
-.hero{min-height:60vh;display:flex;align-items:center;background:linear-gradient(rgba(20,60,109,.65),rgba(20,60,109,.65)),url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f") center/cover;color:#fff;padding:40px 20px}
-.hero-content{max-width:1100px;margin:auto}
-.hero h1{font-size:42px}
-.hero p{margin:20px 0;font-size:18px;max-width:650px}
-.hero a{padding:14px 28px;border-radius:30px;font-weight:600;text-decoration:none;margin-right:10px}
-.primary{background:var(--accent);color:#000}
-.secondary{background:#fff;color:var(--blue)}
+/* Services Section */
+#services{padding:3rem 1rem;background:#fefefe;text-align:center;}
+#services h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+.service-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;}
+.service-card:hover{transform:translateY(-4px);}
+.service-card img{width:60px;margin-bottom:0.8rem;}
+.service-card h3{color:#1f2a63;margin-bottom:0.3rem;font-size:1rem;}
+.service-card p{color:#555;font-size:0.9rem;}
 
-section{padding:90px 20px}
-.title{text-align:center;margin-bottom:50px}
-.title h2{font-size:32px;color:var(--blue)}
+/* About Section */
+#about{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;padding:3rem 1rem;background:#fff;}
+#about img{width:180px;height:180px;border-radius:12px;margin:0.8rem;object-fit:cover;animation:float 5s ease-in-out infinite alternate;}
+#about .text{max-width:550px;margin:0.8rem;}
+#about h2{color:#1f2a63;margin-bottom:0.6rem;font-size:1.5rem;}
+#about p{margin-bottom:0.5rem;font-size:0.95rem;color:#555;line-height:1.4;}
 
-/* SEARCH */
-.search-box{max-width:600px;margin:0 auto 40px}
-.search-box input{width:100%;padding:15px;border-radius:30px;border:none;box-shadow:var(--shadow);font-size:16px}
+/* Work Experience Section */
+#experience{padding:3rem 1rem;background:#f4f6f8;text-align:center;}
+#experience h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
+.experience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
+.experience-card{background:#fff;padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;animation:floatImg 8s ease-in-out infinite alternate;}
+@keyframes floatImg{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
+.experience-card img{width:100%;height:130px;border-radius:10px;margin-bottom:0.5rem;object-fit:cover;}
+.experience-card h3{color:#1f2a63;margin-bottom:0.3rem;font-size:0.95rem;}
+.experience-card p{color:#555;font-size:0.85rem;margin-bottom:0.3rem;}
 
-/* BOOKS */
-.grid{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);transition:.6s;cursor:pointer}
-.card.show{opacity:1;transform:none}
-.card img{width:100%;height:180px;object-fit:cover}
-.card .content{padding:20px}
-.badge{background:var(--accent);padding:5px 12px;border-radius:15px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:10px}
-.card h3{color:var(--blue)}
-.card input{margin-bottom:6px;padding:6px;border-radius:8px;border:1px solid #ccc;width:60px}
+/* Testimonials Section */
+#comments{padding:3rem 1rem;background:#fff;text-align:center;}
+#comments h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
+.testimonials{display:flex;overflow:hidden;gap:1rem;padding-bottom:1rem;position:relative;height:160px;}
+.comment-card{flex:0 0 45%;background:#f4f6f8;padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);text-align:center;position:absolute;top:0;left:0;opacity:0;transition:all 1s;}
+.comment-card img{width:50px;height:50px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #1f2a63;}
+.comment-card.active{opacity:1;left:50%;transform:translateX(-50%);}
 
-/* SERVICES */
-.services{background:#fff}
-.services-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-.service{padding:30px;border-radius:20px;box-shadow:var(--shadow);background:var(--cream)}
+/* Work Location */
+#office{padding:3rem 1rem;text-align:center;}
+.map-container{position:relative;width:100%;max-width:900px;height:400px;margin:auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+.pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);width:45px;height:45px;background:#ff704d;border-radius:50%;border:3px solid #fff;animation:bouncePin 2s infinite;}
+@keyframes bouncePin{0%,100%{transform:translate(-50%,-100%) scale(1);}50%{transform:translate(-50%,-110%) scale(1.2);}}
+.pin::after{content:"📍 Jbo Hotel and Suites, Osun State, Nigeria";position:absolute;top:50px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);padding:0.5rem 1rem;border-radius:8px;font-size:13px;color:#333;white-space:nowrap;}
+.map-container::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://picsum.photos/1200/800?random=20') center/cover no-repeat;opacity:0.8;}
 
-/* TESTIMONIALS */
-.testimonials{background:#143c6d;color:#fff;text-align:center;padding:70px 20px}
-.testimonial{max-width:700px;margin:auto;font-size:18px;display:none}
-.testimonial.active{display:block}
+/* Contact Section */
+#contact{display:flex;flex-wrap:wrap;justify-content:center;padding:3rem 1rem;background:#fefefe;}
+#contact .form{flex:1;min-width:280px;max-width:420px;margin:0.8rem;}
+#contact .info{flex:1;min-width:240px;max-width:380px;margin:0.8rem;padding:1rem;background:#f4f6f8;border-radius:12px;}
+#contact h2{color:#1f2a63;margin-bottom:1rem;font-size:1.8rem;}
+#contact input,#contact textarea{width:100%;padding:0.8rem;margin-bottom:0.8rem;border-radius:10px;border:1px solid #ccc;font-size:0.95rem;}
+#contact button{padding:0.8rem 1.5rem;border:none;background:#1f2a63;color:#fff;border-radius:10px;font-weight:bold;cursor:pointer;transition:0.3s;animation:pulse 2s infinite;}
+#contact button:hover{background:#ff704d;transform:scale(1.05);}
 
-/* CONTACT */
-.contact-wrap{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.contact-card{background:#fff;padding:30px;border-radius:20px;box-shadow:var(--shadow)}
-.contact-card input,.contact-card textarea{width:100%;padding:12px;margin-bottom:12px;border-radius:12px;border:1px solid #ccc}
-.contact-card button{width:100%;padding:14px;border:none;border-radius:25px;background:var(--blue);color:#fff;font-weight:600}
-#total{font-weight:600;margin-bottom:10px}
+/* Footer */
+footer{background:#1f2a63;color:#fff;text-align:center;padding:1.5rem 0;font-size:0.9rem;}
 
-/* MAP */
-.map{border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+/* Hamburger Menu */
+#menu-btn{position:fixed;top:15px;left:15px;width:45px;height:45px;background:#ff704d;border-radius:50%;display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:8px;cursor:pointer;z-index:50;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+#menu-btn div{width:25px;height:3px;background:#fff;border-radius:2px;}
+#top-menu{position:fixed;top:70px;left:15px;background:#fff;border-radius:10px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 6px 20px rgba(0,0,0,0.2);}
+#top-menu a{padding:0.8rem 1.8rem;display:block;text-decoration:none;color:#1f2a63;font-weight:600;border-bottom:1px solid #eee;transition:0.3s;}
+#top-menu a:last-child{border-bottom:none;}
+#top-menu a:hover{background:#ff704d;color:#fff;}
 
-/* WHATSAPP */
-.whatsapp{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:26px;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:2000}
+/* WhatsApp Floating CTA */
+.customer-service img{width:55px;height:55px;cursor:pointer;position:fixed;bottom:15px;right:15px;transition:transform 0.3s;animation:pulse 2s infinite;}
+.customer-service img:hover{transform:scale(1.2);}
 
-/* BACK TO TOP */
-#topBtn{position:fixed;bottom:90px;right:20px;width:45px;height:45px;border-radius:50%;border:none;background:#143c6d;color:#fff;font-size:18px;display:none;box-shadow:0 6px 16px rgba(0,0,0,.3);cursor:pointer;z-index:2000}
-
-/* MOBILE */
+/* Responsive */
 @media(max-width:768px){
-.hero h1{font-size:32px}
-.contact-wrap{grid-template-columns:1fr}
+  #about{flex-direction:column;}
+  #contact{flex-direction:column;}
+  .comment-card{flex:0 0 45%;} /* show 2 at a time */
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">Emmanuel Books</div>
-    <div>
-      <a class="nav-buttons" href="#home">Home</a>
-      <a class="nav-buttons" href="#books">Books</a>
-      <a class="nav-buttons" href="#contact">Contact</a>
-      <button id="modeToggle">🌙</button>
-    </div>
-  </div>
-</header>
-
-<section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Your Trusted Bookstore for Learning & Inspiration</h1>
-    <p>Educational, religious and general books for readers of all ages.</p>
-    <a href="#books" class="primary">Browse Books</a>
-    <a href="#contact" class="secondary">Visit Store</a>
-  </div>
+<!-- Hero -->
+<section id="hero">
+  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
+  <h1>Hello, I'm Marcus D.</h1>
+  <p>I build modern, responsive websites and web apps with clean design and intuitive interfaces helping businesses shine online.</p>
+  <a href="https://wa.me/2348144466868" class="btn" target="_blank">Hire Me</a>
 </section>
 
-<section id="books">
-  <div class="title"><h2>Our Books</h2></div>
-  <div class="search-box"><input id="search" placeholder="Search books..."></div>
-  <div class="grid" id="booksGrid">
-    <div class="card" data-category="Educational"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
-      <div class="content"><span class="badge">In-Store</span><h3>Educational Books</h3></div>
+<!-- Services -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="">
+      <h3>Frontend Development</h3>
+      <p>HTML, CSS, JS, React, responsive & clean UI.</p>
     </div>
-    <div class="card" data-category="Religious"><img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d">
-      <div class="content"><span class="badge">In-Store</span><h3>Religious Books</h3></div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="">
+      <h3>Backend & APIs</h3>
+      <p>Node.js, Express, database integration, scalable solutions.</p>
     </div>
-    <div class="card" data-category="Fiction"><img src="https://images.unsplash.com/photo-1524578271613-d550eacf6090">
-      <div class="content"><span class="badge">In-Store</span><h3>Fiction & Novels</h3></div>
-    </div>
-    <div class="card" data-category="Stationery"><img src="https://images.unsplash.com/photo-1584697964192-39c5d4e78d9a">
-      <div class="content"><span class="badge">In-Store</span><h3>Stationery</h3></div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="">
+      <h3>Full Stack Solutions</h3>
+      <p>Complete deployable web applications.</p>
     </div>
   </div>
 </section>
 
-<section class="services">
-  <div class="title"><h2>Why Choose Emmanuel Books</h2></div>
-  <div class="services-grid">
-    <div class="service">📚 Wide Book Collection</div>
-    <div class="service">💬 Friendly Assistance</div>
-    <div class="service">🏫 Student-Focused</div>
-    <div class="service">📍 Easy Local Access</div>
+<!-- About -->
+<section id="about">
+  <img src="https://picsum.photos/300/300?random=10" alt="Sharp Profile Image">
+  <div class="text">
+    <h2>About Me</h2>
+    <p>I create fast, responsive websites and web apps with clean design and easy-to-use interfaces. I deliver projects that grow your business online.</p>
+    <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
+    <p>Address: Jbo Hotel and Suites, Osun State, Nigeria</p>
   </div>
 </section>
 
-<section class="testimonials">
-  <div class="testimonial active">“Best bookstore in town. Always helpful.”</div>
-  <div class="testimonial">“I found all my school books here.”</div>
-  <div class="testimonial">“Affordable and reliable.”</div>
+<!-- Work Experience -->
+<section id="experience">
+  <h2>Work Experience</h2>
+  <div class="experience-grid">
+    <div class="experience-card">
+      <img src="https://picsum.photos/400/150?random=1" alt="Frontend work">
+      <h3>Frontend Developer - ABC Web Solutions</h3>
+      <p>Jan 2024 – Present</p>
+      <p>Built responsive landing pages and web apps with HTML, CSS, React.</p>
+    </div>
+    <div class="experience-card">
+      <img src="https://picsum.photos/400/150?random=2" alt="Backend work">
+      <h3>Backend Developer - XYZ Tech</h3>
+      <p>Jun 2023 – Dec 2023</p>
+      <p>Developed REST APIs with Node.js and integrated databases.</p>
+    </div>
+    <div class="experience-card">
+      <img src="https://picsum.photos/400/150?random=3" alt="Full stack project">
+      <h3>Full Stack Developer - Freelance</h3>
+      <p>2021 – 2023</p>
+      <p>Delivered end-to-end web solutions globally.</p>
+    </div>
+  </div>
 </section>
 
+<!-- Testimonials -->
+<section id="comments">
+  <h2>Client Satisfaction</h2>
+  <div class="testimonials">
+    <div class="comment-card active">
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
+      <p>Delivered our website professionally and on time</p>
+      <strong>- John D.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
+      <p>Highly recommend for web development projects.</p>
+      <strong>- Sarah K.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
+      <p>Full stack project handled flawlessly.</p>
+      <strong>- Michael R.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="">
+      <p>Amazing work with responsive design</p>
+      <strong>- Linda P.</strong>
+    </div>
+    <div class="comment-card">
+      <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="">
+      <p>Professional and reliable developer</p>
+      <strong>- Kevin T.</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Work Location -->
+<section id="office">
+  <h2>Work Environment</h2>
+  <div class="map-container"><div class="pin"></div></div>
+</section>
+
+<!-- Contact -->
 <section id="contact">
-  <div class="title"><h2>Contact Us</h2></div>
-  <div class="contact-wrap">
-    <div class="contact-card">
-      <p>📞 +234 XXX XXX XXXX</p>
-      <p>💬 WhatsApp Available</p>
-      <input placeholder="Your Name" required>
-      <input placeholder="Phone" required>
-      <textarea placeholder="Book Request" required></textarea>
-      <input type="number" id="qty" placeholder="Quantity" min="1" value="1">
-      <input type="number" id="price" placeholder="Price per book (₦)" required>
-      <p id="total">Total: ₦0</p>
-      <button onclick="order(event)">Send Request</button>
-    </div>
-    <div class="map"><iframe src="https://www.google.com/maps?q=Nigeria&output=embed" width="100%" height="350" style="border:0"></iframe></div>
+  <div class="form">
+    <h2>Contact Me</h2>
+    <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+  <div class="info">
+    <h2>Get in Touch</h2>
+    <p>Email: assistancepromoter@gmail.com</p>
+    <p>Address: Jbo Hotel and Suites, Osun State, Nigeria</p>
+    <p>Phone: +2348144466868</p>
   </div>
 </section>
 
-<section id="admin" style="display:none;padding:50px;background:#f1f1f1;">
-  <h2>Admin Panel</h2>
-  <p>Add new books here:</p>
-  <input id="bookName" placeholder="Book Name">
-  <input id="bookPrice" placeholder="Price (₦)">
-  <input id="bookID" placeholder="Book ID">
-  <button onclick="addBook()">Add Book</button>
+<!-- Footer -->
+<footer>
+  <p>⭐⭐⭐⭐⭐ 5/5 Client Rating • 120+ Daily Visits</p>
+  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
+</footer>
 
-  <h3>Books List:</h3>
-  <ul id="bookList"></ul>
-</section>
+<!-- Hamburger -->
+<div id="menu-btn"><div></div><div></div><div></div></div>
+<div id="top-menu">
+  <a href="#hero">Home</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#comments">Clients</a>
+  <a href="#office">Work</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<footer>© Emmanuel Books</footer>
-
-<a class="whatsapp" href="https://wa.me/234XXXXXXXXXX" target="_blank">💬</a>
-<button id="topBtn">↑</button>
+<!-- WhatsApp -->
+<div class="customer-service">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/2348144466868','_blank')">
+</div>
 
 <script>
-// Dark mode
-const toggle=document.getElementById("modeToggle");
-if(localStorage.mode==="dark") document.body.classList.add("dark");
-toggle.onclick=()=>{document.body.classList.toggle("dark");localStorage.mode=document.body.classList.contains("dark")?"dark":"light";}
+// Hamburger Menu
+const menuBtn=document.getElementById('menu-btn');
+const topMenu=document.getElementById('top-menu');
+menuBtn.addEventListener('click',()=>{topMenu.style.display=topMenu.style.display==='flex'?'none':'flex';topMenu.style.flexDirection='column';});
 
-// Active nav
-const sections=document.querySelectorAll("section");
-const links=document.querySelectorAll(".nav-buttons");
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(s=>{if(scrollY>=s.offsetTop-120)current=s.id});
-links.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+current)a.classList.add("active")});
-});
-
-// Reveal
-const cards=document.querySelectorAll(".card");
-const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add("show")));
-cards.forEach(c=>io.observe(c));
-
-// Search
-document.getElementById("search").onkeyup=e=>{
-document.querySelectorAll(".card").forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(e.target.value.toLowerCase())?"block":"none";});
-};
-
-// Testimonials
-let i=0;setInterval(()=>{const t=document.querySelectorAll(".testimonial");t.forEach(x=>x.classList.remove("active"));t[i=(i+1)%t.length].classList.add("active");},4000);
-
-// Order
-function order(e){
-const d=document.querySelectorAll(".contact-card input, .contact-card textarea");
-const qty=document.getElementById("qty").value;
-const price=document.getElementById("price").value;
-const total=document.getElementById("total");
-total.textContent="Total: ₦"+(qty*price||0);
-const message=`Hello Emmanuel Books,%0AName:${d[0].value}%0APhone:${d[1].value}%0ABook:${d[2].value}%0AQuantity:${qty}%0APrice per Book:₦${price}%0ATotal:₦${qty*price}`;
-window.open(`https://wa.me/234XXXXXXXXXX?text=${message}`,"_blank");
+// Testimonial Slider
+let testimonialIndex = 0;
+const testimonials = document.querySelectorAll('.comment-card');
+function showTestimonial(){
+  testimonials.forEach(t => t.classList.remove('active'));
+  let index1 = testimonialIndex % testimonials.length;
+  let index2 = (testimonialIndex+1) % testimonials.length;
+  testimonials[index1].classList.add('active');
+  testimonials[index2].classList.add('active');
+  testimonialIndex = (testimonialIndex + 2) % testimonials.length;
 }
-
-// Back to top
-const topBtn=document.getElementById("topBtn");
-window.onscroll=()=>topBtn.style.display=scrollY>500?"block":"none";
-topBtn.onclick=()=>scrollTo({top:0,behavior:"smooth"});
-
-// ----------------- BOOKS FUNCTIONALITY -------------------
-const booksGrid=document.getElementById("booksGrid");
-const originalCards=[...booksGrid.children];
-let cart=[];
-
-function showCategoryBooks(category){
-    booksGrid.innerHTML="";
-    for(let i=1;i<=8;i++){
-        const card=document.createElement("div");
-        card.className="card";
-        card.innerHTML=`
-            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
-            <div class="content">
-                <h3>${category} Book ${i}</h3>
-                <span class="badge">In-Store</span>
-                <p>Price: ₦<input type="number" class="price" value="${1000+i*500}"></p>
-                <p>Qty: <input type="number" class="qty" value="1" min="1"></p>
-                <button class="add-cart" data-id="${category}${i}">Add to Cart</button>
-            </div>
-        `;
-        booksGrid.appendChild(card);
-    }
-
-    const backBtn=document.createElement("button");
-    backBtn.textContent="← Back to Categories";
-    backBtn.style.cssText="margin:20px auto; display:block; padding:10px 20px; border:none; border-radius:25px; background:#143c6d; color:#fff; font-weight:600; cursor:pointer;";
-    backBtn.onclick=()=>{restoreCategories()};
-    booksGrid.appendChild(backBtn);
-
-    attachCartButtons();
-}
-
-function restoreCategories(){
-    booksGrid.innerHTML="";
-    originalCards.forEach(c=>booksGrid.appendChild(c));
-    attachCategoryClick();
-}
-
-function attachCategoryClick(){
-    const cards=document.querySelectorAll("#booksGrid .card");
-    cards.forEach(card=>{
-        card.onclick=()=>{
-            const category=card.getAttribute("data-category");
-            showCategoryBooks(category);
-        }
-    });
-}
-
-function attachCartButtons(){
-    const addBtns=document.querySelectorAll(".add-cart");
-    addBtns.forEach(btn=>{
-        btn.onclick=()=>{
-            const card=btn.closest(".card");
-            const id=btn.getAttribute("data-id");
-            const name=card.querySelector("h3").innerText;
-            const qty=parseInt(card.querySelector(".qty").value);
-            const price=parseFloat(card.querySelector(".price").value);
-            const total=qty*price;
-
-            const existing=cart.find(b=>b.id===id);
-            if(existing){
-                existing.qty=qty;
-                existing.price=price;
-                existing.total=total;
-            } else {
-                cart.push({id,name,qty,price,total});
-            }
-            alert(`${name} added to cart.\nQty: ${qty}\nPrice: ₦${price}\nTotal: ₦${total}`);
-        }
-    });
-}
-
-attachCategoryClick();
-
-// ----------------- ADMIN PANEL -------------------
-const bookList=document.getElementById("bookList");
-function addBook(){
-  let name=document.getElementById("bookName").value;
-  let price=document.getElementById("bookPrice").value;
-  let id=document.getElementById("bookID").value;
-  if(name && price && id){
-    let li=document.createElement("li");
-    li.textContent=`${name} - ₦${price} (ID: ${id})`;
-    bookList.appendChild(li);
-    
-    let payBtn=document.createElement("button");
-    payBtn.textContent=`Pay ₦${price}`;
-    payBtn.className="pay-btn";
-    payBtn.setAttribute("data-price",price);
-    payBtn.setAttribute("data-id",id);
-    li.appendChild(payBtn);
-
-    payBtn.onclick=()=>{
-      let priceKobo=price*100;
-      let handler=PaystackPop.setup({
-        key:'YOUR_PUBLIC_KEY',
-        email:'customer@example.com',
-        amount:priceKobo,
-        currency:"NGN",
-        ref:id+"_"+Math.floor(Math.random()*1000000),
-        onClose:function(){alert('Payment cancelled');},
-        callback:function(resp){alert('Payment successful. Ref: '+resp.reference);}
-      });
-      handler.openIframe();
-    }
-
-    document.getElementById("bookName").value="";
-    document.getElementById("bookPrice").value="";
-    document.getElementById("bookID").value="";
-  }
-}
+showTestimonial();
+setInterval(showTestimonial,5000);
 </script>
+
 </body>
 </html>
