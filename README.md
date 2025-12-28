@@ -2,276 +2,477 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Great Ola In Wealth - Portfolio</title>
+<title>Garki Supermarket</title>
+
 <style>
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{background:#f4f6f8;color:#333;scroll-behavior:smooth;line-height:1.6;}
-
-/* Hero Section with Moving Background */
-#hero{
-  color:#000;text-align:center;padding:4rem 1rem;position:relative;overflow:hidden;
+:root{
+--bg:#f4f4f4;
+--text:#111;
+--card:#ffffff;
+--primary:#0a7d32;
 }
-#hero::before{
-  content:"";position:absolute;top:0;left:0;width:200%;height:200%;
-  background:url('https://picsum.photos/1200/800?random=15') center/cover no-repeat;
-  animation:moveBG 20s linear infinite;opacity:0.3;z-index:0;
+.dark{
+--bg:#121212;
+--text:#f1f1f1;
+--card:#1e1e1e;
 }
-@keyframes moveBG{
-  0%{transform:translate(0,0);}
-  50%{transform:translate(-50%,-50%);}
-  100%{transform:translate(0,0);}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
 }
-#hero img{position:relative;width:130px;height:130px;border-radius:50%;border:3px solid #fff;margin-bottom:1rem;animation:float 4s ease-in-out infinite;z-index:1;}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-#hero h1{position:relative;font-size:2rem;margin-bottom:0.5rem;font-weight:700;z-index:1;}
-#hero p{position:relative;font-size:1rem;margin-bottom:1rem;z-index:1;max-width:600px;margin-left:auto;margin-right:auto;font-weight:bold;}
-.btn{display:inline-block;padding:0.8rem 1.5rem;background:#fff;color:#1f2a63;font-weight:600;border-radius:8px;text-decoration:none;transition:0.3s;position:relative;z-index:1;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
-.btn:hover{background:#ffecde;color:#1f2a63;transform:scale(1.05);}
 
-/* Services Section */
-#services{padding:3rem 1rem;background:#fefefe;text-align:center;}
-#services h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
-.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
-.service-card{background:#fff;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;}
-.service-card:hover{transform:translateY(-4px);}
-.service-card img{width:60px;margin-bottom:0.8rem;}
-.service-card h3{color:#1f2a63;margin-bottom:0.3rem;font-size:1rem;}
-.service-card p{color:#555;font-size:0.9rem;}
+/* HEADER (unchanged) */
+.header{
+background:var(--primary);
+color:#fff;
+padding:22px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+.toggle{
+position:absolute;
+right:15px;
+top:15px;
+border:none;
+background:#fff;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+}
 
-/* About Section */
-#about{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;padding:3rem 1rem;background:#fff;}
-#about img{width:180px;height:180px;border-radius:12px;margin:0.8rem;object-fit:cover;animation:float 5s ease-in-out infinite alternate;}
-#about .text{max-width:550px;margin:0.8rem;}
-#about h2{color:#1f2a63;margin-bottom:0.6rem;font-size:1.5rem;}
-#about p{margin-bottom:0.5rem;font-size:0.95rem;color:#555;line-height:1.4;}
+/* Layout */
+.container{padding:18px;}
+.card{
+background:var(--card);
+border-radius:14px;
+padding:16px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
 
-/* Work Experience Section */
-#experience{padding:3rem 1rem;background:#f4f6f8;text-align:center;}
-#experience h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
-.experience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;}
-.experience-card{background:#fff;padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;animation:floatImg 8s ease-in-out infinite alternate;}
-@keyframes floatImg{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
-.experience-card img{width:100%;height:130px;border-radius:10px;margin-bottom:0.5rem;object-fit:cover;}
-.experience-card h3{color:#1f2a63;margin-bottom:0.3rem;font-size:0.95rem;}
-.experience-card p{color:#555;font-size:0.85rem;margin-bottom:0.3rem;}
+/* Carousel */
+.carousel img{
+width:100%;
+border-radius:12px;
+display:none;
+}
+.carousel img.active{display:block;}
 
-/* Testimonials Section */
-#comments{padding:3rem 1rem;background:#fff;text-align:center;}
-#comments h2{color:#1f2a63;margin-bottom:1.5rem;font-size:1.8rem;}
-.testimonials{display:flex;overflow:hidden;gap:1rem;padding-bottom:1rem;position:relative;height:160px;}
-.comment-card{flex:0 0 45%;background:#f4f6f8;padding:1rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);text-align:center;position:absolute;top:0;left:0;opacity:0;transition:all 1s;}
-.comment-card img{width:50px;height:50px;border-radius:50%;margin-bottom:0.5rem;border:2px solid #1f2a63;}
-.comment-card.active{opacity:1;left:50%;transform:translateX(-50%);}
+/* Contact */
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+.contact-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+color:#fff;
+}
+.call{background:#0a7d32;}
+.whatsapp{background:#25d366;}
+.email{background:#3f51b5;}
+.map{background:#ff9800;}
 
-/* Work Location */
-#office{padding:3rem 1rem;text-align:center;}
-.map-container{position:relative;width:100%;max-width:900px;height:400px;margin:auto;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-.pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);width:45px;height:45px;background:#ff704d;border-radius:50%;border:3px solid #fff;animation:bouncePin 2s infinite;}
-@keyframes bouncePin{0%,100%{transform:translate(-50%,-100%) scale(1);}50%{transform:translate(-50%,-110%) scale(1.2);}}
-.pin::after{content:"📍 Jbo Hotel and Suites, Osun State, Nigeria";position:absolute;top:50px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);padding:0.5rem 1rem;border-radius:8px;font-size:13px;color:#333;white-space:nowrap;}
-.map-container::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:url('https://picsum.photos/1200/800?random=20') center/cover no-repeat;opacity:0.8;}
+/* Product Slider */
+.product-slider{
+overflow:hidden;
+margin-top:10px;
+}
+.product-track{
+display:flex;
+transition:transform .6s ease;
+}
+.product-group{
+min-width:100%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:14px;
+}
+.product{
+background:var(--bg);
+border-radius:12px;
+padding:10px;
+text-align:center;
+}
+.product img{
+width:100%;
+height:120px;
+object-fit:cover;
+border-radius:10px;
+}
+.product h4{
+font-size:14px;
+margin:8px 0 4px;
+}
+.product span{
+font-size:12px;
+color:#666;
+}
+.product button{
+margin-top:6px;
+padding:8px;
+width:100%;
+border:none;
+border-radius:8px;
+background:var(--primary);
+color:#fff;
+font-size:13px;
+cursor:pointer;
+}
 
-/* Contact Section */
-#contact{display:flex;flex-wrap:wrap;justify-content:center;padding:3rem 1rem;background:#fefefe;}
-#contact .form{flex:1;min-width:280px;max-width:420px;margin:0.8rem;}
-#contact .info{flex:1;min-width:240px;max-width:380px;margin:0.8rem;padding:1rem;background:#f4f6f8;border-radius:12px;}
-#contact h2{color:#1f2a63;margin-bottom:1rem;font-size:1.8rem;}
-#contact input,#contact textarea{width:100%;padding:0.8rem;margin-bottom:0.8rem;border-radius:10px;border:1px solid #ccc;font-size:0.95rem;}
-#contact button{padding:0.8rem 1.5rem;border:none;background:#1f2a63;color:#fff;border-radius:10px;font-weight:bold;cursor:pointer;transition:0.3s;animation:pulse 2s infinite;}
-#contact button:hover{background:#ff704d;transform:scale(1.05);}
+/* Order */
+input,textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
+}
+button.send{
+background:var(--primary);
+color:#fff;
+border:none;
+padding:10px;
+border-radius:8px;
+width:100%;
+cursor:pointer;
+}
 
-/* Footer */
-footer{background:#1f2a63;color:#fff;text-align:center;padding:1.5rem 0;font-size:0.9rem;}
+/* Reviews */
+.reviews{
+display:grid;
+gap:16px;
+}
+.review-card{
+background:var(--bg);
+border-radius:14px;
+padding:14px;
+display:flex;
+gap:14px;
+align-items:flex-start;
+}
+.review-img{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+.review-body{flex:1;}
+.review-name{
+font-weight:bold;
+font-size:14px;
+}
+.stars{
+color:#ffc107;
+font-size:14px;
+margin:3px 0;
+}
+.review-text{
+font-size:14px;
+line-height:1.4;
+}
 
-/* Hamburger Menu */
-#menu-btn{position:fixed;top:15px;left:15px;width:45px;height:45px;background:#ff704d;border-radius:50%;display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:8px;cursor:pointer;z-index:50;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-#menu-btn div{width:25px;height:3px;background:#fff;border-radius:2px;}
-#top-menu{position:fixed;top:70px;left:15px;background:#fff;border-radius:10px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 6px 20px rgba(0,0,0,0.2);}
-#top-menu a{padding:0.8rem 1.8rem;display:block;text-decoration:none;color:#1f2a63;font-weight:600;border-bottom:1px solid #eee;transition:0.3s;}
-#top-menu a:last-child{border-bottom:none;}
-#top-menu a:hover{background:#ff704d;color:#fff;}
+/* Map */
+iframe{
+width:100%;
+height:280px;
+border:none;
+border-radius:12px;
+}
 
-/* WhatsApp Floating CTA */
-.customer-service img{width:55px;height:55px;cursor:pointer;position:fixed;bottom:15px;right:15px;transition:transform 0.3s;animation:pulse 2s infinite;}
-.customer-service img:hover{transform:scale(1.2);}
+/* Bottom buttons */
+.bottom{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+z-index:1000;
+}
+.bottom a{
+flex:1;
+text-align:center;
+padding:14px;
+color:#fff;
+font-weight:bold;
+text-decoration:none;
+}
+.space{height:80px;}
 
-/* Responsive */
-@media(max-width:768px){
-  #about{flex-direction:column;}
-  #contact{flex-direction:column;}
-  .comment-card{flex:0 0 45%;} /* show 2 at a time */
+/* Bottom slide-out navigation drawer */
+.bottom-drawer{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+z-index:1001;
+font-family:Arial, sans-serif;
+}
+.drawer-toggle{
+background:var(--primary);
+color:#fff;
+text-align:center;
+padding:12px;
+cursor:pointer;
+border-top-left-radius:12px;
+border-top-right-radius:12px;
+font-weight:bold;
+font-size:16px;
+}
+.drawer-content{
+background:var(--primary);
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+transform:translateY(100%);
+transition:transform .3s ease;
+border-top-left-radius:12px;
+border-top-right-radius:12px;
+}
+.drawer-content a{
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+padding:6px 12px;
+border-radius:6px;
+transition:0.2s;
+}
+.drawer-content a:hover{
+background:rgba(255,255,255,0.2);
+}
+.drawer-open .drawer-content{
+transform:translateY(0);
 }
 </style>
 </head>
+
 <body>
 
-<!-- Hero -->
-<section id="hero">
-  <img src="https://avatars.githubusercontent.com/u/171789491?v=4" alt="Great Ola In Wealth">
-  <h1>Hello, I'm Marcus D.</h1>
-  <p>I build modern, responsive websites and web apps with clean design and intuitive interfaces helping businesses shine online.</p>
-  <a href="https://wa.me/2348144466868" class="btn" target="_blank">Hire Me</a>
-</section>
-
-<!-- Services -->
-<section id="services">
-  <h2>Services</h2>
-  <div class="service-grid">
-    <div class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919847.png" alt="">
-      <h3>Frontend Development</h3>
-      <p>HTML, CSS, JS, React, responsive & clean UI.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="">
-      <h3>Backend & APIs</h3>
-      <p>Node.js, Express, database integration, scalable solutions.</p>
-    </div>
-    <div class="service-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="">
-      <h3>Full Stack Solutions</h3>
-      <p>Complete deployable web applications.</p>
-    </div>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <img src="https://picsum.photos/300/300?random=10" alt="Sharp Profile Image">
-  <div class="text">
-    <h2>About Me</h2>
-    <p>I create fast, responsive websites and web apps with clean design and easy-to-use interfaces. I deliver projects that grow your business online.</p>
-    <p>Email: <a href="mailto:assistancepromoter@gmail.com">assistancepromoter@gmail.com</a></p>
-    <p>Address: Jbo Hotel and Suites, Osun State, Nigeria</p>
-  </div>
-</section>
-
-<!-- Work Experience -->
-<section id="experience">
-  <h2>Work Experience</h2>
-  <div class="experience-grid">
-    <div class="experience-card">
-      <img src="https://picsum.photos/400/150?random=1" alt="Frontend work">
-      <h3>Frontend Developer - ABC Web Solutions</h3>
-      <p>Jan 2024 – Present</p>
-      <p>Built responsive landing pages and web apps with HTML, CSS, React.</p>
-    </div>
-    <div class="experience-card">
-      <img src="https://picsum.photos/400/150?random=2" alt="Backend work">
-      <h3>Backend Developer - XYZ Tech</h3>
-      <p>Jun 2023 – Dec 2023</p>
-      <p>Developed REST APIs with Node.js and integrated databases.</p>
-    </div>
-    <div class="experience-card">
-      <img src="https://picsum.photos/400/150?random=3" alt="Full stack project">
-      <h3>Full Stack Developer - Freelance</h3>
-      <p>2021 – 2023</p>
-      <p>Delivered end-to-end web solutions globally.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section id="comments">
-  <h2>Client Satisfaction</h2>
-  <div class="testimonials">
-    <div class="comment-card active">
-      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="">
-      <p>Delivered our website professionally and on time</p>
-      <strong>- John D.</strong>
-    </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
-      <p>Highly recommend for web development projects.</p>
-      <strong>- Sarah K.</strong>
-    </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="">
-      <p>Full stack project handled flawlessly.</p>
-      <strong>- Michael R.</strong>
-    </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="">
-      <p>Amazing work with responsive design</p>
-      <strong>- Linda P.</strong>
-    </div>
-    <div class="comment-card">
-      <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="">
-      <p>Professional and reliable developer</p>
-      <strong>- Kevin T.</strong>
-    </div>
-  </div>
-</section>
-
-<!-- Work Location -->
-<section id="office">
-  <h2>Work Environment</h2>
-  <div class="map-container"><div class="pin"></div></div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <div class="form">
-    <h2>Contact Me</h2>
-    <form action="mailto:assistancepromoter@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-  <div class="info">
-    <h2>Get in Touch</h2>
-    <p>Email: assistancepromoter@gmail.com</p>
-    <p>Address: Jbo Hotel and Suites, Osun State, Nigeria</p>
-    <p>Phone: +2348144466868</p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>⭐⭐⭐⭐⭐ 5/5 Client Rating • 120+ Daily Visits</p>
-  <p>&copy; 2025 Great Ola In Wealth. All rights reserved.</p>
-</footer>
-
-<!-- Hamburger -->
-<div id="menu-btn"><div></div><div></div><div></div></div>
-<div id="top-menu">
-  <a href="#hero">Home</a>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#comments">Clients</a>
-  <a href="#office">Work</a>
-  <a href="#contact">Contact</a>
+<!-- HEADER (green box remains unchanged) -->
+<div class="header">
+<h2>Garki Supermarket</h2>
+<p>Everyday Shopping – Garki, Abuja</p>
+<button class="toggle" onclick="toggleMode()">🌙</button>
 </div>
 
-<!-- WhatsApp -->
-<div class="customer-service">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" onclick="window.open('https://wa.me/2348144466868','_blank')">
+<div class="container">
+
+<!-- Featured Carousel -->
+<div id="home" class="card carousel">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiel_mTLxW0KjAeE68J-ZX4s1mYgOSG0B4n4bKYpZ2Cw&s=10" class="active">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4K7v-TATHLzL-K9E3GVWGjTIKB6aFnsj8W_kOg3Bxg&s=10">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR79gPnLPfSgN6iUYRR7da0cBymwdV-F4eMnmL5opgdQ&s=10">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYAEJN6CaZZ-esXbyaRoJfbcQbzbXpdn94lGupSFxRA&s=10">
+</div>
+
+<!-- About -->
+<div class="card">
+<h3>About Us</h3>
+<p>
+Garki Supermarket provides fresh groceries, household items,
+drinks and daily essentials at affordable prices. Open daily to serve you.
+</p>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="card">
+<h3>Contact Details</h3>
+<div class="contact-grid">
+<a href="tel:+2340000000000" class="contact-btn call">📞 Call</a>
+<a href="https://wa.me/2340000000000" class="contact-btn whatsapp">💬 WhatsApp</a>
+<a href="mailto:info@garkisupermarket.com" class="contact-btn email">✉️ Email</a>
+<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" target="_blank" class="contact-btn map">📍 Map</a>
+</div>
+</div>
+
+<!-- Product Slider -->
+<div id="products" class="card">
+<h3>Popular Products</h3>
+<div class="product-slider">
+<div class="product-track" id="track">
+
+<!-- Group 1 -->
+<div class="product-group">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1580910051074-7c36a63c6b1c">
+<h4>Rice (50kg)</h4>
+<span>ID: P001</span>
+<button onclick="addToCart('P001','Rice 50kg')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a">
+<h4>Vegetable Oil</h4>
+<span>ID: P002</span>
+<button onclick="addToCart('P002','Vegetable Oil')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
+<h4>Sugar</h4>
+<span>ID: P003</span>
+<button onclick="addToCart('P003','Sugar')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1615486364462-ef6363adbc18">
+<h4>Milk</h4>
+<span>ID: P004</span>
+<button onclick="addToCart('P004','Milk')">Add to Cart</button>
+</div>
+</div>
+
+<!-- Group 2 -->
+<div class="product-group">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585238342028-4bbc1c8bfa5f">
+<h4>Soft Drinks</h4>
+<span>ID: P005</span>
+<button onclick="addToCart('P005','Soft Drinks')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1580910365203-8c68e85b4c2f">
+<h4>Bread</h4>
+<span>ID: P006</span>
+<button onclick="addToCart('P006','Bread')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1587049352851-8d93c0f03f23">
+<h4>Detergent</h4>
+<span>ID: P007</span>
+<button onclick="addToCart('P007','Detergent')">Add to Cart</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1612209924761-2c9db1f25c4c">
+<h4>Toothpaste</h4>
+<span>ID: P008</span>
+<button onclick="addToCart('P008','Toothpaste')">Add to Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Order Form -->
+<div class="card">
+<h3>Your Order</h3>
+<form onsubmit="sendOrder(event)">
+<input id="name" placeholder="Your Name" required>
+<input id="phone" placeholder="Phone Number" required>
+<textarea id="orderBox" placeholder="Selected products will appear here" readonly></textarea>
+<button class="send">Send Order via WhatsApp</button>
+</form>
+</div>
+
+<!-- Customer Reviews -->
+<div id="reviews" class="card">
+<h3>Customer Reviews</h3>
+<div class="reviews">
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Amina Yusuf</div>
+<div class="stars">★★★★★</div>
+<div class="review-text">Affordable prices and always fresh groceries. Highly recommended.</div>
+</div>
+</div>
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Samuel Okoye</div>
+<div class="stars">★★★★☆</div>
+<div class="review-text">Good customer service and easy to locate. Parking could improve.</div>
+</div>
+</div>
+<div class="review-card">
+<img src="https://randomuser.me/api/portraits/women/68.jpg" class="review-img">
+<div class="review-body">
+<div class="review-name">Mary Johnson</div>
+<div class="stars">★★★★★</div>
+<div class="review-text">Best supermarket around Garki. Everything I need in one place.</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Map -->
+<div class="card">
+<h3>Find Us</h3>
+<iframe src="https://www.google.com/maps?q=Garki+Supermarket+Abuja&output=embed"></iframe>
+</div>
+
+</div>
+
+<div class="space"></div>
+
+<!-- Bottom fixed buttons -->
+<div class="bottom">
+<a href="tel:+2340000000000" class="call">Call</a>
+<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" class="map">Directions</a>
+<a href="https://wa.me/2340000000000" class="whatsapp">WhatsApp</a>
+</div>
+
+<!-- Bottom slide-out navigation drawer -->
+<div id="bottomDrawer" class="bottom-drawer">
+  <div class="drawer-toggle" onclick="toggleDrawer()">☰ Menu</div>
+  <div class="drawer-content">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#reviews">Reviews</a>
+  </div>
 </div>
 
 <script>
-// Hamburger Menu
-const menuBtn=document.getElementById('menu-btn');
-const topMenu=document.getElementById('top-menu');
-menuBtn.addEventListener('click',()=>{topMenu.style.display=topMenu.style.display==='flex'?'none':'flex';topMenu.style.flexDirection='column';});
+let dark=false;
+function toggleMode(){document.body.classList.toggle("dark");}
 
-// Testimonial Slider
-let testimonialIndex = 0;
-const testimonials = document.querySelectorAll('.comment-card');
-function showTestimonial(){
-  testimonials.forEach(t => t.classList.remove('active'));
-  let index1 = testimonialIndex % testimonials.length;
-  let index2 = (testimonialIndex+1) % testimonials.length;
-  testimonials[index1].classList.add('active');
-  testimonials[index2].classList.add('active');
-  testimonialIndex = (testimonialIndex + 2) % testimonials.length;
+/* Featured carousel */
+let carouselSlides=document.querySelectorAll(".carousel img");
+let ci=0;
+setInterval(()=>{
+carouselSlides[ci].classList.remove("active");
+ci=(ci+1)%carouselSlides.length;
+carouselSlides[ci].classList.add("active");
+},3000);
+
+/* Product slider auto-slide */
+let track=document.getElementById("track");
+let groupIndex=0;
+setInterval(()=>{
+groupIndex=(groupIndex+1)%2;
+track.style.transform=`translateX(-${groupIndex*100}%)`;
+},4000);
+
+/* Cart */
+let cart=[];
+function addToCart(id,name){
+cart.push(`${id} - ${name}`);
+document.getElementById("orderBox").value=cart.join("\n");
 }
-showTestimonial();
-setInterval(showTestimonial,5000);
+
+/* WhatsApp order */
+function sendOrder(e){
+e.preventDefault();
+let msg=`Hello Garki Supermarket%0AName: ${name.value}%0APhone: ${phone.value}%0AOrder:%0A${cart.join("%0A")}`;
+window.open(`https://wa.me/2340000000000?text=${msg}`);
+}
+
+/* Bottom drawer toggle */
+function toggleDrawer(){
+document.getElementById("bottomDrawer").classList.toggle("drawer-open");
+}
 </script>
 
 </body>
