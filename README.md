@@ -1,478 +1,438 @@
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garki Supermarket</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FDI Platform - Intelligence & Deal Facilitation</title>
+  <meta name="description" content="Curated FDI intelligence and deal facilitation for emerging markets.">
+  
+  <style>
+    /* Embedded CSS - Mobile-first, clean, professional */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-:root{
---bg:#f4f4f4;
---text:#111;
---card:#ffffff;
---primary:#0a7d32;
-}
-.dark{
---bg:#121212;
---text:#f1f1f1;
---card:#1e1e1e;
-}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:var(--bg);
-color:var(--text);
-transition:.3s;
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fafafa;
+    }
 
-/* HEADER (unchanged) */
-.header{
-background:var(--primary);
-color:#fff;
-padding:22px;
-text-align:center;
-position:sticky;
-top:0;
-z-index:999;
-box-shadow:0 4px 6px rgba(0,0,0,0.1);
-}
-.toggle{
-position:absolute;
-right:15px;
-top:15px;
-border:none;
-background:#fff;
-padding:6px 10px;
-border-radius:6px;
-cursor:pointer;
-}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-/* Layout */
-.container{padding:18px;}
-.card{
-background:var(--card);
-border-radius:14px;
-padding:16px;
-margin-bottom:20px;
-box-shadow:0 4px 12px rgba(0,0,0,.12);
-}
+    /* Header & Navigation */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-/* Carousel */
-.carousel img{
-width:100%;
-border-radius:12px;
-display:none;
-}
-.carousel img.active{display:block;}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
 
-/* Contact */
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-.contact-btn{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-padding:12px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-color:#fff;
-}
-.call{background:#0a7d32;}
-.whatsapp{background:#25d366;}
-.email{background:#3f51b5;}
-.map{background:#ff9800;}
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a3d7c;
+    }
 
-/* Product Slider */
-.product-slider{
-overflow:hidden;
-margin-top:10px;
-}
-.product-track{
-display:flex;
-transition:transform .6s ease;
-}
-.product-group{
-min-width:100%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-gap:14px;
-}
-.product{
-background:var(--bg);
-border-radius:12px;
-padding:10px;
-text-align:center;
-}
-.product img{
-width:100%;
-height:120px;
-object-fit:cover;
-border-radius:10px;
-}
-.product h4{
-font-size:14px;
-margin:8px 0 4px;
-}
-.product span{
-font-size:12px;
-color:#666;
-}
-.product button{
-margin-top:6px;
-padding:8px;
-width:100%;
-border:none;
-border-radius:8px;
-background:var(--primary);
-color:#fff;
-font-size:13px;
-cursor:pointer;
-}
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-/* Order */
-input,textarea{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
-}
-button.send{
-background:var(--primary);
-color:#fff;
-border:none;
-padding:10px;
-border-radius:8px;
-width:100%;
-cursor:pointer;
-}
+    .nav-links.active {
+      display: flex;
+    }
 
-/* Reviews */
-.reviews{
-display:grid;
-gap:16px;
-}
-.review-card{
-background:var(--bg);
-border-radius:14px;
-padding:14px;
-display:flex;
-gap:14px;
-align-items:flex-start;
-}
-.review-img{
-width:50px;
-height:50px;
-border-radius:50%;
-object-fit:cover;
-}
-.review-body{flex:1;}
-.review-name{
-font-weight:bold;
-font-size:14px;
-}
-.stars{
-color:#ffc107;
-font-size:14px;
-margin:3px 0;
-}
-.review-text{
-font-size:14px;
-line-height:1.4;
-}
+    .nav-links a {
+      padding: 1rem;
+      text-align: center;
+      color: #333;
+      font-weight: 500;
+      display: block;
+    }
 
-/* Map */
-iframe{
-width:100%;
-height:280px;
-border:none;
-border-radius:12px;
-}
+    .nav-links a:hover {
+      background: #f0f7ff;
+    }
 
-/* Bottom buttons */
-.bottom{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-display:flex;
-z-index:1000;
-}
-.bottom a{
-flex:1;
-text-align:center;
-padding:14px;
-color:#fff;
-font-weight:bold;
-text-decoration:none;
-}
-.space{height:80px;}
+    .menu-toggle {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1a3d7c;
+    }
 
-/* Bottom slide-out navigation drawer */
-.bottom-drawer{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-z-index:1001;
-font-family:Arial, sans-serif;
-}
-.drawer-toggle{
-background:var(--primary);
-color:#fff;
-text-align:center;
-padding:12px;
-cursor:pointer;
-border-top-left-radius:12px;
-border-top-right-radius:12px;
-font-weight:bold;
-font-size:16px;
-}
-.drawer-content{
-background:var(--primary);
-display:flex;
-justify-content:space-around;
-padding:12px 0;
-transform:translateY(100%);
-transition:transform .3s ease;
-border-top-left-radius:12px;
-border-top-right-radius:12px;
-}
-.drawer-content a{
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-padding:6px 12px;
-border-radius:6px;
-transition:0.2s;
-}
-.drawer-content a:hover{
-background:rgba(255,255,255,0.2);
-}
-.drawer-open .drawer-content{
-transform:translateY(0);
-}
-</style>
+    /* Hero with background image */
+    .hero {
+      background-image: linear-gradient(rgba(230, 240, 255, 0.8), rgba(248, 251, 255, 0.8)), url('https://www.pgim.com/content/dam/jennison/us/en/active/graphical-elements/tbd/EM-RisingTide-162819887.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      color: #1a3d7c;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #444;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #1a3d7c;
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #0f2a5c;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #1a3d7c;
+    }
+
+    h3 {
+      margin-bottom: 0.8rem;
+      color: #1a3d7c;
+    }
+
+    .deal-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    .deal-item, article {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .deal-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      max-width: 600px;
+      margin: 2rem auto;
+      line-height: 2;
+    }
+
+    /* Form */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.3rem;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a3d7c;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: #a8c7ff;
+      margin: 0 0.8rem;
+      text-decoration: none;
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .nav-links a {
+        padding: 0 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+      }
+
+      .deal-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+
+      .deal-item img {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HEADER (green box remains unchanged) -->
-<div class="header">
-<h2>Garki Supermarket</h2>
-<p>Everyday Shopping – Garki, Abuja</p>
-<button class="toggle" onclick="toggleMode()">🌙</button>
-</div>
+<header>
+  <nav class="navbar container">
+    <div class="logo">FDI Platform</div>
+    <div class="menu-toggle">☰</div>
+    <ul class="nav-links">
+      <li><a href="#home" onclick="showPage('home')">Home</a></li>
+      <li><a href="#about" onclick="showPage('about')">About</a></li>
+      <li><a href="#insights" onclick="showPage('insights')">Insights</a></li>
+      <li><a href="#deals" onclick="showPage('deals')">Deals</a></li>
+      <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-<div class="container">
+<main>
+  <!-- Home -->
+  <section id="home" class="active">
+    <div class="hero">
+      <div class="container">
+        <h1>FDI Intelligence for Emerging Markets</h1>
+        <p>Curated insights, non-sensitive deal opportunities, and seamless facilitation for investors and project owners.</p>
+        <a href="#contact" class="cta-button" onclick="showPage('contact')">Submit a Deal</a>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Connecting Capital with Opportunity</h2>
+      <p style="text-align:center;max-width:800px;margin:auto;">We provide trusted intelligence and facilitate high-quality investment deals in fast-growing emerging economies.</p>
+    </div>
+  </section>
 
-<!-- Featured Carousel -->
-<div id="home" class="card carousel">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiel_mTLxW0KjAeE68J-ZX4s1mYgOSG0B4n4bKYpZ2Cw&s=10" class="active">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4K7v-TATHLzL-K9E3GVWGjTIKB6aFnsj8W_kOg3Bxg&s=10">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR79gPnLPfSgN6iUYRR7da0cBymwdV-F4eMnmL5opgdQ&s=10">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaYAEJN6CaZZ-esXbyaRoJfbcQbzbXpdn94lGupSFxRA&s=10">
-</div>
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>We are a specialized platform dedicated to foreign direct investment (FDI) intelligence and deal facilitation in emerging markets.</p>
+      <br>
+      <h2>What We Do</h2>
+      <ul>
+        <li>Deliver curated market insights and analysis</li>
+        <li>Publish vetted, non-sensitive investment opportunities</li>
+        <li>Facilitate connections between investors and project sponsors</li>
+        <li>Support deal origination and preliminary due diligence</li>
+      </ul>
+    </div>
+  </section>
 
-<!-- About -->
-<div class="card">
-<h3>About Us</h3>
-<p>
-Garki Supermarket provides fresh groceries, household items,
-drinks and daily essentials at affordable prices. Open daily to serve you.
-</p>
-</div>
+  <!-- Insights -->
+  <section id="insights">
+    <div class="container">
+      <h2>Insights & News</h2>
+      <article>
+        <h3>Emerging Market FDI Trends – Q4 2025</h3>
+        <p>Key sectors attracting capital include renewable energy, digital infrastructure, and agribusiness across Southeast Asia and Sub-Saharan Africa.</p>
+      </article>
+      <article>
+        <h3>Policy Updates: New Incentives</h3>
+        <p>Several emerging markets have introduced enhanced tax benefits and streamlined approvals for greenfield investments in 2026.</p>
+      </article>
+    </div>
+  </section>
 
-<!-- Contact Section -->
-<div id="contact" class="card">
-<h3>Contact Details</h3>
-<div class="contact-grid">
-<a href="tel:+2340000000000" class="contact-btn call">📞 Call</a>
-<a href="https://wa.me/2340000000000" class="contact-btn whatsapp">💬 WhatsApp</a>
-<a href="mailto:info@garkisupermarket.com" class="contact-btn email">✉️ Email</a>
-<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" target="_blank" class="contact-btn map">📍 Map</a>
-</div>
-</div>
+  <!-- Deals -->
+  <section id="deals">
+    <div class="container">
+      <h2>Curated Deals</h2>
+      <p style="text-align:center;max-width:800px;margin:auto 0 3rem;">Non-sensitive investment opportunities actively seeking capital or strategic partners.</p>
+      
+      <div class="deal-grid">
+        <div class="deal-item">
+          <img src="https://worldbank.scene7.com/is/image/worldbankprod/renewables-boost-sustainable-development-in-central-african-republic-and-the-gambia-4?wid=780&hei=439&qlt=85,0&resMode=sharp" alt="Solar farm renewable energy project in developing region">
+          <h3>100 MW Solar Project – Southeast Asia</h3>
+          <p>Development stage complete. Seeking equity partner for construction financing.</p>
+        </div>
+        <div class="deal-item">
+          <img src="https://content.r9cdn.net/rimg/dimg/c6/b2/7e865843-city-26243-164a4a25d83.jpg?width=1366&height=768&xhint=3968&yhint=1450&crop=true" alt="Modern Nairobi city skyline representing emerging market growth">
+          <h3>Agtech Processing Facility – East Africa</h3>
+          <p>Expansion capital needed. Strong offtake agreements and proven operations.</p>
+        </div>
+        <div class="deal-item">
+          <img src="https://images.stockcake.com/public/0/6/d/06d86394-ec36-422d-af6c-228f5d246baf_large/business-handshake-abstract-stockcake.jpg" alt="Professional business handshake symbolizing investment deal">
+          <h3>Digital Infrastructure Rollout – South Asia</h3>
+          <p>Fiber network expansion seeking joint venture partner.</p>
+        </div>
+      </div>
+      
+      <p style="text-align:center;margin-top:3rem;">
+        <a href="#contact" class="cta-button" onclick="showPage('contact')">Submit Your Deal</a>
+      </p>
+    </div>
+  </section>
 
-<!-- Product Slider -->
-<div id="products" class="card">
-<h3>Popular Products</h3>
-<div class="product-slider">
-<div class="product-track" id="track">
+  <!-- Contact / Deal Intake -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact & Deal Submission</h2>
+      <p style="text-align:center;max-width:600px;margin:auto 0 2rem;">Submit investment opportunities or get in touch securely.</p>
+      
+      <form name="deal-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="deal-intake" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
 
-<!-- Group 1 -->
-<div class="product-group">
-<div class="product">
-<img src="https://images.unsplash.com/photo-1580910051074-7c36a63c6b1c">
-<h4>Rice (50kg)</h4>
-<span>ID: P001</span>
-<button onclick="addToCart('P001','Rice 50kg')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a">
-<h4>Vegetable Oil</h4>
-<span>ID: P002</span>
-<button onclick="addToCart('P002','Vegetable Oil')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1542838132-92c53300491e">
-<h4>Sugar</h4>
-<span>ID: P003</span>
-<button onclick="addToCart('P003','Sugar')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1615486364462-ef6363adbc18">
-<h4>Milk</h4>
-<span>ID: P004</span>
-<button onclick="addToCart('P004','Milk')">Add to Cart</button>
-</div>
-</div>
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required />
 
-<!-- Group 2 -->
-<div class="product-group">
-<div class="product">
-<img src="https://images.unsplash.com/photo-1585238342028-4bbc1c8bfa5f">
-<h4>Soft Drinks</h4>
-<span>ID: P005</span>
-<button onclick="addToCart('P005','Soft Drinks')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1580910365203-8c68e85b4c2f">
-<h4>Bread</h4>
-<span>ID: P006</span>
-<button onclick="addToCart('P006','Bread')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1587049352851-8d93c0f03f23">
-<h4>Detergent</h4>
-<span>ID: P007</span>
-<button onclick="addToCart('P007','Detergent')">Add to Cart</button>
-</div>
-<div class="product">
-<img src="https://images.unsplash.com/photo-1612209924761-2c9db1f25c4c">
-<h4>Toothpaste</h4>
-<span>ID: P008</span>
-<button onclick="addToCart('P008','Toothpaste')">Add to Cart</button>
-</div>
-</div>
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
 
-</div>
-</div>
-</div>
+        <label for="company">Company / Organization</label>
+        <input type="text" id="company" name="company" />
 
-<!-- Order Form -->
-<div class="card">
-<h3>Your Order</h3>
-<form onsubmit="sendOrder(event)">
-<input id="name" placeholder="Your Name" required>
-<input id="phone" placeholder="Phone Number" required>
-<textarea id="orderBox" placeholder="Selected products will appear here" readonly></textarea>
-<button class="send">Send Order via WhatsApp</button>
-</form>
-</div>
+        <label for="message">Message / Deal Summary *</label>
+        <textarea id="message" name="message" required></textarea>
 
-<!-- Customer Reviews -->
-<div id="reviews" class="card">
-<h3>Customer Reviews</h3>
-<div class="reviews">
-<div class="review-card">
-<img src="https://randomuser.me/api/portraits/women/44.jpg" class="review-img">
-<div class="review-body">
-<div class="review-name">Amina Yusuf</div>
-<div class="stars">★★★★★</div>
-<div class="review-text">Affordable prices and always fresh groceries. Highly recommended.</div>
-</div>
-</div>
-<div class="review-card">
-<img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-img">
-<div class="review-body">
-<div class="review-name">Samuel Okoye</div>
-<div class="stars">★★★★☆</div>
-<div class="review-text">Good customer service and easy to locate. Parking could improve.</div>
-</div>
-</div>
-<div class="review-card">
-<img src="https://randomuser.me/api/portraits/women/68.jpg" class="review-img">
-<div class="review-body">
-<div class="review-name">Mary Johnson</div>
-<div class="stars">★★★★★</div>
-<div class="review-text">Best supermarket around Garki. Everything I need in one place.</div>
-</div>
-</div>
-</div>
-</div>
+        <button type="submit" class="cta-button" style="width:100%;padding:1rem;margin-top:1rem;">Submit</button>
+      </form>
+    </div>
+  </section>
 
-<!-- Map -->
-<div class="card">
-<h3>Find Us</h3>
-<iframe src="https://www.google.com/maps?q=Garki+Supermarket+Abuja&output=embed"></iframe>
-</div>
+  <!-- Terms -->
+  <section id="terms">
+    <div class="container">
+      <h2>Terms of Service</h2>
+      <p>[Insert your full legal terms of service here.]</p>
+      <p>Last updated: January 2026</p>
+    </div>
+  </section>
 
-</div>
+  <!-- Privacy -->
+  <section id="privacy">
+    <div class="container">
+      <h2>Privacy Policy</h2>
+      <p>[Insert your full privacy policy here.]</p>
+      <p>Last updated: January 2026</p>
+    </div>
+  </section>
+</main>
 
-<div class="space"></div>
-
-<!-- Bottom fixed buttons -->
-<div class="bottom">
-<a href="tel:+2340000000000" class="call">Call</a>
-<a href="https://www.google.com/maps?q=Garki+Supermarket+Abuja" class="map">Directions</a>
-<a href="https://wa.me/2340000000000" class="whatsapp">WhatsApp</a>
-</div>
-
-<!-- Bottom slide-out navigation drawer -->
-<div id="bottomDrawer" class="bottom-drawer">
-  <div class="drawer-toggle" onclick="toggleDrawer()">☰ Menu</div>
-  <div class="drawer-content">
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-    <a href="#reviews">Reviews</a>
+<footer>
+  <div class="container">
+    <p>&copy; 2026 FDI Platform. All rights reserved.</p>
+    <div>
+      <a href="#terms" onclick="showPage('terms')">Terms</a> • 
+      <a href="#privacy" onclick="showPage('privacy')">Privacy</a>
+    </div>
   </div>
-</div>
+</footer>
 
 <script>
-let dark=false;
-function toggleMode(){document.body.classList.toggle("dark");}
+  // Mobile menu + page navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-/* Featured carousel */
-let carouselSlides=document.querySelectorAll(".carousel img");
-let ci=0;
-setInterval(()=>{
-carouselSlides[ci].classList.remove("active");
-ci=(ci+1)%carouselSlides.length;
-carouselSlides[ci].classList.add("active");
-},3000);
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
-/* Product slider auto-slide */
-let track=document.getElementById("track");
-let groupIndex=0;
-setInterval(()=>{
-groupIndex=(groupIndex+1)%2;
-track.style.transform=`translateX(-${groupIndex*100}%)`;
-},4000);
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  });
 
-/* Cart */
-let cart=[];
-function addToCart(id,name){
-cart.push(`${id} - ${name}`);
-document.getElementById("orderBox").value=cart.join("\n");
-}
+  function showPage(pageId) {
+    document.querySelectorAll('section').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    document.getElementById(pageId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState(null, '', '#' + pageId);
+  }
 
-/* WhatsApp order */
-function sendOrder(e){
-e.preventDefault();
-let msg=`Hello Garki Supermarket%0AName: ${name.value}%0APhone: ${phone.value}%0AOrder:%0A${cart.join("%0A")}`;
-window.open(`https://wa.me/2340000000000?text=${msg}`);
-}
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1) || 'home';
+    showPage(hash);
+  });
 
-/* Bottom drawer toggle */
-function toggleDrawer(){
-document.getElementById("bottomDrawer").classList.toggle("drawer-open");
-}
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.substring(1) || 'home';
+    showPage(hash);
+  });
 </script>
 
 </body>
